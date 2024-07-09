@@ -2,7 +2,7 @@
 
 - Install Node modules:
 ```bash
-npm install
+$ npm install
 ```
 
 - Run development server:
