@@ -9,7 +9,7 @@ const AboutUsSection = () => {
 				alt='Owl'
 			/>
 			<div className='ml-32 w-96'>
-				<p className='font-extrabold text-6xl pt-16 text-left text-[#283C26]'>
+				<p className='font-extrabold text-6xl pt-12 text-left text-[#283C26]'>
 					ABOUT US
 				</p>
 				<p className='text-justify text-xl pt-6 text-[#283C26]'>
