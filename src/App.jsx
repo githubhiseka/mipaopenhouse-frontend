@@ -1,14 +1,15 @@
 import { useState } from 'react'
 
 // logo and components
-import Logo from './assets/logo.svg'
+import TitleSection from './components/TitleSection'
+import AboutUsSection from './components/AboutUsSection'
+import TimelineSection from './components/TimelineSection'
 
 const App = () => {
 	return (
-		<div>
-			<h1>OH FMIPA</h1>
-
-			<img src={Logo} alt='logo' width='200px' />
+		<div className='flex flex-col items-center m-0 w-full'>
+			<TitleSection />
+			<AboutUsSection />
 		</div>
 	)
 }

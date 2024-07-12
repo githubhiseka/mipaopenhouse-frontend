@@ -7,7 +7,7 @@ $ npm install
 
 - Run development server:
 ```bash
-$ npm run dev
+$ npm run dev -- --host
 ```
 
 - Build for production:
