@@ -89,7 +89,7 @@ const ContactSection = () => {
 					<div className="flex flex-row">
 						<p className="pr-1">
 							<a
-								href="instagram.com"
+								href="https://www.instagram.com/"
 								className="underline underline-offset-2"
 							>
 								Instagram
@@ -100,7 +100,7 @@ const ContactSection = () => {
 					<div className="flex flex-row">
 						<p className="pr-1">
 							<a
-								href="x.com"
+								href="https://x.com/"
 								className="underline underline-offset-2"
 							>
 								Twitter/X
@@ -111,7 +111,7 @@ const ContactSection = () => {
 					<div className="flex flex-row">
 						<p className="pr-1">
 							<a
-								href="tiktok.com"
+								href="https://www.tiktok.com/"
 								className="underline underline-offset-2"
 							>
 								TikTok
