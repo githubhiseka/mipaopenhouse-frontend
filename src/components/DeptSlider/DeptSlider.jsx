@@ -19,7 +19,7 @@ function DeptSlider() {
 					className='text-[#f7f3e4] font-black text-7xl font-sunborn'
 					style={{
 						WebkitTextStrokeColor: '#440A00',
-						WebkitTextStrokeWidth: '1px',
+						WebkitTextStrokeWidth: '0.3px',
 					}}
 				>
 					DEPARTMENTS

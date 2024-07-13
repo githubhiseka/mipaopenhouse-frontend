@@ -9,7 +9,7 @@ function deptCards({bgColor, imgSrc, title, desc, btnHref, titleColor}) {
 				className={`aspect-square h-1/2 rounded-full border-2 border-black object-cover`}
 			/>
 			<div className="mx-[12%] flex flex-col items-center">
-				<p className={`text-3xl font-bold text-${titleColor}`}>{title}</p>
+				<p className={`text-3xl font-bold ${titleColor}`}>{title}</p>
 				<p className="text-center">{desc}</p>
 			</div>
 

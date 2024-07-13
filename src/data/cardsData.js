@@ -5,7 +5,7 @@ const cardsData = [
 		imgSrc: "https://images.unsplash.com/photo-1517594422361-5eeb8ae275a9?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
 		desc: "Fokus pada studi teori, metode, dan aplikasi matematika",
 		btnHref: "",
-		titleColor: "[#5e2317]",
+		titleColor: "text-[#5e2317]",
 	},
 	{
 		title: "BIOLOGI",
@@ -13,7 +13,7 @@ const cardsData = [
 		imgSrc: "https://images.unsplash.com/photo-1517594422361-5eeb8ae275a9?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
 		desc: "Mempelajari kehidupan dan organisme, dari molekul hingga ekosistem",
 		btnHref: "",
-		titleColor: "[#85421a]",
+		titleColor: "text-[#85421a]",
 	},
 	{
 		title: "KIMIA",
@@ -21,7 +21,7 @@ const cardsData = [
 		imgSrc: "https://images.unsplash.com/photo-1517594422361-5eeb8ae275a9?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
 		desc: "Mempelajari komposisi, struktur, dan sifat materi serta reaksi kimia",
 		btnHref: "",
-		titleColor: "[#563277]",
+		titleColor: "text-[#563277]",
 	},
 	{
 		title: "FISIKA",
@@ -29,7 +29,7 @@ const cardsData = [
 		imgSrc: "https://images.unsplash.com/photo-1517594422361-5eeb8ae275a9?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
 		desc: "Mempelajari sifat dan fenomena alam melalui pendekatan fisika",
 		btnHref: "",
-		titleColor: "[#355222]",
+		titleColor: "text-[#355222]",
 	},
 	{
 		title: "GEOGRAFI",
@@ -37,7 +37,7 @@ const cardsData = [
 		imgSrc: "https://images.unsplash.com/photo-1517594422361-5eeb8ae275a9?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
 		desc: "Mempelajari hubungan antara manusia dan lingkungan, serta distribusi ruang di permukaan bumi",
 		btnHref: "",
-		titleColor: "[#171717]",
+		titleColor: "text-[#171717]",
 	},
 	{
 		title: "GEOSAINS",
@@ -45,7 +45,7 @@ const cardsData = [
 		imgSrc: "https://images.unsplash.com/photo-1517594422361-5eeb8ae275a9?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
 		desc: "Mempelajari bumi, termasuk geologi, geofisika, dan ilmu kebumian lainnya",
 		btnHref: "",
-		titleColor: "[#7c7b3b]",
+		titleColor: "text-[#7c7b3b]",
 	},
 ];
 
