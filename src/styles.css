@@ -4,6 +4,11 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@font-face {
+	font-family: "Sunborn";
+	src: url('./assets/fonts/Sunborn-SansOne.otf') format('opentype');
+}
+
 .swiper-button-next::after,
 .swiper-button-prev::after {
 	display: none;

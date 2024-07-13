@@ -7,7 +7,7 @@ const TitleSection = () => {
 			className='flex justify-center items-center w-full h-[80vh] bg-cover bg-center bg-[#283C26] relative'
 			style={{ backgroundImage: `url(${forestImage})` }}
 		>
-			<p className='font-extrabold text-8xl text-center text-[#faf0c1] drop-shadow-title'>
+			<p className='font-bold text-8xl text-center text-[#faf0c1] drop-shadow-title font-sunborn'>
 				MIPA OPEN
 				<br />
 				HOUSE

@@ -5,6 +5,7 @@ export default {
     extend: {
       fontFamily: {
         lato: ['Lato', 'sans-serif'],
+        sunborn: ['Sunborn', 'sans-serif'],
       },
       dropShadow: {
         'title' : '0 0 20px #FFE37F'
