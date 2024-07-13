@@ -3,14 +3,14 @@ import MapBox from './MapBox';
 
 const TimelineSection = () => {
 	return (
-		<div className='flex w-full h-auto z-10 relative bg-[#f7f3e4]'>
+		<div className='relative z-10 flex h-auto w-full bg-[#f7f3e4]'>
 			<img
-				className='w-full -mt-[7vh] -mb-[12vh] z-12'
+				className='z-12 -mb-[12vh] -mt-[7vh] w-full'
 				src={map}
 				alt='Map Timeline'
 			/>
 			<p
-				className='absolute top-[4%] left-[10%] text-[#FFE37F] font-black text-7xl font-sunborn'
+				className='absolute left-[10%] top-[4%] font-sunborn text-7xl font-black text-[#FFE37F]'
 				style={{
 					WebkitTextStrokeColor: '#440A00',
 					WebkitTextStrokeWidth: '0.3px',

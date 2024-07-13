@@ -1,14 +1,18 @@
-import Owl from "../assets/owl.svg";
+import Owl from '../assets/owl.svg';
 
 const AboutUsSection = () => {
 	return (
-		<div className="flex flex-col-reverse md:flex-row bg-[#FFE37F] w-full pt-20 md:pt-32 justify-center">
-			<img className="h-96 mt-10 md:mt-0" src={Owl} alt="Owl" />
-			<div className="w-100 md:ml-32 md:w-96 ">
-				<p className="font-regular text-7xl pt-12 text-center md:text-left text-[#283C26] font-sunborn">
+		<div className='flex w-full flex-col-reverse justify-center bg-[#FFE37F] pt-20 md:flex-row md:pt-32'>
+			<img
+				className='mt-10 h-96 md:mt-0'
+				src={Owl}
+				alt='Owl'
+			/>
+			<div className='w-100 md:ml-32 md:w-96'>
+				<p className='font-regular pt-12 text-center font-sunborn text-7xl text-[#283C26] md:text-left'>
 					ABOUT US
 				</p>
-				<p className="text-justify text-xl px-8 md:px-0 pt-6 text-[#283C26] font-normal">
+				<p className='px-8 pt-6 text-justify text-xl font-normal text-[#283C26] md:px-0'>
 					“MIPA Open House” adalah program BEM FMIPA UI yang
 					memperkenalkan kampus dan kehidupan mahasiswa kepada siswa
 					SMA. Acara ini mencakup tur kampus, seminar, workshop, dan

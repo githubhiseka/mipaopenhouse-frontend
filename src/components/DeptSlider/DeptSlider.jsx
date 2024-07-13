@@ -13,10 +13,10 @@ import cardsData from '../../data/cardsData';
 
 function DeptSlider() {
 	return (
-		<div className='flex h-[90vh] !w-full flex-col !items-center !justify-center bg-[#f7f3e4] !relative pt-[16vh]'>
-			<div className='text-center absolute z-20 top-0'>
+		<div className='!relative flex h-[90vh] !w-full flex-col !items-center !justify-center bg-[#f7f3e4] pt-[16vh]'>
+			<div className='absolute top-0 z-20 text-center'>
 				<p
-					className='text-[#f7f3e4] font-black text-7xl font-sunborn'
+					className='font-sunborn text-7xl font-black text-[#f7f3e4]'
 					style={{
 						WebkitTextStrokeColor: '#440A00',
 						WebkitTextStrokeWidth: '0.3px',
@@ -24,7 +24,7 @@ function DeptSlider() {
 				>
 					DEPARTMENTS
 				</p>
-				<p className='text-[#440A00] italic font-bold text-2xl'>
+				<p className='text-2xl font-bold italic text-[#440A00]'>
 					Be Wise, Choose Your True Self
 				</p>
 			</div>
@@ -71,10 +71,10 @@ function DeptSlider() {
 				))}
 			</Swiper>
 			<div className='mt-10 flex w-full justify-between px-1 md:mt-12 md:px-20'>
-				<div className='swiper-button-prev relative !h-12 !w-32 cursor-pointer rounded-3xl bg-[#283c26] bg-opacity-50 py-2 '>
+				<div className='swiper-button-prev relative !h-12 !w-32 cursor-pointer rounded-3xl bg-[#283c26] bg-opacity-50 py-2'>
 					<FaArrowLeft className='text-[#283c26]' />
 				</div>
-				<div className='swiper-button-next text-[#283c26]] relative !h-12 !w-32 cursor-pointer rounded-3xl bg-[#283c26] bg-opacity-50 py-2 '>
+				<div className='swiper-button-next text-[#283c26]] relative !h-12 !w-32 cursor-pointer rounded-3xl bg-[#283c26] bg-opacity-50 py-2'>
 					<FaArrowRight className='text-[#283c26]' />
 				</div>
 			</div>

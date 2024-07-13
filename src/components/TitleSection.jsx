@@ -4,18 +4,14 @@ import leaves from '../assets/leaves.png';
 const TitleSection = () => {
 	return (
 		<div
-			className='flex justify-center items-center w-full h-[80vh] bg-cover bg-center bg-[#283C26] relative'
+			className='relative flex h-[80vh] w-full items-center justify-center bg-[#283C26] bg-cover bg-center'
 			style={{ backgroundImage: `url(${forestImage})` }}
 		>
-			<p className='font-bold text-8xl text-center text-[#faf0c1] drop-shadow-title font-sunborn'>
+			<p className='text-center font-sunborn text-8xl font-bold text-[#faf0c1] drop-shadow-title'>
 				MIPA OPEN
 				<br />
 				HOUSE
 			</p>
-			{/* <img
-				className='absolute top-0 w-full'
-				src={leaves}
-			/> */}
 		</div>
 	);
 };
