@@ -1,0 +1,68 @@
+const cardsData = [
+	{
+		title: "KIMIA",
+		bgColor: "bg-[#673486]",
+		imgSrc: "https://images.unsplash.com/photo-1517594422361-5eeb8ae275a9?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+		desc: "Meneliti komposisi, struktur, dan sifat materi serta reaksi kimia",
+		btnHref: "",
+		titleColor: "text-[#673486]",
+	},
+	{
+		title: "MATEMATIKA",
+		bgColor: "bg-[#9d3022]",
+		imgSrc: "https://images.unsplash.com/photo-1517594422361-5eeb8ae275a9?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+		desc: "Fokus pada studi teori, metode, dan aplikasi matematika",
+		btnHref: "",
+		titleColor: "text-[#841e0d]",
+	},
+	{
+		title: "GEOSAINS",
+		bgColor: "bg-[#ffff79]",
+		imgSrc: "https://images.unsplash.com/photo-1517594422361-5eeb8ae275a9?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+		desc: "Mempelajari bumi, termasuk geologi, geofisika, dan ilmu kebumian lainnya",
+		btnHref: "",
+		titleColor: "text-[#bfab62]",
+	},
+	{
+		title: "GEOSAINS",
+		bgColor: "bg-[#9d3022]",
+		imgSrc: "https://images.unsplash.com/photo-1517594422361-5eeb8ae275a9?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+		desc: "Fokus pada studi teori, metode, dan aplikasi matematika",
+		btnHref: "",
+		titleColor: "text-[#841e0d]",
+	},
+	{
+		title: "MATEMATIKA",
+		bgColor: "bg-[#9d3022]",
+		imgSrc: "https://images.unsplash.com/photo-1517594422361-5eeb8ae275a9?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+		desc: "Fokus pada studi teori, metode, dan aplikasi matematika",
+		btnHref: "",
+		titleColor: "text-[#841e0d]",
+	},
+	{
+		title: "GEOSAINS",
+		bgColor: "bg-[#9d3022]",
+		imgSrc: "https://images.unsplash.com/photo-1517594422361-5eeb8ae275a9?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+		desc: "Fokus pada studi teori, metode, dan aplikasi matematika",
+		btnHref: "",
+		titleColor: "text-[#841e0d]",
+	},
+	{
+		title: "MATEMATIKA",
+		bgColor: "bg-[#9d3022]",
+		imgSrc: "https://images.unsplash.com/photo-1517594422361-5eeb8ae275a9?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+		desc: "Fokus pada studi teori, metode, dan aplikasi matematika",
+		btnHref: "",
+		titleColor: "text-[#841e0d]",
+	},
+	{
+		title: "GEOSAINS",
+		bgColor: "bg-[#9d3022]",
+		imgSrc: "https://images.unsplash.com/photo-1517594422361-5eeb8ae275a9?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+		desc: "Fokus pada studi teori, metode, dan aplikasi matematika",
+		btnHref: "",
+		titleColor: "text-[#841e0d]",
+	},
+];
+
+export default cardsData;
