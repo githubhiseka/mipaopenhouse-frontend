@@ -1,5 +1,4 @@
 import map from '../assets/map.png';
-import timelineTitle from '../assets/timelineTitle.svg';
 import MapBox from './MapBox';
 
 const TimelineSection = () => {
@@ -20,56 +19,56 @@ const TimelineSection = () => {
 				OUR TIMELINE
 			</p>
 			<MapBox
-				top='10%'
-				right='10%'
+				xPos='right-[10%]'
+				yPos='top-[10%]'
 				title1='MIPA OPEN'
 				title2='HOUSE'
 				subtitle='September - Oktober 2024'
 				num='1'
-				numpos='-right-1'
+				numPos='-right-1'
 			/>
 			<MapBox
-				top='24%'
-				left='14%'
+				xPos='left-[14%]'
+				yPos='top-[24%]'
 				title1='MIPA ON THE'
 				title2='WAY'
 				subtitle='29 Juli - 23 Agustus 2024'
 				num='2'
-				numpos='-left-1'
+				numPos='-left-1'
 			/>
 			<MapBox
-				top='43%'
-				right='10%'
+				xPos='right-[10%]'
+				yPos='top-[43%]'
 				title1='BEYOND THE'
 				title2='BOOKS'
 				subtitle='9 November 2024'
 				num='3'
-				numpos='-right-1'
+				numPos='-right-1'
 			/>
 			<MapBox
-				top='50%'
-				left='10%'
+				xPos='left-[10%]'
+				yPos='top-[50%]'
 				title1='MAPPING YOUR'
 				title2='WAY'
 				subtitle='9 November 2024'
 				num='4'
-				numpos='-left-1'
+				numPos='-left-1'
 			/>
 			<MapBox
-				top='70%'
-				right='15%'
+				xPos='right-[15%]'
+				yPos='top-[70%]'
 				title1='MIPADVENTOUR!'
 				subtitle='9 November 2024'
 				num='5'
-				numpos='-right-1'
+				numPos='-right-1'
 			/>
 			<MapBox
-				top='90%'
-				left='42%'
+				xPos='left-[42%]'
+				yPos='top-[90%]'
 				title1='INTO THE LAB!'
 				subtitle='9 November 2024'
 				num='6'
-				numpos='-left-1'
+				numPos='-left-1'
 			/>
 		</div>
 	);
