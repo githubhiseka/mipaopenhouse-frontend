@@ -9,11 +9,12 @@ import ContactSection from './components/ContactSection'
 const App = () => {
 	return (
 		<div className='flex flex-col items-center m-0 w-full'>
+			{/* TODO: Add navbar */}
 			<TitleSection />
 			<AboutUsSection />
 			<TimelineSection />
 			{/* TODO: Add departments horizontal framer, readjust bottom margin of TimelineSection */}
-			{/* <ContactSection /> */}
+			<ContactSection />
 		</div>
 	)
 }

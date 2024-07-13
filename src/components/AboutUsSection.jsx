@@ -12,7 +12,7 @@ const AboutUsSection = () => {
 				<p className='font-extrabold text-6xl pt-12 text-left text-[#283C26]'>
 					ABOUT US
 				</p>
-				<p className='text-justify text-xl pt-6 text-[#283C26]'>
+				<p className='text-justify text-xl pt-6 text-[#283C26] font-normal'>
 					“MIPA Open House” adalah program BEM FMIPA UI yang
 					memperkenalkan kampus dan kehidupan mahasiswa kepada siswa
 					SMA. Acara ini mencakup tur kampus, seminar, workshop, dan
