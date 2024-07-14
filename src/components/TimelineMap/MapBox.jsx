@@ -8,6 +8,7 @@ const MapBox = ({ yPos, xPos, title1, title2, subtitle, num, numPos }) => {
 			whileInView={{ opacity: 1, scale: 1 }}
 			transition={{ duration: 0.3, ease: 'easeOut' }}
 			whileHover={{ scale: 1.15 }}
+			viewport={{ margin: '-150px', once: false }}
 		>
 			<p
 				className='font-sunborn text-3xl font-black leading-7 text-[#f7f3e4]'
