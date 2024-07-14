@@ -1,7 +1,7 @@
 const MapBox = ({ yPos, xPos, title1, title2, subtitle, num, numPos }) => {
 	return (
 		<div
-			className={`absolute z-30 h-[6%] w-[23%] border-4 border-[#6f2920] bg-[#FFE37F] bg-opacity-50 ${xPos} ${yPos} flex flex-col items-center justify-center text-center`}
+			className={`absolute z-30 h-[6%] w-[23%] border-4 border-[#6f2920] bg-[#FFE37F] bg-opacity-50 ${xPos} ${yPos} flex flex-col items-center justify-center text-center hover:scale-125 transition ease-in-out`}
 		>
 			<p
 				className='font-sunborn text-2xl font-black leading-6 text-[#f7f3e4]'
