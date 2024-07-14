@@ -1,4 +1,4 @@
-## Initial setup
+## Initial Setup
 
 Make sure you have installed Node.js and npm on your machine.
 
