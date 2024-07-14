@@ -1,4 +1,4 @@
-import map from '../assets/map.png';
+import map from '../../assets/map.png';
 import MapBox from './MapBox';
 
 const TimelineSection = () => {
