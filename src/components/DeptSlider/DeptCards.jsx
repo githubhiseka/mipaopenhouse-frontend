@@ -1,18 +1,22 @@
 function deptCards({ bgColor, imgSrc, title, desc, btnHref, titleColor }) {
 	return (
 		<div
-			className={`dept-cards flex h-full w-[80%] flex-col items-center justify-between border-4 border-[#440A00] border-opacity-30 bg-opacity-70 py-7 md:w-[50%] ${bgColor}`}
+			className={`dept-cards flex h-full w-[80%] flex-col items-center justify-between border-4 border-[#440A00] border-opacity-30 bg-opacity-60 py-7 md:w-[50%] ${bgColor}`}
 		>
 			<img
 				src={imgSrc}
 				alt=''
 				className={
-					'aspect-square h-1/2 rounded-full border-2 border-black object-cover'
+					'aspect-square h-1/2 object-cover' // border-2 border-black
 				}
 			/>
 			<div className='mx-[12%] flex flex-col items-center'>
-				<p className={`text-3xl font-bold ${titleColor}`}>{title}</p>
-				<p className='text-center'>{desc}</p>
+				<p
+					className={`font-sunborn text-4xl font-medium ${titleColor}`}
+				>
+					{title}
+				</p>
+				<p className='text-center font-medium'>{desc}</p>
 			</div>
 
 			<div

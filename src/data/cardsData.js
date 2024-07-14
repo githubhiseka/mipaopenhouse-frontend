@@ -1,51 +1,58 @@
+import matematika from '../assets/departments/matematika.svg';
+import biologi from '../assets/departments/biologi.svg';
+import kimia from '../assets/departments/kimia.svg';
+import fisika from '../assets/departments/fisika.svg';
+import geografi from '../assets/departments/geografi.svg';
+import geosains from '../assets/departments/geosains.svg';
+
 const cardsData = [
 	{
 		title: 'MATEMATIKA',
-		bgColor: 'bg-[#b55342]',
-		imgSrc: 'https://images.unsplash.com/photo-1517594422361-5eeb8ae275a9?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+		bgColor: 'bg-[#9E3023]',
+		imgSrc: matematika,
 		desc: 'Fokus pada studi teori, metode, dan aplikasi matematika',
 		btnHref: '',
-		titleColor: 'text-[#5e2317]',
+		titleColor: 'text-[#6A2017]',
 	},
 	{
 		title: 'BIOLOGI',
-		bgColor: 'bg-[#e69b61]',
-		imgSrc: 'https://images.unsplash.com/photo-1517594422361-5eeb8ae275a9?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+		bgColor: 'bg-[#FF7F23]',
+		imgSrc: biologi,
 		desc: 'Mempelajari kehidupan dan organisme, dari molekul hingga ekosistem',
 		btnHref: '',
-		titleColor: 'text-[#85421a]',
+		titleColor: 'text-[#934D1B]',
 	},
 	{
 		title: 'KIMIA',
-		bgColor: 'bg-[#7f6494]',
-		imgSrc: 'https://images.unsplash.com/photo-1517594422361-5eeb8ae275a9?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+		bgColor: 'bg-[#683486]',
+		imgSrc: kimia,
 		desc: 'Mempelajari komposisi, struktur, dan sifat materi serta reaksi kimia',
 		btnHref: '',
-		titleColor: 'text-[#563277]',
+		titleColor: 'text-[#301A3D]',
 	},
 	{
 		title: 'FISIKA',
-		bgColor: 'bg-[#657d53]',
-		imgSrc: 'https://images.unsplash.com/photo-1517594422361-5eeb8ae275a9?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+		bgColor: 'bg-[#2B5E1B]',
+		imgSrc: fisika,
 		desc: 'Mempelajari sifat dan fenomena alam melalui pendekatan fisika',
 		btnHref: '',
-		titleColor: 'text-[#355222]',
+		titleColor: 'text-[#1A3612]',
 	},
 	{
 		title: 'GEOGRAFI',
-		bgColor: 'bg-[#696864]',
-		imgSrc: 'https://images.unsplash.com/photo-1517594422361-5eeb8ae275a9?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-		desc: 'Mempelajari hubungan antara manusia dan lingkungan, serta distribusi ruang di permukaan bumi',
+		bgColor: 'bg-[#141414]',
+		imgSrc: geografi,
+		desc: 'Mempelajari hubungan manusia dan lingkungan, serta distribusi ruang di permukaan bumi',
 		btnHref: '',
-		titleColor: 'text-[#171717]',
+		titleColor: 'text-[#000000]',
 	},
 	{
 		title: 'GEOSAINS',
-		bgColor: 'bg-[#fafa9d]',
-		imgSrc: 'https://images.unsplash.com/photo-1517594422361-5eeb8ae275a9?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+		bgColor: 'bg-[#FFFF79]',
+		imgSrc: geosains,
 		desc: 'Mempelajari bumi, termasuk geologi, geofisika, dan ilmu kebumian lainnya',
 		btnHref: '',
-		titleColor: 'text-[#7c7b3b]',
+		titleColor: 'text-[#717132]',
 	},
 ];
 
