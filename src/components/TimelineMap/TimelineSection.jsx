@@ -37,8 +37,8 @@ const TimelineSection = () => {
 				numPos='-left-1'
 			/>
 			<MapBox
-				xPos='right-[10%]'
-				yPos='top-[43%]'
+				xPos='right-[9%]'
+				yPos='top-[41%]'
 				title1='BEYOND THE'
 				title2='BOOKS'
 				subtitle='9 November 2024'
@@ -46,8 +46,8 @@ const TimelineSection = () => {
 				numPos='-right-1'
 			/>
 			<MapBox
-				xPos='left-[10%]'
-				yPos='top-[50%]'
+				xPos='left-[9%]'
+				yPos='top-[49.8%]'
 				title1='MAPPING YOUR'
 				title2='WAY'
 				subtitle='9 November 2024'
