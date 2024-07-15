@@ -24,7 +24,7 @@ const NavBar = () => {
 
 	return (
 		<div
-			className={`fixed top-0 z-30 flex h-20 w-full flex-row items-center justify-between pl-6 pr-12 text-lg font-bold tracking-wide text-[#FFE37F] transition ease-in-out ${isScrolled ? 'bg-[#283C26] bg-opacity-60 shadow-2xl backdrop-blur' : ''}`}
+			className={`fixed top-0 z-50 flex h-20 w-full flex-row items-center justify-between pl-6 pr-12 text-lg font-bold tracking-wide text-[#FFE37F] transition ease-in-out ${isScrolled ? 'bg-[#283C26] bg-opacity-60 shadow-2xl backdrop-blur' : ''}`}
 		>
 			<div>
 				<a href='/'>
@@ -51,10 +51,7 @@ const NavBar = () => {
 				text='DEPARTMENTS'
 				link='/'
 			/>
-			<button
-				className='h-12 w-36 border-4 border-[#84743d] border-opacity-60 bg-[#FFE37F] bg-opacity-60 text-[#283C26]'
-				onClick=''
-			>
+			<button className='h-12 w-36 border-4 border-[#84743d] border-opacity-60 bg-[#FFE37F] bg-opacity-60 text-[#283C26]'>
 				DAFTAR
 			</button>
 		</div>

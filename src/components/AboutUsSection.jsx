@@ -1,27 +1,25 @@
 import { motion } from 'framer-motion';
 
-import Owl from '../assets/owl.svg';
+import owl from '../assets/owl.svg';
 
 const AboutUsSection = () => {
 	return (
-		<motion.div
-			className='flex w-full flex-col-reverse justify-center bg-[#FFE37F] pt-20 md:flex-row md:pt-32'
-		>
+		<div className='flex w-full flex-col-reverse justify-center bg-[#FFE37F] md:flex-row md:pt-[27vh] xl:pt-[38vh]'>
 			<motion.img
 				className='mt-10 h-96 md:mt-0'
-				src={Owl}
+				src={owl}
 				alt='Owl'
 				initial={{ opacity: 0, x: '-100px' }}
 				whileInView={{ opacity: 1, x: 0 }}
 				transition={{ duration: 0.5 }}
-				viewport={{ margin: '-200px', once: false }}
+				viewport={{ margin: '-220px', once: false }}
 			/>
 			<motion.div
 				className='w-100 md:ml-32 md:w-96'
 				initial={{ opacity: 0, x: '100px' }}
 				whileInView={{ opacity: 1, x: 0 }}
 				transition={{ duration: 0.5 }}
-				viewport={{ margin: '-200px', once: false }}
+				viewport={{ margin: '-220px', once: false }}
 			>
 				<p className='font-regular pt-12 text-center font-sunborn text-7xl text-[#283C26] md:text-left'>
 					ABOUT US
@@ -33,7 +31,7 @@ const AboutUsSection = () => {
 					Intip Departemen.
 				</p>
 			</motion.div>
-		</motion.div>
+		</div>
 	);
 };
 
