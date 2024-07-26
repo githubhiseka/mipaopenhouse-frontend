@@ -1,3 +1,5 @@
+import React, { useEffect, useState } from 'react';
+
 import DeptCards from './DeptCards';
 import { FaArrowRight, FaArrowLeft } from 'react-icons/fa6';
 
@@ -12,14 +14,37 @@ import { EffectCoverflow, Mousewheel, Navigation } from 'swiper/modules';
 import cardsData from '../../data/cardsData';
 
 function DeptSlider() {
+	const [strokeWidth, setStrokeWidth] = useState('0.3px');
+
+	useEffect(() => {
+		const handleResize = () => {
+			if (window.innerWidth >= 768) {
+				// For md and larger devices
+				setStrokeWidth('0.3px');
+			} else {
+				// For smaller devices
+				setStrokeWidth('1.3px');
+			}
+		};
+
+		// Set the initial viewport margin
+		handleResize();
+
+		// Add event listener for window resize
+		window.addEventListener('resize', handleResize);
+
+		// Clean up the event listener on component unmount
+		return () => window.removeEventListener('resize', handleResize);
+	}, []);
+
 	return (
 		<div className='!relative flex h-[90vh] !w-full flex-col !items-center !justify-center bg-[#f7f3e4] pt-[16vh]'>
-			<div className='absolute top-0 z-20 text-center'>
+			<div className='absolute md:top-0 top-14 z-20 text-center'>
 				<p
-					className='font-sunborn text-7xl font-black text-[#f7f3e4]'
+					className='font-sunborn md:text-7xl text-5xl font-black text-[#f7f3e4]'
 					style={{
 						WebkitTextStrokeColor: '#440A00',
-						WebkitTextStrokeWidth: '0.3px',
+						WebkitTextStrokeWidth: strokeWidth,
 					}}
 				>
 					DEPARTMENTS
