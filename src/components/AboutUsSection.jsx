@@ -46,7 +46,7 @@ const AboutUsSection = () => {
 				transition={{ duration: 0.5 }}
 				viewport={{ margin: viewportMargin, once: false }}
 			>
-				<p className='font-regular pt-12 text-center font-sunborn text-7xl text-[#283C26] md:text-left'>
+				<p className='font-regular pt-12 text-center font-sunborn md:text-7xl text-6xl text-[#283C26] md:text-left'>
 					ABOUT US
 				</p>
 				<p className='px-8 pt-6 text-justify text-xl font-normal text-[#283C26] md:px-0'>
