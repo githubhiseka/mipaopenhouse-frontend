@@ -1,10 +1,35 @@
+import React, { useEffect, useState } from 'react';
+
 import { motion } from 'framer-motion';
 
 import owl from '../assets/owl.svg';
 
 const AboutUsSection = () => {
+	const [viewportMargin, setViewportMargin] = useState('-80px');
+
+	useEffect(() => {
+		const handleResize = () => {
+			if (window.innerWidth >= 768) {
+				// For md and larger devices
+				setViewportMargin('-80px');
+			} else {
+				// For smaller devices
+				setViewportMargin('-100px');
+			}
+		};
+
+		// Set the initial viewport margin
+		handleResize();
+
+		// Add event listener for window resize
+		window.addEventListener('resize', handleResize);
+
+		// Clean up the event listener on component unmount
+		return () => window.removeEventListener('resize', handleResize);
+	}, []);
+
 	return (
-		<div className='flex w-full flex-col-reverse justify-center bg-[#FFE37F] md:flex-row md:pt-[27vh] xl:pt-[38vh]'>
+		<div className='flex w-full max-w-full flex-col-reverse justify-center bg-[#FFE37F] pt-20 md:flex-row md:pt-[27vh] xl:pt-[34vh] overflow-hidden'>
 			<motion.img
 				className='mt-10 h-96 md:mt-0'
 				src={owl}
@@ -12,14 +37,14 @@ const AboutUsSection = () => {
 				initial={{ opacity: 0, x: '-100px' }}
 				whileInView={{ opacity: 1, x: 0 }}
 				transition={{ duration: 0.5 }}
-				viewport={{ margin: '-220px', once: false }}
+				viewport={{ margin: viewportMargin, once: false }}
 			/>
 			<motion.div
 				className='w-100 md:ml-32 md:w-96'
 				initial={{ opacity: 0, x: '100px' }}
 				whileInView={{ opacity: 1, x: 0 }}
 				transition={{ duration: 0.5 }}
-				viewport={{ margin: '-220px', once: false }}
+				viewport={{ margin: viewportMargin, once: false }}
 			>
 				<p className='font-regular pt-12 text-center font-sunborn text-7xl text-[#283C26] md:text-left'>
 					ABOUT US
