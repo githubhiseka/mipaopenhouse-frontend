@@ -17,7 +17,7 @@ const App = () => {
 		<Router>
 			<Routes>
 				<Route index element={<Homepage />} />
-				<Route path='/depts' element={<Matematika />} />
+				<Route path='/matematika' element={<Matematika />} />
 				{/* <NavBar />
 				<TitleSection />
 				<LeavesSection />

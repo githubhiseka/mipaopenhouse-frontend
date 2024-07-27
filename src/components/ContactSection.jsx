@@ -68,7 +68,7 @@ const ContactSection = () => {
 	);
 
 	return (
-		<div className='flex w-full flex-col items-center justify-center bg-[#283C26] text-[#FEFDF6]'>
+		<div className='flex w-full flex-col items-center justify-center bg-[#283C26] text-[#FEFDF6] z-50 relative'>
 			<div className='pt-8'>
 				<p className='text-center text-5xl font-extrabold'>
 					GET IN TOUCH
