@@ -1,9 +1,21 @@
 import { motion } from 'framer-motion';
 
-const MapBox = ({ yPos, xPos, yPosMobile, xPosMobile, title1, title2, subtitle, num, numPos, numPosMobile, customRule }) => {
+const MapBox = ({
+	yPos,
+	xPos,
+	yPosMobile,
+	xPosMobile,
+	title1,
+	title2,
+	subtitle,
+	num,
+	numPos,
+	numPosMobile,
+	customRule,
+}) => {
 	return (
 		<motion.div
-			className={`absolute z-30 md:h-36 md:!w-80 h-16 w-40 md:border-4 border-2 border-[#6f2920] bg-[#FFE37F] bg-opacity-50 ${xPos} ${yPos} ${xPosMobile} ${yPosMobile} ${customRule}  flex flex-col items-center justify-center text-center`}
+			className={`absolute z-30 h-16 w-40 border-2 border-[#6f2920] bg-[#FFE37F] bg-opacity-50 md:h-36 md:!w-80 md:border-4 ${xPos} ${yPos} ${xPosMobile} ${yPosMobile} ${customRule} flex flex-col items-center justify-center text-center`}
 			initial={{ opacity: 0, scale: 0.8 }}
 			whileInView={{ opacity: 1, scale: 1 }}
 			transition={{ duration: 0.3, ease: 'easeOut' }}
@@ -11,7 +23,7 @@ const MapBox = ({ yPos, xPos, yPosMobile, xPosMobile, title1, title2, subtitle, 
 			viewport={{ margin: '-30px', once: false }}
 		>
 			<p
-				className='font-sunborn md:text-3xl text-md font-black md:leading-7 leading-4 tracking-tighter md:tracking-normal text-[#f7f3e4]'
+				className='text-md font-sunborn font-black leading-4 tracking-tighter text-[#f7f3e4] md:text-3xl md:leading-7 md:tracking-normal'
 				style={{
 					WebkitTextStrokeColor: '#440A00',
 					WebkitTextStrokeWidth: '0.5px',
@@ -21,14 +33,14 @@ const MapBox = ({ yPos, xPos, yPosMobile, xPosMobile, title1, title2, subtitle, 
 				<br />
 				{title2}
 			</p>
-			<p className='md:text-lg text-[0.8rem] font-semibold italic text-[#440A00]'>
+			<p className='text-[0.8rem] font-semibold italic text-[#440A00] md:text-lg'>
 				{subtitle}
 			</p>
 			<div
-				className={`absolute md:-top-1 -top-0.5 ${numPosMobile} ${numPos} flex md:h-10 md:w-10 h-[20px] w-[20px] items-center justify-center md:border-4 border-2 border-[#6f2920]`}
+				className={`absolute -top-0.5 md:-top-1 ${numPosMobile} ${numPos} flex h-[20px] w-[20px] items-center justify-center border-2 border-[#6f2920] md:h-10 md:w-10 md:border-4`}
 			>
 				<p
-					className='font-sunborn md:text-2xl text-xs font-black text-[#f7f3e4]'
+					className='font-sunborn text-xs font-black text-[#f7f3e4] md:text-2xl'
 					style={{
 						WebkitTextStrokeColor: '#440A00',
 						WebkitTextStrokeWidth: '0.5px',

@@ -29,7 +29,11 @@ const TimelineSection = () => {
 
 	return (
 		<div className='relative z-10 flex h-auto w-full bg-[#f7f3e4]'>
-			<div id='timeline-section' className='absolute -top-32'/> {/* Scroll pin point */}
+			<div
+				id='timeline-section'
+				className='absolute -top-32'
+			/>{' '}
+			{/* Scroll pin point */}
 			<img
 				className='z-12 -mb-[12vh] -mt-[7vh] w-full'
 				src={map}

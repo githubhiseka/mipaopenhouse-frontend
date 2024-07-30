@@ -125,7 +125,6 @@ const NavBar = () => {
 					<NavBarText
 						text='DEPARTMENTS'
 						link='dept-slider'
-						// offsetPos={-100}
 					/>
 					<NavBarText
 						text='CONTACT'
@@ -137,7 +136,7 @@ const NavBar = () => {
 	);
 };
 
-const NavBarText = ({ text, link, offsetPos=0 }) => {
+const NavBarText = ({ text, link }) => {
 	const handleClick = (e) => {
 		e.preventDefault();
 		const targetElement = document.getElementById(link);

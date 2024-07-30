@@ -29,7 +29,10 @@ const AboutUsSection = () => {
 	}, []);
 
 	return (
-		<div id='about-us-section' className='flex w-full max-w-full flex-col-reverse justify-center bg-[#FFE37F] pt-20 md:flex-row md:pt-[27vh] xl:pt-[39vh] overflow-hidden'>
+		<div
+			id='about-us-section'
+			className='flex w-full max-w-full flex-col-reverse justify-center overflow-hidden bg-[#FFE37F] pt-20 md:flex-row md:pt-[27vh] xl:pt-[39vh]'
+		>
 			<motion.img
 				className='mt-10 h-96 md:mt-0'
 				src={owl}
@@ -46,7 +49,7 @@ const AboutUsSection = () => {
 				transition={{ duration: 0.5 }}
 				viewport={{ margin: viewportMargin, once: false }}
 			>
-				<p className='font-regular pt-12 text-center font-sunborn md:text-7xl text-6xl text-[#283C26] md:text-left'>
+				<p className='font-regular pt-12 text-center font-sunborn text-6xl text-[#283C26] md:text-left md:text-7xl'>
 					ABOUT US
 				</p>
 				<p className='px-8 pt-6 text-justify text-xl font-normal text-[#283C26] md:px-0'>
