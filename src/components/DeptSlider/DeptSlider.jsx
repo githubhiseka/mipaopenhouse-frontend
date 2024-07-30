@@ -39,6 +39,7 @@ function DeptSlider() {
 
 	return (
 		<div className='!relative flex h-[90vh] !w-full flex-col !items-center !justify-center bg-[#f7f3e4] pt-[16vh]'>
+			<div id='dept-slider' className='absolute -top-10' /> {/* Scroll pin point */}
 			<div className='absolute md:top-0 top-14 z-20 text-center'>
 				<p
 					className='font-sunborn md:text-7xl text-5xl font-black text-[#f7f3e4]'

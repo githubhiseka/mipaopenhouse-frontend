@@ -44,19 +44,23 @@ const NavBar = () => {
 				</div>
 				<NavBarText
 					text='HOME'
-					link='/'
+					link='title-section'
 				/>
 				<NavBarText
 					text='ABOUT US'
-					link='/'
+					link='about-us-section'
 				/>
 				<NavBarText
 					text='TIMELINE'
-					link='/'
+					link='timeline-section'
 				/>
 				<NavBarText
 					text='DEPARTMENTS'
-					link='/'
+					link='dept-slider'
+				/>
+				<NavBarText
+					text='CONTACT'
+					link='contact-section'
 				/>
 				<button className='h-12 w-36 border-4 border-[#84743d] border-opacity-60 bg-[#FFE37F] bg-opacity-60 text-[#283C26]'>
 					DAFTAR
@@ -65,7 +69,7 @@ const NavBar = () => {
 
 			{/* FOR SMALL VIEWPORT */}
 			<div
-				className={`${isScrolled || isNavBarExpanded ? 'bg-[#283C26] bg-opacity-60 shadow-2xl backdrop-blur' : ''} fixed top-0 z-50 flex w-full flex-col justify-between px-4 align-middle text-lg font-bold tracking-wide text-[#FFE37F] transition-all duration-300 ease-in-out md:hidden ${isNavBarExpanded ? 'h-56' : 'h-20'}`}
+				className={`${isScrolled || isNavBarExpanded ? 'bg-[#283C26] bg-opacity-60 shadow-2xl backdrop-blur' : ''} fixed top-0 z-50 flex w-full flex-col justify-between px-4 align-middle text-lg font-bold tracking-wide text-[#FFE37F] transition-all duration-300 ease-in-out md:hidden ${isNavBarExpanded ? 'h-64' : 'h-20'}`}
 			>
 				<div className='flex h-20 w-full items-center justify-between'>
 					{/* Hamburger Icon */}
@@ -108,19 +112,24 @@ const NavBar = () => {
 				>
 					<NavBarText
 						text='HOME'
-						link='/'
+						link='title-section'
 					/>
 					<NavBarText
 						text='ABOUT US'
-						link='/'
+						link='about-us-section'
 					/>
 					<NavBarText
 						text='TIMELINE'
-						link='/'
+						link='timeline-section'
 					/>
 					<NavBarText
 						text='DEPARTMENTS'
-						link='/'
+						link='dept-slider'
+						// offsetPos={-100}
+					/>
+					<NavBarText
+						text='CONTACT'
+						link='contact-section'
 					/>
 				</div>
 			</div>
@@ -128,12 +137,15 @@ const NavBar = () => {
 	);
 };
 
-const NavBarText = ({ text, link }) => {
+const NavBarText = ({ text, link, offsetPos=0 }) => {
 	const handleClick = (e) => {
 		e.preventDefault();
-		setTimeout(() => {
-			window.location.href = link;
-		}, 300); // Adjust the delay to match the animation duration
+		const targetElement = document.getElementById(link);
+		if (targetElement) {
+			setTimeout(() => {
+				targetElement.scrollIntoView({ behavior: 'smooth' });
+			}, 300); // Adjust the delay to match the animation duration
+		}
 	};
 
 	return (

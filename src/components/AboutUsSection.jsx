@@ -29,7 +29,7 @@ const AboutUsSection = () => {
 	}, []);
 
 	return (
-		<div className='flex w-full max-w-full flex-col-reverse justify-center bg-[#FFE37F] pt-20 md:flex-row md:pt-[27vh] xl:pt-[39vh] overflow-hidden'>
+		<div id='about-us-section' className='flex w-full max-w-full flex-col-reverse justify-center bg-[#FFE37F] pt-20 md:flex-row md:pt-[27vh] xl:pt-[39vh] overflow-hidden'>
 			<motion.img
 				className='mt-10 h-96 md:mt-0'
 				src={owl}
