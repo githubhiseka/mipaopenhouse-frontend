@@ -1,8 +1,8 @@
-import TopDesc from "../components/ReadMoreDept/TopDesc";
-import Peminatan from "../components/ReadMoreDept/Peminatan"
-import Prodi from "../components/ReadMoreDept/Prodi"
-import ProspekKerja from "../components/ReadMoreDept/ProspekKerja";
-import Contact from "../components/ContactSection"
+import TopDesc from '../components/ReadMoreDept/TopDesc';
+import Peminatan from '../components/ReadMoreDept/Peminatan';
+import Prodi from '../components/ReadMoreDept/Prodi';
+import ProspekKerja from '../components/ReadMoreDept/ProspekKerja';
+import Contact from '../components/ContactSection';
 
 import biologi from '../assets/departments/biologi.svg'
 import bioLeaves from '../assets/deptLeaves/bio-leaves.png'

@@ -9,9 +9,9 @@
 	src: url('./assets/fonts/Sunborn-SansOne.otf') format('opentype');
 }
 
-@font-face {
-	font-family: 'Lato';
-	src: url('./assets/fonts/Lato/Lato-Regular.ttf') format('ttf');
+html,
+body {
+	overscroll-behavior: none;
 }
 
 .swiper-button-next::after,
