@@ -10,7 +10,7 @@ import bioLeaves from '../assets/bio-leaves.png';
 const Biologi = () => {
 	const thickColor = '#934d1b';
 	return (
-		<div>
+		<div className='font-lato'>
 			<TopDesc
 				bgColor='#fca25d'
 				deptLogo={biologi}

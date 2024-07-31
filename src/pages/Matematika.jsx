@@ -10,7 +10,7 @@ import mathLeaves from '../assets/math-leaves.png';
 const Matematika = () => {
 	const thickColor = '#6a2017';
 	return (
-		<div>
+		<div className='font-lato'>
 			<TopDesc
 				bgColor='#b86a5d'
 				deptLogo={math}
