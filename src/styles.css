@@ -33,7 +33,7 @@
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background-image: url('./assets/dept-leaves.png'); /* or use inline style in JSX */
+	background-image: url('./assets/top-desc-leaves.png'); /* or use inline style in JSX */
 	background-size: auto;
 	background-position: center;
 	opacity: 0.2; /* Adjust the opacity as needed */

@@ -1,5 +1,3 @@
-import { color } from 'framer-motion';
-
 const Prodi = ({ strokeColor, prodiList }) => {
 	return (
 		<div className='flex w-full flex-col items-center justify-center gap-6 bg-[#f6f3e4] py-8'>
@@ -7,7 +5,7 @@ const Prodi = ({ strokeColor, prodiList }) => {
 				className='font-sunborn text-3xl text-transparent'
 				style={{
 					WebkitTextStrokeColor: strokeColor,
-					WebkitTextStrokeWidth: '1.5px',
+					WebkitTextStrokeWidth: '1.75px',
 				}}
 			>
 				PROGRAM STUDI
@@ -16,7 +14,7 @@ const Prodi = ({ strokeColor, prodiList }) => {
 				{prodiList.map((prodi, index) => (
 					<div
 						key={index}
-						className='flex-1 rounded-2xl border-2 border-solid px-8 py-3 text-center font-lato text-sm font-bold tracking-wider'
+						className='flex-1 rounded-2xl border-2 border-solid px-8 py-3 max-w-[14rem] text-center font-lato text-sm font-bold tracking-wider'
 						style={{ color: strokeColor, borderColor: strokeColor }}
 					>
 						{prodi}

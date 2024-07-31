@@ -5,7 +5,7 @@ import ProspekKerja from "../components/ReadMoreDept/ProspekKerja";
 import Contact from "../components/ContactSection"
 
 import biologi from '../assets/departments/biologi.svg'
-import bioLeaves from '../assets/bio-leaves.png'
+import bioLeaves from '../assets/deptLeaves/bio-leaves.png'
 
 const Biologi = () => {
     const thickColor = '#934d1b'
@@ -32,6 +32,7 @@ const Biologi = () => {
             <ProspekKerja
                 bgColor='#fac597'
                 strokeColor={thickColor}
+                prospekList={["Ahli Bioteknologi", "Ilmuwan Riset", "Ahli Biologi", "Ahli Ekologi", "Farmakologi"]}
                 leaves={bioLeaves}
             />
             <Contact />
