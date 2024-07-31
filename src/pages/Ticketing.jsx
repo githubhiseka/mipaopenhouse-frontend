@@ -1,7 +1,5 @@
 const Ticketing = () => {
-    return (
-        <div className="w-full h-full">kontol</div>
-    )
-}
+	return <div className='h-full w-full'>Tiket</div>;
+};
 
-export default Ticketing
+export default Ticketing;

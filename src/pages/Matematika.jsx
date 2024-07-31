@@ -8,7 +8,7 @@ import math from '../assets/departments/matematika.svg';
 import mathLeaves from '../assets/math-leaves.png';
 
 const Matematika = () => {
-    const thickColor = '#6a2017'
+	const thickColor = '#6a2017';
 	return (
 		<div>
 			<TopDesc
@@ -20,20 +20,24 @@ const Matematika = () => {
 				descColor='#f6f3e4'
 			/>
 			<Peminatan
-                bgColor='#d3a597'
-                strokeColor={thickColor}
-                borderColor='#be9f92'
-                peminatanList={["Komputasi", "Riset dan Operasi", "Matematika Murni"]}
-            />
+				bgColor='#d3a597'
+				strokeColor={thickColor}
+				borderColor='#be9f92'
+				peminatanList={[
+					'Komputasi',
+					'Riset dan Operasi',
+					'Matematika Murni',
+				]}
+			/>
 			<Prodi
 				strokeColor={thickColor}
 				prodiList={['Matematika', 'Statistika', 'Ilmu Aktuaria']}
 			/>
 			<ProspekKerja
-                bgColor='#d3a597'
-                strokeColor={thickColor}
-                leaves={mathLeaves}
-            />
+				bgColor='#d3a597'
+				strokeColor={thickColor}
+				leaves={mathLeaves}
+			/>
 			<Contact />
 		</div>
 	);

@@ -10,10 +10,26 @@ const App = () => {
 	return (
 		<Router>
 			<Routes>
-				<Route index element={<Homepage />} />
-				<Route path='/matematika' element={<Matematika />} />
-				<Route path='/biologi' element={<Biologi />} />
-				<Route path='/ticket' element={<Ticketing />} />
+				<Route
+					index
+					element={<Homepage />}
+				/>
+				<Route
+					path='/'
+					element={<Homepage />}
+				/>
+				<Route
+					path='/matematika'
+					element={<Matematika />}
+				/>
+				<Route
+					path='/biologi'
+					element={<Biologi />}
+				/>
+				<Route
+					path='/ticket'
+					element={<Ticketing />}
+				/>
 			</Routes>
 		</Router>
 	);
