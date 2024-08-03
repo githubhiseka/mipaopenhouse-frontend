@@ -20,30 +20,41 @@ const Matematika = () => {
 				descColor='#f6f3e4'
 			/>
 			<Peminatan
-                bgColor='#d3a597'
-                strokeColor={thickColor}
-                borderColor='#be9f92'
-                peminatanList={[
+				bgColor='#d3a597'
+				strokeColor={thickColor}
+				borderColor='#be9f92'
+				peminatanList={[
 					{
-						title: "Matematika",
-						items: ["Komputasi", "Riset dan Operasi", "Matematika Murni"]
+						title: 'Matematika',
+						items: [
+							'Komputasi',
+							'Riset dan Operasi',
+							'Matematika Murni',
+						],
 					},
 					{
-						title: "Statistika",
-						items: ["Statistika Murni", "Statistika Terapan"]
-					}
+						title: 'Statistika',
+						items: ['Statistika Murni', 'Statistika Terapan'],
+					},
 				]}
-            />
+			/>
 			<Prodi
 				strokeColor={thickColor}
 				prodiList={['Matematika', 'Statistika', 'Ilmu Aktuaria']}
 			/>
 			<ProspekKerja
-                bgColor='#d3a597'
-                strokeColor={thickColor}
-				prospekList={["Software Engineer", "Data Analyst", "Data Scientist", "Aktuaris", "Dosen", "Konsultan"]}
-                leaves={mathLeaves}
-            />
+				bgColor='#d3a597'
+				strokeColor={thickColor}
+				prospekList={[
+					'Software Engineer',
+					'Data Analyst',
+					'Data Scientist',
+					'Aktuaris',
+					'Dosen',
+					'Konsultan',
+				]}
+				leaves={mathLeaves}
+			/>
 			<Contact />
 		</div>
 	);
