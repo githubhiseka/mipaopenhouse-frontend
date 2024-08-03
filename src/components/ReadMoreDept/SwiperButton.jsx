@@ -29,7 +29,7 @@ export default function SwiperButton() {
 			<div
 				className={`!top-0 !mt-0 flex !h-8 !w-12 justify-center rounded-3xl bg-[#293d26] py-2 ${
 					isPrevDisabled
-						? 'cursor-auto bg-opacity-35'
+						? 'cursor-auto bg-opacity-25'
 						: 'cursor-pointer bg-opacity-50'
 				}`}
 				onClick={() => !isPrevDisabled && swiper.slidePrev()}
@@ -39,7 +39,7 @@ export default function SwiperButton() {
 			<div
 				className={`!top-0 !mt-0 flex !h-8 !w-12 justify-center rounded-3xl bg-[#293d26] py-2 ${
 					isNextDisabled
-						? 'pointer-events-none cursor-auto opacity-35'
+						? 'pointer-events-none cursor-auto opacity-25'
 						: 'cursor-pointer bg-opacity-50'
 				}`}
 				onClick={() => !isNextDisabled && swiper.slideNext()}
