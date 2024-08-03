@@ -7,11 +7,14 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/free-mode';
-import 'swiper/css/navigation';
+// import 'swiper/css/navigation';
 
 import { EffectCoverflow, Mousewheel, Navigation } from 'swiper/modules';
+import { useSwiper } from 'swiper/react';
+import SwiperButton from './SwiperButton';
 
 const ProspekKerja = ({ bgColor, strokeColor, prospekList, leaves }) => {
+	const swiper = useSwiper();
 	return (
 		<div className='relative flex w-full flex-col items-center justify-center gap-6 bg-[#f6f3e4] py-8 pb-32'>
 			<p
@@ -42,13 +45,9 @@ const ProspekKerja = ({ bgColor, strokeColor, prospekList, leaves }) => {
 						slidesPerView: 1,
 					},
 				}}
-				className='h-[75%] w-screen md:!w-full'
+				className='relative h-[75%] w-screen md:!w-full'
 				initialSlide={0}
 				modules={[EffectCoverflow, Mousewheel, Navigation]}
-				navigation={{
-					nextEl: '.swiper-button-next-pk',
-					prevEl: '.swiper-button-prev-pk',
-				}}
 			>
 				{prospekList.map((prospek, index) => (
 					<SwiperSlide
@@ -81,16 +80,8 @@ const ProspekKerja = ({ bgColor, strokeColor, prospekList, leaves }) => {
 						</div>
 					</SwiperSlide>
 				))}
+				<SwiperButton />
 			</Swiper>
-			<div className='absolute top-32 flex w-[95%] justify-between sm:w-4/5 md:w-4/6 lg:w-[38%]'>
-				<div className='swiper-button-prev-pk relative flex !h-8 !w-12 cursor-pointer justify-center rounded-3xl bg-[#293d26] bg-opacity-50 py-2'>
-					<FaArrowLeft className='text-[#f6f3e4]' />
-				</div>
-				<div className='swiper-button-next-pk relative flex !h-8 !w-12 cursor-pointer justify-center rounded-3xl bg-[#293d26] bg-opacity-50 py-2 text-[#283c26]'>
-					<FaArrowRight className='text-[#f6f3e4]' />
-				</div>
-			</div>
-
 			<img
 				className='absolute -bottom-8 -left-24 z-0 w-1/2 sm:w-2/5 md:w-1/3 lg:-bottom-12 lg:w-[28%] xl:w-1/4'
 				src={leaves}
