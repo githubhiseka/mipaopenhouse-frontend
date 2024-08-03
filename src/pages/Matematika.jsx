@@ -1,3 +1,4 @@
+import NavBar from '../components/NavBar';
 import TopDesc from '../components/ReadMoreDept/TopDesc';
 import Peminatan from '../components/ReadMoreDept/Peminatan';
 import Prodi from '../components/ReadMoreDept/Prodi';
@@ -10,9 +11,15 @@ import mathLeaves from '../assets/deptLeaves/math-leaves.png';
 const Matematika = () => {
 	const thickColor = '#6a2017';
 	return (
-		<div className='font-lato'>
+		<div>
+            <NavBar
+                bgColor='rgba(184, 106, 93, 0.6)'
+                textColor='#6a2017'
+            />
 			<TopDesc
 				bgColor='#b86a5d'
+				leavesOpacity='0.13'
+                leavesBrightness='1.0'
 				deptLogo={math}
 				deptTitle='MATEMATIKA'
 				titleColor={thickColor}

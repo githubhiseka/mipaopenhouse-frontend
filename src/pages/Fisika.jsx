@@ -1,3 +1,4 @@
+import NavBar from '../components/NavBar';
 import TopDesc from '../components/ReadMoreDept/TopDesc';
 import Peminatan from '../components/ReadMoreDept/Peminatan';
 import Prodi from '../components/ReadMoreDept/Prodi';
@@ -11,8 +12,14 @@ const Fisika = () => {
     const thickColor = '#1a3612'
     return (
         <div>
+            <NavBar
+                bgColor='rgba(104, 138, 87, 0.6)'
+                textColor='#1a3612'
+            />
             <TopDesc
                 bgColor='#678a56'
+                leavesOpacity='0.12'
+                leavesBrightness='1.0'
                 deptLogo={physics}
                 deptTitle='FISIKA'
                 titleColor={thickColor}
@@ -23,7 +30,12 @@ const Fisika = () => {
                 bgColor='#a4b793'
                 strokeColor={thickColor}
                 borderColor='#9da68f'
-                peminatanList={["Instrumentasi", "Fisika Medis & Biomedis", "Fisika Nuklir & Partikel"]}
+                peminatanList={[
+                    {
+                        title:"",
+                        items: ["Instrumentasi", "Fisika Medis & Biomedis", "Fisika Nuklir & Partikel"]
+                    }
+                ]}
             />
             <Prodi
                 strokeColor={thickColor}

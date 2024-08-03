@@ -1,3 +1,4 @@
+import NavBar from '../components/NavBar';
 import TopDesc from '../components/ReadMoreDept/TopDesc';
 import Peminatan from '../components/ReadMoreDept/Peminatan';
 import Prodi from '../components/ReadMoreDept/Prodi';
@@ -11,8 +12,14 @@ const Geografi = () => {
     const thickColor = '#000000'
     return (
         <div>
+            <NavBar
+                bgColor='rgba(92, 91, 85, 0.6)'
+                textColor='#000000'
+            />
             <TopDesc
                 bgColor='#5b5a54'
+                leavesOpacity='0.06'
+                leavesBrightness='1.0'
                 deptLogo={geo}
                 deptTitle='GEOGRAFI'
                 titleColor={thickColor}
@@ -23,7 +30,12 @@ const Geografi = () => {
                 bgColor='#939188'
                 strokeColor={thickColor}
                 borderColor='#939188'
-                peminatanList={["Geografi Manusia","Geografi Fisik", "Sistem Informasi Geografis"]}
+                peminatanList={[
+                    {
+                        title: "",
+                        items: ["Geografi Manusia","Geografi Fisik", "Sistem Informasi Geografis"]
+                    }
+                ]}
             />
             <Prodi
                 strokeColor={thickColor}

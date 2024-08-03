@@ -1,3 +1,4 @@
+import NavBar from '../components/NavBar';
 import TopDesc from '../components/ReadMoreDept/TopDesc';
 import Peminatan from '../components/ReadMoreDept/Peminatan';
 import Prodi from '../components/ReadMoreDept/Prodi';
@@ -11,8 +12,14 @@ const Geosains = () => {
     const thickColor = '#717132'
     return (
         <div>
+            <NavBar
+                bgColor='rgba(252, 251, 160, 0.6)'
+                textColor='#717132'
+            />
             <TopDesc
                 bgColor='#fbfaa0'
+                leavesOpacity='0.12'
+                leavesBrightness='0.12'
                 deptLogo={geosains}
                 deptTitle='GEOSAINS'
                 titleColor={thickColor}
