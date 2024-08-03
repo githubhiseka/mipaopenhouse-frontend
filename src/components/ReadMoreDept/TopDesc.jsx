@@ -31,7 +31,7 @@ const TopDesc = ({
 				{desc}
 			</p>
 			<img
-				className='absolute -bottom-1 w-full'
+				className='absolute -bottom-1 w-full z-10'
 				src={longRope}
 			/>
 		</div>

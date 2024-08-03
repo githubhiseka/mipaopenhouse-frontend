@@ -14,6 +14,18 @@ body {
 	overscroll-behavior: none;
 }
 
+.swiper-button-prev-pk.swiper-button-disabled,
+.swiper-button-next-pk.swiper-button-disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.swiper-button-prev-p.swiper-button-disabled,
+.swiper-button-next-p.swiper-button-disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
 .swiper-button-next::after,
 .swiper-button-prev::after {
 	display: none;

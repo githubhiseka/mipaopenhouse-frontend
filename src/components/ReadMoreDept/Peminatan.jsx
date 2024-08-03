@@ -11,7 +11,7 @@ import { EffectCoverflow, Mousewheel, Navigation } from 'swiper/modules';
 
 const Peminatan = ({ bgColor, strokeColor, borderColor, peminatanList }) => {
 	return (
-		<div className='z-0 flex w-full flex-col items-center justify-center gap-2 bg-[#f6f3e4] py-8'>
+		<div className='relative z-0 flex w-full flex-col items-center justify-center gap-2 bg-[#f6f3e4] py-8'>
 			<p
 				className='mb-3 mt-6 font-sunborn text-3xl text-transparent'
 				style={{
@@ -37,34 +37,33 @@ const Peminatan = ({ bgColor, strokeColor, borderColor, peminatanList }) => {
 				spaceBetween={100}
 				breakpoints={{
 					640: {
-						slidesPerView: 2,
+						slidesPerView: 1,
 					},
 				}}
 				className='h-[75%] w-screen md:!w-full'
 				initialSlide={0}
 				modules={[EffectCoverflow, Mousewheel, Navigation]}
 				navigation={{
-					nextEl: '.swiper-button-next',
-					prevEl: '.swiper-button-prev',
+					nextEl: '.swiper-button-next-p',
+					prevEl: '.swiper-button-prev-p',
 				}}
 			>
-
 				{peminatanList.map((peminatan, peminatanIndex) => (
 					<SwiperSlide
 						key={peminatanIndex}
-						className='align-center !flex flex-col h-[100%] items-center gap-2 justify-center w-full'
+						className='align-center !flex h-[100%] w-full flex-col items-center justify-center gap-2'
 					>
 						<p
 							className='font-lato font-semibold tracking-wider'
 							style={{ color: strokeColor }}
 						>
-						{peminatan.title}
+							{peminatan.title}
 						</p>
 
 						{peminatan.items.map((item, itemIndex) => (
 							<div
 								key={itemIndex}
-								className='relative flex w-3/5 rounded-full border-2 border-solid font-lato font-semibold tracking-wider sm:w-11/12 lg:w-2/3'
+								className='relative flex w-3/5 rounded-full border-2 border-solid font-lato font-semibold tracking-wider md:w-1/2 lg:w-1/4'
 								style={{
 									backgroundColor: bgColor,
 									borderColor: borderColor,
@@ -77,13 +76,22 @@ const Peminatan = ({ bgColor, strokeColor, borderColor, peminatanList }) => {
 								>
 									{itemIndex + 1}
 								</div>
-								<p className='mx-auto px-8 text-center'>{item}</p>
+								<p className='mx-auto px-8 text-center'>
+									{item}
+								</p>
 							</div>
 						))}
 					</SwiperSlide>
 				))}
 			</Swiper>
-			
+			<div className='absolute top-44 flex w-[95%] justify-between sm:w-4/5 md:w-4/6 lg:w-[38%]'>
+				<div className='swiper-button-prev-p relative flex !h-8 !w-12 cursor-pointer justify-center rounded-3xl bg-[#293d26] bg-opacity-50 py-2'>
+					<FaArrowLeft className='text-[#f6f3e4]' />
+				</div>
+				<div className='swiper-button-next-p relative flex !h-8 !w-12 cursor-pointer justify-center rounded-3xl bg-[#293d26] bg-opacity-50 py-2'>
+					<FaArrowRight className='text-[#f6f3e4]' />
+				</div>
+			</div>
 		</div>
 	);
 };
