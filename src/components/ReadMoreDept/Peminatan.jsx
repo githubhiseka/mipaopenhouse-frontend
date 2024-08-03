@@ -5,9 +5,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/free-mode';
-import 'swiper/css/navigation';
 
 import { EffectCoverflow, Mousewheel, Navigation } from 'swiper/modules';
+import SwiperButton from './SwiperButton';
 
 const Peminatan = ({ bgColor, strokeColor, borderColor, peminatanList }) => {
 	return (
@@ -43,10 +43,6 @@ const Peminatan = ({ bgColor, strokeColor, borderColor, peminatanList }) => {
 				className='h-[75%] w-screen md:!w-full'
 				initialSlide={0}
 				modules={[EffectCoverflow, Mousewheel, Navigation]}
-				navigation={{
-					nextEl: '.swiper-button-next-p',
-					prevEl: '.swiper-button-prev-p',
-				}}
 			>
 				{peminatanList.map((peminatan, peminatanIndex) => (
 					<SwiperSlide
@@ -83,15 +79,16 @@ const Peminatan = ({ bgColor, strokeColor, borderColor, peminatanList }) => {
 						))}
 					</SwiperSlide>
 				))}
+				<SwiperButton />
 			</Swiper>
-			<div className='absolute top-44 flex w-[95%] justify-between sm:w-4/5 md:w-4/6 lg:w-[38%]'>
-				<div className='swiper-button-prev-p relative flex !h-8 !w-12 cursor-pointer justify-center rounded-3xl bg-[#293d26] bg-opacity-50 py-2'>
+			{/* <div className='absolute top-44 flex w-[95%] justify-between sm:w-4/5 md:w-4/6 lg:w-[38%]'>
+				<div className='swiper-button-prev relative flex !h-8 !w-12 cursor-pointer justify-center rounded-3xl bg-[#293d26] bg-opacity-50 py-2'>
 					<FaArrowLeft className='text-[#f6f3e4]' />
 				</div>
-				<div className='swiper-button-next-p relative flex !h-8 !w-12 cursor-pointer justify-center rounded-3xl bg-[#293d26] bg-opacity-50 py-2'>
+				<div className='swiper-button-next relative flex !h-8 !w-12 cursor-pointer justify-center rounded-3xl bg-[#293d26] bg-opacity-50 py-2'>
 					<FaArrowRight className='text-[#f6f3e4]' />
 				</div>
-			</div>
+			</div> */}
 		</div>
 	);
 };
