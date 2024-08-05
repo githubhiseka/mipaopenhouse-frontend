@@ -1,4 +1,7 @@
-function deptCards({ bgColor, imgSrc, title, desc, btnHref, titleColor }) {
+import { useNavigate } from 'react-router-dom';
+
+function DeptCards({ bgColor, imgSrc, title, desc, btnHref, titleColor }) {
+	const navigate = useNavigate();
 	return (
 		<div
 			className={`dept-cards flex h-full w-[80%] flex-col items-center justify-between border-4 border-[#440A00] border-opacity-30 bg-opacity-60 py-7 md:w-[50%] ${bgColor}`}
@@ -23,7 +26,7 @@ function deptCards({ bgColor, imgSrc, title, desc, btnHref, titleColor }) {
 				id='button'
 				className='flex h-[11%] w-[55%] items-center justify-center border-[3px] border-[#6a6868] bg-[#f7f3e4] text-xl font-bold'
 				onClick={() => {
-					window.location.href(btnHref);
+					window.location.href = btnHref;
 				}}
 			>
 				Read More
@@ -32,4 +35,4 @@ function deptCards({ bgColor, imgSrc, title, desc, btnHref, titleColor }) {
 	);
 }
 
-export default deptCards;
+export default DeptCards;

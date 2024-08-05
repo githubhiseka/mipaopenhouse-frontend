@@ -55,7 +55,7 @@ const App = () => {
 					path='/'
 					element={<App />}
 				/>
-				<Route
+				{/* <Route
 					path='/admin'
 					element={
 						<Navigate
@@ -63,15 +63,15 @@ const App = () => {
 							replace
 						/>
 					}
-				/>
-				<Route
+				/> */}
+				{/* <Route
 					path='/admin/login'
 					element={<Admin />}
 				></Route>
 				<Route
 					path='/admin/dashboard'
 					element={<AdminDashboard />}
-				></Route>
+				></Route> */}
 			</Routes>
 		</Router>
 	);

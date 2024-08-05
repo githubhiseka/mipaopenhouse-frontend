@@ -1,13 +1,13 @@
 import React, { createContext, useState, useEffect } from 'react';
 import WelcomeTicket from './Ticketing/WelcomeTicket';
 import TicketPageContext from '../contexts/TicketPageContext';
-import TataCara from './Ticketing/TataCara';
-import DataDiri from './Ticketing/DataDiri';
-import PenjelasanPacket from './Ticketing/PenjelasanPacket';
-import SelectPacket from './Ticketing/SelectPacket';
-import Payment from './Ticketing/Payment';
-import BuktiTransaksi from './Ticketing/BuktiTransaksi';
-import MoreInfo from './Ticketing/MoreInfo';
+// import TataCara from './Ticketing/TataCara';
+// import DataDiri from './Ticketing/DataDiri';
+// import PenjelasanPacket from './Ticketing/PenjelasanPacket';
+// import SelectPacket from './Ticketing/SelectPacket';
+// import Payment from './Ticketing/Payment';
+// import BuktiTransaksi from './Ticketing/BuktiTransaksi';
+// import MoreInfo from './Ticketing/MoreInfo';
 
 const Ticketing = () => {
 	const [page, setPage] = useState(0);
@@ -21,13 +21,13 @@ const Ticketing = () => {
 	});
 	const pageList = [
 		WelcomeTicket,
-		TataCara,
-		DataDiri,
-		PenjelasanPacket,
-		SelectPacket,
-		Payment,
-		BuktiTransaksi,
-		MoreInfo,
+		// TataCara,
+		// DataDiri,
+		// PenjelasanPacket,
+		// SelectPacket,
+		// Payment,
+		// BuktiTransaksi,
+		// MoreInfo,
 	];
 	const CurrentPage = pageList[page % pageList.length];
 

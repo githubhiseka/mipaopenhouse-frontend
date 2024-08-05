@@ -11,7 +11,7 @@ const cardsData = [
 		bgColor: 'bg-[#9E3023]',
 		imgSrc: matematika,
 		desc: 'Fokus pada studi teori, metode, dan aplikasi matematika',
-		btnHref: '',
+		btnHref: '/matematika',
 		titleColor: 'text-[#6A2017]',
 	},
 	{
@@ -19,7 +19,7 @@ const cardsData = [
 		bgColor: 'bg-[#FF7F23]',
 		imgSrc: biologi,
 		desc: 'Mempelajari kehidupan dan organisme, dari molekul hingga ekosistem',
-		btnHref: '',
+		btnHref: '/biologi',
 		titleColor: 'text-[#934D1B]',
 	},
 	{
@@ -27,7 +27,7 @@ const cardsData = [
 		bgColor: 'bg-[#683486]',
 		imgSrc: kimia,
 		desc: 'Mempelajari komposisi, struktur, dan sifat materi serta reaksi kimia',
-		btnHref: '',
+		btnHref: '/kimia',
 		titleColor: 'text-[#301A3D]',
 	},
 	{
@@ -35,7 +35,7 @@ const cardsData = [
 		bgColor: 'bg-[#2B5E1B]',
 		imgSrc: fisika,
 		desc: 'Mempelajari sifat dan fenomena alam melalui pendekatan fisika',
-		btnHref: '',
+		btnHref: '/fisika',
 		titleColor: 'text-[#1A3612]',
 	},
 	{
@@ -43,7 +43,7 @@ const cardsData = [
 		bgColor: 'bg-[#141414]',
 		imgSrc: geografi,
 		desc: 'Mempelajari hubungan manusia dan lingkungan, serta distribusi ruang di permukaan bumi',
-		btnHref: '',
+		btnHref: '/geografi',
 		titleColor: 'text-[#000000]',
 	},
 	{
@@ -51,7 +51,7 @@ const cardsData = [
 		bgColor: 'bg-[#FFFF79]',
 		imgSrc: geosains,
 		desc: 'Mempelajari bumi, termasuk geologi, geofisika, dan ilmu kebumian lainnya',
-		btnHref: '',
+		btnHref: '/geosains',
 		titleColor: 'text-[#717132]',
 	},
 ];

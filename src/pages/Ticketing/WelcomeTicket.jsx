@@ -39,9 +39,9 @@ export default function WelcomeTicket() {
 				<div className='relative flex h-full w-full items-start justify-center font-lato'>
 					<div className='absolute w-[90%] pt-[3vw] text-center text-[4vw] text-[#690a0a] md:w-[80%] md:text-[1.7vw]'>
 						<p>
-							Hai teman-teman! Terima kasih telah menuju gerbang
-							masuk dunia penjelajah, ayo simak dulu tata cara
-							pembelian tiketnya ya!
+							Hai teman-teman! Untuk sementara waktu, tiket belum
+							dapat dibeli. Tunggu info selanjutnya dari kami ya!
+							Terima kasih! 🙏
 						</p>
 					</div>
 					<img
@@ -49,12 +49,12 @@ export default function WelcomeTicket() {
 						alt=''
 						className='h-full w-full object-cover'
 					/>
-					<img
+					{/* <img
 						src={welcomeNextButton}
 						alt=''
 						className='absolute bottom-[10vw] right-[-4vw] w-[40%] cursor-pointer transition-all duration-300 ease-in-out md:bottom-[5.4vw] md:w-[30%] md:hover:right-[-5vw] md:hover:scale-105'
 						onClick={() => setPage(page + 1)}
-					/>
+					/> */}
 				</div>
 			</div>
 		</div>

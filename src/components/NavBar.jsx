@@ -62,7 +62,12 @@ const NavBar = () => {
 					text='CONTACT'
 					link='contact-section'
 				/>
-				<button className='h-12 w-36 border-4 border-[#84743d] border-opacity-60 bg-[#FFE37F] bg-opacity-60 text-[#283C26]'>
+				<button
+					className='h-12 w-36 border-4 border-[#84743d] border-opacity-60 bg-[#FFE37F] bg-opacity-60 text-[#283C26]'
+					onClick={() => {
+						window.location.href = '/ticket';
+					}}
+				>
 					DAFTAR
 				</button>
 			</div>
