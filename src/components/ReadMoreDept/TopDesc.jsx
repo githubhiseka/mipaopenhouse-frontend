@@ -1,8 +1,11 @@
 import longRope from '../../assets/long-rope.svg';
 import rope from '../../assets/rope.svg';
+import topDescLeaves from '../../assets/top-desc-leaves.png'
 
 const TopDesc = ({
 	bgColor,
+	leavesOpacity,
+	leavesBrightness,
 	deptLogo,
 	deptTitle,
 	titleColor,
@@ -11,9 +14,13 @@ const TopDesc = ({
 }) => {
 	return (
 		<div
-			className='bg-container relative flex w-full flex-col items-center justify-center gap-6 bg-auto bg-center pb-10 pt-20' // bg-container is defined in styles.css
+			className='relative flex w-full flex-col items-center justify-center gap-6 bg-auto bg-center pb-10 pt-20'
 			style={{ backgroundColor: bgColor }}
 		>
+			<img
+				className=" absolute w-full h-full inset-0 bg-repeat" 
+				style={{ backgroundImage: `url(${topDescLeaves})`, backgroundSize: 'auto', opacity: leavesOpacity, filter: `brightness(${leavesBrightness})`}}
+			/>
 			<img
 				className='z-10 w-[30%] md:w-1/6 lg:w-[12.5%]'
 				src={deptLogo}

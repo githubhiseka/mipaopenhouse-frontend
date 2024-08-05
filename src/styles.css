@@ -35,6 +35,7 @@ body {
 .swiper-button-next,
 .swiper-button-prev {
 	position: relative !important;
+<<<<<<< HEAD
 }
 
 /* bg-container yg dimaksud biar bisa atur opacity */
@@ -72,3 +73,6 @@ body {
 .swiper-pagination-bullet-active {
 	background: #eaffd3 !important; /* Change this to your desired active color */
 }
+=======
+}
+>>>>>>> 1897e7d46abae892b64d004146c5624a349712d2
