@@ -9,7 +9,11 @@ import ContactSection from '../components/ContactSection';
 const Homepage = () => {
 	return (
 		<div className='font-lato'>
-			<NavBar />
+			{/* lil touch */}
+			<NavBar
+				bgColor='rgba(40, 60, 38, 0.6)'
+				textColor='#FFE37F'
+			/>
 			<TitleSection />
 			<LeavesSection />
 			<AboutUsSection />

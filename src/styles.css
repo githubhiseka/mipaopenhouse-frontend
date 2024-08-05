@@ -14,6 +14,18 @@ body {
 	overscroll-behavior: none;
 }
 
+.swiper-button-prev-pk.swiper-button-disabled,
+.swiper-button-next-pk.swiper-button-disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.swiper-button-prev-p.swiper-button-disabled,
+.swiper-button-next-p.swiper-button-disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
 .swiper-button-next::after,
 .swiper-button-prev::after {
 	display: none;
@@ -33,9 +45,30 @@ body {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background-image: url('./assets/dept-leaves.png'); /* or use inline style in JSX */
+	background-image: url('./assets/top-desc-leaves.png'); /* or use inline style in JSX */
 	background-size: auto;
 	background-position: center;
 	opacity: 0.2; /* Adjust the opacity as needed */
 	z-index: 0; /* Ensure the image stays behind the content */
+}
+
+.table-scrollbar::-webkit-scrollbar {
+	width: 5px;
+}
+
+.table-scrollbar::-webkit-scrollbar-thumb {
+	background-color: #4f4f4f;
+}
+
+.table-scrollbar::-webkit-scrollbar-track {
+	background-color: transparent;
+}
+
+/* Custom CSS for Swiper pagination bullets */
+.swiper-pagination-bullet {
+	background: #eaffd3 !important; /* Change this to your desired color */
+}
+
+.swiper-pagination-bullet-active {
+	background: #eaffd3 !important; /* Change this to your desired active color */
 }
