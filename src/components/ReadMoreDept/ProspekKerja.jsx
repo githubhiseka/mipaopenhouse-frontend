@@ -80,7 +80,7 @@ const ProspekKerja = ({ bgColor, strokeColor, prospekList, leaves }) => {
 						</div>
 					</SwiperSlide>
 				))}
-				<SwiperButton />
+				<SwiperButton listLength={prospekList.length} />
 			</Swiper>
 			<img
 				className='absolute -bottom-8 -left-24 z-0 w-1/2 sm:w-2/5 md:w-1/3 lg:-bottom-12 lg:w-[28%] xl:w-1/4'
