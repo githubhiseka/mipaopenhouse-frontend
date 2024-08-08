@@ -3,6 +3,7 @@ import datadiriDesktopBg from '../../assets/ticketing/datadiri/datadiriDesktopBg
 import datadiriMobileBg from '../../assets/ticketing/datadiri/datadiriMobileBg.png';
 import TicketPageContext from '../../contexts/TicketPageContext';
 import NextMap from '../../components/Ticketing/NextMap';
+import { toast, Toaster } from 'sonner';
 
 const TextInput = ({ label, id, value, setValue }) => (
 	<div className='font-lato font-bold text-[#ba702a]'>
@@ -27,9 +28,30 @@ const TextInput = ({ label, id, value, setValue }) => (
 );
 
 export default function DataDiri() {
-	const { userData, setUserData } = useContext(TicketPageContext);
+	const { userData, setUserData, setPage, page } =
+		useContext(TicketPageContext);
+
+	const handleNext = () => {
+		if (
+			!userData.nama ||
+			!userData.sekolah ||
+			!userData.kelas ||
+			!userData.email ||
+			!userData.noTelp
+		) {
+			toast.error('Harap Isi Semua Data Diri!');
+			return;
+		} else {
+			setPage(page + 1);
+		}
+	};
+
 	return (
 		<div className='relative flex h-screen w-full items-start justify-center overflow-clip'>
+			<Toaster
+				richColors
+				position='top-center'
+			/>
 			<div className='flex h-full w-[75%] flex-col py-[8vh] font-sunborn'>
 				<h1
 					className='self-center text-[12vw] text-[#b8c168] md:text-[5vw]'
@@ -106,7 +128,7 @@ export default function DataDiri() {
 				alt=''
 				className='absolute z-[-1] h-full w-full object-cover md:hidden'
 			/>
-			<NextMap />
+			<NextMap nextFunction={handleNext} />
 		</div>
 	);
 }

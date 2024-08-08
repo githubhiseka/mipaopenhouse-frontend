@@ -8,6 +8,7 @@ import SelectPacket from './Ticketing/SelectPacket';
 import Payment from './Ticketing/Payment';
 import BuktiTransaksi from './Ticketing/BuktiTransaksi';
 import MoreInfo from './Ticketing/MoreInfo';
+import Terimakasih from './Ticketing/Terimakasih';
 
 const Ticketing = () => {
 	const [page, setPage] = useState(0);
@@ -28,6 +29,7 @@ const Ticketing = () => {
 		Payment,
 		BuktiTransaksi,
 		MoreInfo,
+		Terimakasih,
 	];
 	const CurrentPage = pageList[page % pageList.length];
 

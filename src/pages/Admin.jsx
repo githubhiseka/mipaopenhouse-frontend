@@ -20,7 +20,7 @@ export default function Admin() {
 		const result = await handleLoginSubmit(email, password);
 		if (result) {
 			localStorage.setItem('access_token', result.session.access_token);
-			navigate('/admin/dashboard');
+			navigate('/admin/verify');
 		}
 	};
 

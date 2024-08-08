@@ -1,0 +1,65 @@
+import axios from 'axios';
+
+export default function useTicket() {
+	const getAccessToken = async () => {
+		try {
+			const email = import.meta.env.VITE_ADMIN_EMAIL;
+			const password = import.meta.env.VITE_ADMIN_PASSWORD;
+
+			const data = JSON.stringify({ email, password });
+
+			const response = await axios.post(
+				'/api/functions/v1/auth/login',
+				data
+			);
+
+			return response.data.session.access_token;
+		} catch (error) {
+			console.error('Error getting access token:', error);
+		}
+	};
+
+	const uploadImage = async (file) => {
+		try {
+			const access_token = await getAccessToken();
+			const formData = new FormData();
+			formData.append('bukti_transaksi', file);
+
+			const config = {
+				method: 'post',
+				url: '/api/functions/v1/rest-api/upload',
+				headers: {
+					Authorization: `Bearer ${access_token}`,
+					'Content-Type': 'multipart/form-data',
+				},
+				data: formData,
+			};
+
+			const response = await axios(config);
+			return response.data;
+		} catch (error) {
+			console.error('Error uploading image:', error);
+		}
+	};
+
+	const getStock = async (paket) => {
+		try {
+			const access_token = await getAccessToken();
+
+			const response = await axios.get(
+				`/api/functions/v1/rest-api/stok?paket=${paket}`,
+				{
+					headers: {
+						Authorization: `Bearer ${access_token}`,
+					},
+				}
+			);
+
+			return response.data;
+		} catch (error) {
+			console.error('Error getting stock:', error);
+		}
+	};
+
+	return { uploadImage, getStock };
+}

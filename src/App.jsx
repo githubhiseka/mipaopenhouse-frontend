@@ -10,8 +10,9 @@ import Geografi from './pages/Geografi';
 import Geosains from './pages/Geosains';
 import Ticketing from './pages/Ticketing';
 import Admin from './pages/Admin';
-import AdminDashboard from './pages/AdminDashboard';
+import AdminVerify from './pages/AdminVerify';
 import { Navigate } from 'react-router-dom';
+import AdminDashboard from './pages/AdminDashboard';
 // import ProtectedRoute from './utils/ProtectedRoutes';
 
 const App = () => {
@@ -67,6 +68,10 @@ const App = () => {
 				<Route
 					path='/admin/login'
 					element={<Admin />}
+				></Route>
+				<Route
+					path='/admin/verify'
+					element={<AdminVerify />}
 				></Route>
 				<Route
 					path='/admin/dashboard'
