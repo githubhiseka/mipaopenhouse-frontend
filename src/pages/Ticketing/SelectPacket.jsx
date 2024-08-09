@@ -21,12 +21,10 @@ function Packet({ packet, selected, onClick }) {
 					'text-[#eaffd3]': !selected,
 				},
 				{
-					'cursor-not-allowed border-opacity-10 bg-opacity-30 opacity-50':
-						packet.slot === 0,
+					'cursor-not-allowed border-opacity-10 bg-opacity-30 opacity-50': packet.slot === 0,
 				}
 			)}
-			onClick={packet.slot === 0 ? undefined : onClick}
-		>
+			onClick={packet.slot === 0 ? undefined : onClick}>
 			<h1 className='text-2xl font-bold md:text-3xl'>{packet.name}</h1>
 			<p>({packet.slot}) available slot left!</p>
 		</div>
@@ -36,12 +34,12 @@ function Packet({ packet, selected, onClick }) {
 function DetailPopUp({ userData, setShowPopUp, setPage, page }) {
 	return (
 		<div className='fixed z-40 flex h-full w-full flex-col items-center justify-center bg-black bg-opacity-10'>
-			<div className='flex h-[70%] w-auto flex-col items-center justify-between border-4 border-[#223d23] bg-[#628938] bg-opacity-90 px-10 py-8'>
-				<h1 className='font-sunborn text-2xl leading-none text-[#defabf] drop-shadow-title'>
+			<div className='flex h-[70%] w-[90%] flex-col items-center justify-between overflow-x-auto border-4 border-[#223d23] bg-[#628938] bg-opacity-90 px-4 py-8 md:w-auto md:px-10'>
+				<h1 className='text-center font-sunborn text-2xl leading-none text-[#defabf] drop-shadow-title'>
 					Konfirmasi Pesanan Anda
 				</h1>
 				<div className='flex w-full items-start justify-start'>
-					<table className='font-sunborn text-2xl text-white'>
+					<table className='w-full font-sunborn text-lg text-white md:text-2xl'>
 						<thead>
 							<tr>
 								<th></th>
@@ -55,9 +53,7 @@ function DetailPopUp({ userData, setShowPopUp, setPage, page }) {
 							</tr>
 							<tr>
 								<td>Sekolah: </td>
-								<td className='py-2 pl-4'>
-									{userData.sekolah}
-								</td>
+								<td className='py-2 pl-4'>{userData.sekolah}</td>
 							</tr>
 							<tr>
 								<td>Kelas: </td>
@@ -73,9 +69,7 @@ function DetailPopUp({ userData, setShowPopUp, setPage, page }) {
 							</tr>
 							<tr>
 								<td>Kode Reveal: </td>
-								<td className='py-2 pl-4'>
-									{userData.reveal || '-'}
-								</td>
+								<td className='py-2 pl-4'>{userData.reveal || '-'}</td>
 							</tr>
 							<tr>
 								<td>Paket: </td>
@@ -85,10 +79,7 @@ function DetailPopUp({ userData, setShowPopUp, setPage, page }) {
 					</table>
 				</div>
 				<div className='flex w-full items-center justify-between'>
-					<button
-						className='text-xl text-black/50'
-						onClick={() => setShowPopUp(false)}
-					>
+					<button className='text-xl text-black/50' onClick={() => setShowPopUp(false)}>
 						Cancel
 					</button>
 					<img
@@ -105,9 +96,9 @@ function DetailPopUp({ userData, setShowPopUp, setPage, page }) {
 
 export default function SelectPacket() {
 	const [selectedPacket, setSelectedPacket] = useState(null);
-	const { setUserData, page, setPage, userData } =
-		useContext(TicketPageContext);
+	const { setUserData, page, setPage, userData } = useContext(TicketPageContext);
 	const [showPopUp, setShowPopUp] = useState(false);
+	const [isFetching, setIsFetching] = useState(true);
 	const { getStock } = useTicket();
 
 	const [packets, setPackets] = useState([
@@ -121,6 +112,7 @@ export default function SelectPacket() {
 
 	useEffect(() => {
 		const fetchData = async () => {
+			setIsFetching(true);
 			const updatedPackets = await Promise.all(
 				packets.map(async (packet) => {
 					const stock = await getStock(packet.id);
@@ -128,6 +120,7 @@ export default function SelectPacket() {
 				})
 			);
 			setPackets(updatedPackets);
+			setIsFetching(false);
 		};
 
 		fetchData();
@@ -151,26 +144,14 @@ export default function SelectPacket() {
 
 	return (
 		<div className='relative flex h-screen w-full items-start justify-center overflow-clip'>
-			{showPopUp && (
-				<DetailPopUp
-					userData={userData}
-					setShowPopUp={setShowPopUp}
-					setPage={setPage}
-					page={page}
-				/>
+			{showPopUp && !isFetching && (
+				<DetailPopUp userData={userData} setShowPopUp={setShowPopUp} setPage={setPage} page={page} />
 			)}
-			<Toaster
-				richColors
-				position='top-center'
-			/>
+			<Toaster richColors position='top-center' />
 			<div className='flex h-full w-[60%] flex-col items-center justify-start gap-10 py-[8vh] md:w-[75%] md:gap-20'>
 				<div className='relative'>
-					<h1 className='font-sunborn text-6xl leading-none text-[#defabf] drop-shadow-title'>
-						PACKAGE
-					</h1>
-					<p className='text-center font-lato font-bold leading-none text-[#eaffd3]'>
-						Select Yours
-					</p>
+					<h1 className='font-sunborn text-6xl leading-none text-[#defabf] drop-shadow-title'>PACKAGE</h1>
+					<p className='text-center font-lato font-bold leading-none text-[#eaffd3]'>Select Yours</p>
 					<img
 						src={only45k}
 						alt=''
@@ -200,16 +181,8 @@ export default function SelectPacket() {
 					</div>
 				</div>
 			</div>
-			<img
-				src={ticketDesktopBg}
-				alt=''
-				className='absolute z-[-1] hidden h-full w-full object-cover md:block'
-			/>
-			<img
-				src={ticketMobileBg}
-				alt=''
-				className='absolute z-[-1] h-full w-full object-cover md:hidden'
-			/>
+			<img src={ticketDesktopBg} alt='' className='absolute z-[-1] hidden h-full w-full object-cover md:block' />
+			<img src={ticketMobileBg} alt='' className='absolute z-[-1] h-full w-full object-cover md:hidden' />
 			<NextMap nextFunction={handleNext} />
 		</div>
 	);

@@ -8,10 +8,7 @@ export default function useTicket() {
 
 			const data = JSON.stringify({ email, password });
 
-			const response = await axios.post(
-				'/api/functions/v1/auth/login',
-				data
-			);
+			const response = await axios.post('/api/functions/v1/auth/login', data);
 
 			return response.data.session.access_token;
 		} catch (error) {
@@ -36,6 +33,7 @@ export default function useTicket() {
 			};
 
 			const response = await axios(config);
+			console.log(response.data.url);
 			return response.data;
 		} catch (error) {
 			console.error('Error uploading image:', error);
@@ -46,14 +44,11 @@ export default function useTicket() {
 		try {
 			const access_token = await getAccessToken();
 
-			const response = await axios.get(
-				`/api/functions/v1/rest-api/stok?paket=${paket}`,
-				{
-					headers: {
-						Authorization: `Bearer ${access_token}`,
-					},
-				}
-			);
+			const response = await axios.get(`/api/functions/v1/rest-api/stok?paket=${paket}`, {
+				headers: {
+					Authorization: `Bearer ${access_token}`,
+				},
+			});
 
 			return response.data;
 		} catch (error) {
@@ -61,5 +56,36 @@ export default function useTicket() {
 		}
 	};
 
-	return { uploadImage, getStock };
+	const uploadPembayaran = async ({ userData, imgUrl }) => {
+		try {
+			const access_token = await getAccessToken();
+
+			const mappedUserData = {
+				nama: userData.nama,
+				email: userData.email,
+				kontak: userData.noTelp,
+				asal_sekolah: userData.sekolah,
+				kelas: userData.kelas,
+				paket: userData.packet,
+				metode: userData.payment,
+				bukti_transaksi_url: imgUrl,
+				kode_reveal: userData.reveal,
+			};
+
+			const response = await axios.post('/api/functions/v1/rest-api/pembayaran', mappedUserData, {
+				headers: {
+					Authorization: `Bearer ${access_token}`,
+				},
+			});
+
+			console.log(response);
+
+			return response.data;
+		} catch (error) {
+			console.error('Error uploading payment:', error);
+			throw error;
+		}
+	};
+
+	return { uploadImage, getStock, uploadPembayaran };
 }

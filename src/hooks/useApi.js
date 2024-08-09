@@ -77,9 +77,29 @@ export default function useApi() {
 		}
 	};
 
+	const authCheck = async () => {
+		try {
+			const access_token = localStorage.getItem('access_token');
+
+			const response = await axios.get(
+				'/api/functions/v1/rest-api/pembayaran?page=1?perPage=0',
+				{
+					headers: {
+						Authorization: `Bearer ${access_token}`,
+					},
+				}
+			);
+
+			return response;
+		} catch (error) {
+			navigate('/admin/login');
+		}
+	};
+
 	return {
 		getAllCustomers,
 		getCustomerById,
 		handleLoginSubmit,
+		authCheck,
 	};
 }

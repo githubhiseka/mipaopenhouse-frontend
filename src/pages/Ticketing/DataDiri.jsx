@@ -13,8 +13,7 @@ const TextInput = ({ label, id, value, setValue }) => (
 			style={{
 				WebkitTextStrokeColor: '#FFFFFF',
 				WebkitTextStrokeWidth: '0.6px',
-			}}
-		>
+			}}>
 			{label}
 		</label>
 		<input
@@ -28,17 +27,10 @@ const TextInput = ({ label, id, value, setValue }) => (
 );
 
 export default function DataDiri() {
-	const { userData, setUserData, setPage, page } =
-		useContext(TicketPageContext);
+	const { userData, setUserData, setPage, page } = useContext(TicketPageContext);
 
 	const handleNext = () => {
-		if (
-			!userData.nama ||
-			!userData.sekolah ||
-			!userData.kelas ||
-			!userData.email ||
-			!userData.noTelp
-		) {
+		if (!userData.nama || !userData.sekolah || !userData.kelas || !userData.email || !userData.noTelp) {
 			toast.error('Harap Isi Semua Data Diri!');
 			return;
 		} else {
@@ -48,18 +40,14 @@ export default function DataDiri() {
 
 	return (
 		<div className='relative flex h-screen w-full items-start justify-center overflow-clip'>
-			<Toaster
-				richColors
-				position='top-center'
-			/>
+			<Toaster richColors position='top-center' />
 			<div className='flex h-full w-[75%] flex-col py-[8vh] font-sunborn'>
 				<h1
 					className='self-center text-[12vw] text-[#b8c168] md:text-[5vw]'
 					style={{
 						WebkitTextStrokeColor: '#FFFFFF',
 						WebkitTextStrokeWidth: '3px',
-					}}
-				>
+					}}>
 					DATA DIRI
 				</h1>
 				{/* input form */}
@@ -69,33 +57,37 @@ export default function DataDiri() {
 							label='Nama'
 							id='nama'
 							value={userData.nama}
-							setValue={(value) =>
-								setUserData({ ...userData, nama: value })
-							}
+							setValue={(value) => setUserData({ ...userData, nama: value })}
 						/>
 						<TextInput
 							label='Nama Sekolah'
 							id='sekolah'
 							value={userData.sekolah}
-							setValue={(value) =>
-								setUserData({ ...userData, sekolah: value })
-							}
+							setValue={(value) => setUserData({ ...userData, sekolah: value })}
 						/>
-						<TextInput
-							label='Kelas'
-							id='kelas'
-							value={userData.kelas}
-							setValue={(value) =>
-								setUserData({ ...userData, kelas: value })
-							}
-						/>
+						<div className='font-lato font-bold text-[#ba702a]'>
+							<label
+								htmlFor='kelas'
+								className='text-xl md:text-3xl'
+								style={{
+									WebkitTextStrokeColor: '#FFFFFF',
+									WebkitTextStrokeWidth: '0.6px',
+								}}>
+								Kelas
+							</label>
+							<input
+								type='number'
+								id='kelas'
+								value={userData.kelas}
+								onChange={(e) => setUserData({ ...userData, kelas: e.target.value })}
+								className='w-full rounded-md border-[3px] border-[#ba702a] bg-[#e9cf9d] p-1 md:p-2'
+							/>
+						</div>
 						<TextInput
 							label='E-mail'
 							id='email'
 							value={userData.email}
-							setValue={(value) =>
-								setUserData({ ...userData, email: value })
-							}
+							setValue={(value) => setUserData({ ...userData, email: value })}
 						/>
 					</div>
 					<div className='flex h-1/2 w-full flex-col gap-4'>
@@ -103,17 +95,13 @@ export default function DataDiri() {
 							label='No Telp/Id Line'
 							id='noTelp'
 							value={userData.noTelp}
-							setValue={(value) =>
-								setUserData({ ...userData, noTelp: value })
-							}
+							setValue={(value) => setUserData({ ...userData, noTelp: value })}
 						/>
 						<TextInput
 							label='Kode Reveal Ambassador'
 							id='reveal'
 							value={userData.reveal}
-							setValue={(value) =>
-								setUserData({ ...userData, reveal: value })
-							}
+							setValue={(value) => setUserData({ ...userData, reveal: value })}
 						/>
 					</div>
 				</div>
@@ -123,11 +111,7 @@ export default function DataDiri() {
 				alt=''
 				className='absolute z-[-1] hidden h-full w-full object-cover md:block'
 			/>
-			<img
-				src={datadiriMobileBg}
-				alt=''
-				className='absolute z-[-1] h-full w-full object-cover md:hidden'
-			/>
+			<img src={datadiriMobileBg} alt='' className='absolute z-[-1] h-full w-full object-cover md:hidden' />
 			<NextMap nextFunction={handleNext} />
 		</div>
 	);

@@ -7,8 +7,7 @@ import { useNavigate } from 'react-router-dom';
 export default function Admin() {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
-	const { customerData, getAllCustomers, handleLoginSubmit, authError } =
-		useApi();
+	const { customerData, getAllCustomers, handleLoginSubmit } = useApi();
 	const navigate = useNavigate();
 
 	// useEffect(() => {
@@ -26,7 +25,6 @@ export default function Admin() {
 
 	return (
 		<div>
-			{authError && <div>Error: {authError.message}</div>}
 			<AdminLogin
 				email={email}
 				setEmail={setEmail}

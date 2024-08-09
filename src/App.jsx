@@ -13,6 +13,7 @@ import Admin from './pages/Admin';
 import AdminVerify from './pages/AdminVerify';
 import { Navigate } from 'react-router-dom';
 import AdminDashboard from './pages/AdminDashboard';
+import ProtectedRoute from './utils/ProtectedRoute';
 // import ProtectedRoute from './utils/ProtectedRoutes';
 
 const App = () => {
@@ -69,14 +70,17 @@ const App = () => {
 					path='/admin/login'
 					element={<Admin />}
 				></Route>
-				<Route
-					path='/admin/verify'
-					element={<AdminVerify />}
-				></Route>
-				<Route
-					path='/admin/dashboard'
-					element={<AdminDashboard />}
-				></Route>
+
+				<Route element={<ProtectedRoute />}>
+					<Route
+						path='/admin/verify'
+						element={<AdminVerify />}
+					></Route>
+					<Route
+						path='/admin/dashboard'
+						element={<AdminDashboard />}
+					></Route>
+				</Route>
 			</Routes>
 		</Router>
 	);
