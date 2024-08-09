@@ -106,7 +106,7 @@ const ContactSection = () => {
 					<p>
 						LINE:{' '}
 						<a
-							href='https://'
+							href='https://line.me/ti/p/g5HoF1Mmtv'
 							className='underline underline-offset-2'
 						>
 							venidaarmd
