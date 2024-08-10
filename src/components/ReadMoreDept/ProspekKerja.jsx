@@ -56,7 +56,7 @@ const ProspekKerja = ({ bgColor, strokeColor, prospekList, leaves }) => {
 						className='align-center !flex h-[100%] w-full items-center justify-center'
 					>
 						<div
-							className='relative z-10 flex h-24 w-3/5 items-center justify-center border-2 border-solid font-lato tracking-wider md:w-1/2 lg:w-[35%] xl:w-1/4'
+							className='relative z-10 flex h-24 w-3/5 items-center justify-center border-2 border-solid font-lato tracking-wider md:w-1/2 lg:w-1/4'
 							style={{
 								borderColor: strokeColor,
 								backgroundColor: bgColor,

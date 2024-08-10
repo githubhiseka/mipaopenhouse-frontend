@@ -72,7 +72,7 @@ function DeptSlider() {
 				}}
 				spaceBetween={0}
 				breakpoints={{
-					640: {
+					768: {
 						slidesPerView: 2,
 					},
 				}}

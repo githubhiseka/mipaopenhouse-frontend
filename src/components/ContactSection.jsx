@@ -80,7 +80,7 @@ const ContactSection = () => {
 					Journey to the Universe of Science
 				</p>
 			</div>
-			<div className='flex w-full flex-row flex-wrap sm:flex-nowrap gap-y-6 px-8 py-8 md:px-32'>
+			<div className='flex w-full flex-row flex-wrap sm:flex-nowrap gap-y-6 pl-10 pr-6 py-8 md:px-32 '>
 				<div className='w-full sm:w-[45%] order-3 sm:order-1'>
 					<p className='text-xl font-bold'>Our Location</p>
 					<a href="https://maps.app.goo.gl/xAYBhzgaDYfcMgBJ9">
@@ -126,7 +126,7 @@ const ContactSection = () => {
 							<div>{tiktok}</div>
 						</a>
 					</div>
-					<p>#RaihMimpimu</p>
+					<p>#ExploreTheScience</p>
 				</div>
 			</div>
 			<p className='my-3 text-xs'>©FMIPACIL 2024. All rights reserved</p>
