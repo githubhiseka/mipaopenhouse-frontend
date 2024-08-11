@@ -56,7 +56,7 @@ const ProspekKerja = ({ bgColor, strokeColor, prospekList, leaves }) => {
 						className='align-center !flex h-[100%] w-full items-center justify-center'
 					>
 						<div
-							className='relative z-10 flex h-24 w-3/5 items-center justify-center border-2 border-solid font-lato tracking-wider md:w-1/2 lg:w-[35%] xl:w-1/4'
+							className='relative z-10 flex h-24 w-3/5 items-center justify-center border-2 border-solid font-lato tracking-wider md:w-1/2 lg:w-1/4'
 							style={{
 								borderColor: strokeColor,
 								backgroundColor: bgColor,
@@ -80,7 +80,7 @@ const ProspekKerja = ({ bgColor, strokeColor, prospekList, leaves }) => {
 						</div>
 					</SwiperSlide>
 				))}
-				<SwiperButton />
+				<SwiperButton listLength={prospekList.length} />
 			</Swiper>
 			<img
 				className='absolute -bottom-8 -left-24 z-0 w-1/2 sm:w-2/5 md:w-1/3 lg:-bottom-12 lg:w-[28%] xl:w-1/4'

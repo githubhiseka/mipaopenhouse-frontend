@@ -3,8 +3,8 @@ const ContactSection = () => {
 	const instagram = (
 		<svg
 			xmlns='http://www.w3.org/2000/svg'
-			width='24'
-			height='24'
+			width='32'
+			height='32'
 			viewBox='0 0 24 24'
 			fill='none'
 			stroke='currentColor'
@@ -26,8 +26,8 @@ const ContactSection = () => {
 	const x = (
 		<svg
 			xmlns='http://www.w3.org/2000/svg'
-			width='24'
-			height='24'
+			width='32'
+			height='32'
 			viewBox='0 0 24 24'
 			fill='none'
 			stroke='currentColor'
@@ -48,8 +48,8 @@ const ContactSection = () => {
 	const tiktok = (
 		<svg
 			xmlns='http://www.w3.org/2000/svg'
-			width='24'
-			height='24'
+			width='32'
+			height='32'
 			viewBox='0 0 24 24'
 			fill='none'
 			stroke='currentColor'
@@ -70,7 +70,7 @@ const ContactSection = () => {
 	return (
 		<div
 			id='contact-section'
-			className='relative flex w-full flex-col items-center justify-center bg-[#283C26] text-[#FEFDF6]'		// added relative biar bunga nya bisa di belakang contact section
+			className='relative flex w-full flex-col items-center justify-center bg-[#283C26] text-[#FEFDF6]' // added relative biar bunga nya bisa di belakang contact section
 		>
 			<div className='pt-8'>
 				<p className='text-center text-5xl font-extrabold'>
@@ -80,62 +80,56 @@ const ContactSection = () => {
 					Journey to the Universe of Science
 				</p>
 			</div>
-			<div className='flex w-full flex-row justify-between px-8 py-8 md:px-32'>
-				<div className='w-48'>
+			<div className='flex w-full flex-row flex-wrap sm:flex-nowrap gap-y-6 pl-10 pr-6 py-8 md:px-32 '>
+				<div className='w-full sm:w-[45%] order-3 sm:order-1'>
 					<p className='text-xl font-bold'>Our Location</p>
-					<p>
-						Fakultas MIPA
-						<br />
-						Universitas Indonesia
-						<br />
-						Depok, Jawa Barat
-					</p>
+					<a href="https://maps.app.goo.gl/xAYBhzgaDYfcMgBJ9">
+						<p className='underline underline-offset-2'>
+							Fakultas MIPA, Universitas Indonesia,
+							<br />
+							Depok, Jawa Barat
+						</p>
+					</a>
 				</div>
-				<div className='flex w-48 flex-col items-center text-center'>
+				<div className='flex w-1/2 sm:w-[35%] flex-col order-2 sm:order-1'>
 					<p className='text-xl font-bold'>Contact Us</p>
+					<p className="font-[550]">Venida</p>
 					<p>
-						08xxxxxx6474
-						<br />
-						(Name)
+						WhatsApp:{' '}
+						<a
+							href='https://wa.me/+62816889740'
+							className='underline underline-offset-2'
+						>
+							0816889740
+						</a>
+					</p>
+					<p>
+						LINE:{' '}
+						<a
+							href='https://line.me/ti/p/g5HoF1Mmtv'
+							className='underline underline-offset-2'
+						>
+							venidaarmd
+						</a>
 					</p>
 				</div>
-				<div className='flex w-48 flex-col items-end text-right'>
+				<div className='flex w-1/2 sm:w-1/5 flex-col order-2 sm:order-3'>
 					<p className='text-xl font-bold'>Connect</p>
-					<div className='flex flex-row'>
-						<p className='pr-1'>
-							<a
-								href='https://www.instagram.com/'
-								className='underline underline-offset-2'
-							>
-								Instagram
-							</a>
-						</p>
-						{instagram}
+					<div className='relative -left-1 flex flex-row gap-1'>
+						<a href="https://www.instagram.com/mipaopenhouse?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
+							<div>{instagram}</div>
+						</a>
+						<a href="https://twitter.com/mipaopenhouse">
+							<div>{x}</div>
+						</a>
+						<a href="https://www.tiktok.com/@mipaopenhouse?is_from_webapp=1&sender_device=pc">
+							<div>{tiktok}</div>
+						</a>
 					</div>
-					<div className='flex flex-row'>
-						<p className='pr-1'>
-							<a
-								href='https://x.com/'
-								className='underline underline-offset-2'
-							>
-								Twitter/X
-							</a>
-						</p>
-						{x}
-					</div>
-					<div className='flex flex-row'>
-						<p className='pr-1'>
-							<a
-								href='https://www.tiktok.com/'
-								className='underline underline-offset-2'
-							>
-								TikTok
-							</a>
-						</p>
-						{tiktok}
-					</div>
+					<p>#ExploreTheScience</p>
 				</div>
 			</div>
+			<p className='my-3 text-xs'>©FMIPACIL 2024. All rights reserved</p>
 		</div>
 	);
 };
