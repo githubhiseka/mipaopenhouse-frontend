@@ -12,6 +12,7 @@
 html,
 body {
 	overscroll-behavior: none;
+	scroll-behavior: smooth;
 }
 
 .swiper-button-prev-pk.swiper-button-disabled,

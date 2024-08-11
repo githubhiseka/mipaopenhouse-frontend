@@ -33,7 +33,7 @@ const NavBar = ({ bgColor, textColor }) => {
 			{/* FOR MEDIUM AND LARGER VIEWPORT */}
 			<div
 				// refactored navbar to take in bgColor and textColor arguments for flexibility in departments
-				className={`fixed top-0 z-50 hidden h-20 w-full flex-row items-center justify-between pl-6 pr-12 text-lg font-bold tracking-wide transition ease-in-out md:flex ${isScrolled ? 'bg-opacity-60 shadow-2xl backdrop-blur' : ''}`}
+				className={`font-lato fixed top-0 z-50 hidden h-20 w-full flex-row items-center justify-between pl-6 pr-12 text-lg font-bold tracking-wide transition ease-in-out md:flex ${isScrolled ? 'bg-opacity-60 shadow-2xl backdrop-blur' : ''}`}
 				style={{
 					backgroundColor: isScrolled ? bgColor : 'transparent',
 					color: textColor,

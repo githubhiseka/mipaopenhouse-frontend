@@ -1,4 +1,4 @@
-import rope from '../../assets/rope.svg'
+import rope from '../../assets/rope.svg';
 import topDescLeaves from '../../assets/top-desc-leaves.png';
 
 const TopDesc = ({
@@ -13,7 +13,7 @@ const TopDesc = ({
 }) => {
 	return (
 		<div
-			className='relative flex w-full flex-col items-center justify-center gap-6 bg-auto bg-center pb-10 pt-20'
+			className='relative flex w-full flex-col items-center justify-center gap-6 bg-auto bg-center pb-10 pt-20 overflow-x-clip'
 			style={{ backgroundColor: bgColor }}
 		>
 			<img
@@ -36,7 +36,7 @@ const TopDesc = ({
 				{deptTitle}
 			</p>
 			<p
-				className='w-4/5 text-center font-lato text-xs tracking-wider sm:text-base'
+				className='w-4/5 text-center font-lato font-semibold text-md tracking-wider sm:text-base'
 				style={{ color: descColor }}
 			>
 				{desc}
