@@ -79,7 +79,7 @@ const Peminatan = ({ bgColor, strokeColor, borderColor, peminatanList }) => {
 						))}
 					</SwiperSlide>
 				))}
-				<SwiperButton />
+				<SwiperButton listLength={peminatanList.length} />
 			</Swiper>
 			{/* <div className='absolute top-44 flex w-[95%] justify-between sm:w-4/5 md:w-4/6 lg:w-[38%]'>
 				<div className='swiper-button-prev relative flex !h-8 !w-12 cursor-pointer justify-center rounded-3xl bg-[#293d26] bg-opacity-50 py-2'>

@@ -1,5 +1,4 @@
-import longRope from '../../assets/long-rope.svg';
-import rope from '../../assets/rope.svg';
+import rope from '../../assets/rope.svg'
 import topDescLeaves from '../../assets/top-desc-leaves.png';
 
 const TopDesc = ({
@@ -44,7 +43,7 @@ const TopDesc = ({
 			</p>
 			<img
 				className='absolute -bottom-1 z-10 w-full'
-				src={longRope}
+				src={rope}
 			/>
 		</div>
 	);

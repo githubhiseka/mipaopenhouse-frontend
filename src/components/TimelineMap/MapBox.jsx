@@ -33,7 +33,7 @@ const MapBox = ({
 				<br />
 				{title2}
 			</p>
-			<p className='text-[0.8rem] font-semibold italic text-[#440A00] md:text-lg'>
+			<p className='text-[0.7rem] font-semibold italic text-[#440A00] md:text-lg'>
 				{subtitle}
 			</p>
 			<div
