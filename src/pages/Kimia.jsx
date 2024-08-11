@@ -6,7 +6,7 @@ import ProspekKerja from '../components/ReadMoreDept/ProspekKerja';
 import Contact from '../components/ContactSection';
 
 import chem from '../assets/departments/kimia.svg';
-import chemLeaves from '../assets/deptLeaves/chem-leaves.png';
+import chemLeaves from '../assets/deptLeaves/chem-leaves.webp';
 
 const Kimia = () => {
 	const thickColor = '#301a3d';

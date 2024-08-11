@@ -6,7 +6,7 @@ import ProspekKerja from '../components/ReadMoreDept/ProspekKerja';
 import Contact from '../components/ContactSection';
 
 import geosains from '../assets/departments/geosains.svg';
-import geosainsLeaves from '../assets/deptLeaves/geosains-leaves.png';
+import geosainsLeaves from '../assets/deptLeaves/geosains-leaves.webp';
 
 const Geosains = () => {
 	const thickColor = '#717132';

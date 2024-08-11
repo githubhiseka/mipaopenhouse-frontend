@@ -1,5 +1,5 @@
 import rope from '../../assets/rope.svg';
-import topDescLeaves from '../../assets/top-desc-leaves.png';
+import topDescLeaves from '../../assets/top-desc-leaves.webp';
 
 const TopDesc = ({
 	bgColor,

@@ -1,7 +1,7 @@
 import NextMap from '../../components/Ticketing/NextMap';
-import ticketDesktopBg from '../../assets/ticketing/ticketDesktopBg.png';
-import ticketMobileBg from '../../assets/ticketing/ticketMobileBg.png';
-import only45k from '../../assets/ticketing/only45k.png';
+import ticketDesktopBg from '../../assets/ticketing/ticketDesktopBg.webp';
+import ticketMobileBg from '../../assets/ticketing/ticketMobileBg.webp';
+import only45k from '../../assets/ticketing/only45k.webp';
 import cn from 'classnames';
 import { useState } from 'react';
 

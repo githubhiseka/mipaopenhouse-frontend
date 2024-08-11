@@ -6,7 +6,7 @@ import ProspekKerja from '../components/ReadMoreDept/ProspekKerja';
 import Contact from '../components/ContactSection';
 
 import math from '../assets/departments/matematika.svg';
-import mathLeaves from '../assets/deptLeaves/math-leaves.png';
+import mathLeaves from '../assets/deptLeaves/math-leaves.webp';
 
 const Matematika = () => {
 	const thickColor = '#6a2017';

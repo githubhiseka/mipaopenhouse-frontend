@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import nextButton from '../../assets/ticketing/nextButton.png';
-import nextMap from '../../assets/ticketing/nextMap.png';
+import nextButton from '../../assets/ticketing/nextButton.webp';
+import nextMap from '../../assets/ticketing/nextMap.webp';
 import TicketPageContext from '../../contexts/TicketPageContext';
 
 export default function NextMap() {

@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import datadiriDesktopBg from '../../assets/ticketing/datadiri/datadiriDesktopBg.png';
-import datadiriMobileBg from '../../assets/ticketing/datadiri/datadiriMobileBg.png';
+import datadiriDesktopBg from '../../assets/ticketing/datadiri/datadiriDesktopBg.webp';
+import datadiriMobileBg from '../../assets/ticketing/datadiri/datadiriMobileBg.webp';
 import TicketPageContext from '../../contexts/TicketPageContext';
 import NextMap from '../../components/Ticketing/NextMap';
 

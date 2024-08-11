@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import moreinfoDesktopBg from '../../assets/ticketing/moreinfoDesktopBg.png';
-import moreinfoMobileBg from '../../assets/ticketing/moreinfoMobileBg.png';
-import moreinfoCrystal from '../../assets/ticketing/moreinfoCrystal.png';
+import moreinfoDesktopBg from '../../assets/ticketing/moreinfoDesktopBg.webp';
+import moreinfoMobileBg from '../../assets/ticketing/moreinfoMobileBg.webp';
+import moreinfoCrystal from '../../assets/ticketing/moreinfoCrystal.webp';
 import NextMap from '../../components/Ticketing/NextMap';
 
 export default function MoreInfo() {

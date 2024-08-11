@@ -6,7 +6,7 @@ import ProspekKerja from '../components/ReadMoreDept/ProspekKerja';
 import Contact from '../components/ContactSection';
 
 import geo from '../assets/departments/geografi.svg';
-import geoLeaves from '../assets/deptLeaves/geo-leaves.png';
+import geoLeaves from '../assets/deptLeaves/geo-leaves.webp';
 
 const Geografi = () => {
 	const thickColor = '#000000';

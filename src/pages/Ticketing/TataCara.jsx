@@ -1,9 +1,9 @@
-import tatacaraDesktopBg from '../../assets/ticketing/tatacaraDesktopBg.png';
-import tatacaraMobileBg from '../../assets/ticketing/tatacaraMobileBg.png';
-import tatacaraFlamingo from '../../assets/ticketing/tatacaraFlamingo.png';
-import tatacaraCactus from '../../assets/ticketing/tatacaraCactus.png';
-import tatacaraNextButton from '../../assets/ticketing/tatacaraNextButton.png';
-import tatacaraLeaves from '../../assets/ticketing/tatacaraLeaves.png';
+import tatacaraDesktopBg from '../../assets/ticketing/tatacaraDesktopBg.webp';
+import tatacaraMobileBg from '../../assets/ticketing/tatacaraMobileBg.webp';
+import tatacaraFlamingo from '../../assets/ticketing/tatacaraFlamingo.webp';
+import tatacaraCactus from '../../assets/ticketing/tatacaraCactus.webp';
+import tatacaraNextButton from '../../assets/ticketing/tatacaraNextButton.webp';
+import tatacaraLeaves from '../../assets/ticketing/tatacaraLeaves.webp';
 import { useContext } from 'react';
 import TicketPageContext from '../../contexts/TicketPageContext';
 

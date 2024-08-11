@@ -1,12 +1,12 @@
 // WelcomeTicket.js
 import React, { useContext } from 'react';
 import TicketPageContext from '../../contexts/TicketPageContext';
-import welcomeDesktopBg from '../../assets/ticketing/welcomeDesktopBg.png';
-import welcomeMobileBg from '../../assets/ticketing/welcomeMobileBg.png';
-import ticketMap from '../../assets/ticketing/ticketMap.png';
-import welcomeBird from '../../assets/ticketing/welcomeBird.png';
-import welcomeBubbleText from '../../assets/ticketing/welcomeBubbleText.png';
-import welcomeNextButton from '../../assets/ticketing/welcomeNextButton.png';
+import welcomeDesktopBg from '../../assets/ticketing/welcomeDesktopBg.webp';
+import welcomeMobileBg from '../../assets/ticketing/welcomeMobileBg.webp';
+import ticketMap from '../../assets/ticketing/ticketMap.webp';
+import welcomeBird from '../../assets/ticketing/welcomeBird.webp';
+import welcomeBubbleText from '../../assets/ticketing/welcomeBubbleText.webp';
+import welcomeNextButton from '../../assets/ticketing/welcomeNextButton.webp';
 
 export default function WelcomeTicket() {
 	const { page, setPage } = useContext(TicketPageContext);
