@@ -14,7 +14,7 @@ const Prodi = ({ strokeColor, prodiList }) => {
 				{prodiList.map((prodi, index) => (
 					<div
 						key={index}
-						className='flex-1 rounded-2xl border-2 border-solid px-8 py-3 max-w-[14rem] text-center font-lato text-sm font-bold tracking-wider'
+						className='max-w-[14rem] flex-1 rounded-2xl border-2 border-solid px-8 py-3 text-center font-lato text-sm font-bold tracking-wider'
 						style={{ color: strokeColor, borderColor: strokeColor }}
 					>
 						{prodi}

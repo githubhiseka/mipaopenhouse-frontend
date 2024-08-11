@@ -83,8 +83,11 @@ const NavBar = ({ bgColor, textColor }) => {
 				// refactored navbar to take in bgColor and textColor arguments for flexibility in departments
 				className={`${isScrolled || isNavBarExpanded ? 'bg-[#283C26] bg-opacity-60 shadow-2xl backdrop-blur' : ''} fixed top-0 z-50 flex w-full flex-col justify-between px-4 align-middle text-lg font-bold tracking-wide transition-all duration-300 ease-in-out md:hidden ${isNavBarExpanded ? 'h-64' : 'h-20'}`}
 				style={{
-					backgroundColor: isScrolled || isNavBarExpanded ? bgColor : 'transparent',
-					color: textColor
+					backgroundColor:
+						isScrolled || isNavBarExpanded
+							? bgColor
+							: 'transparent',
+					color: textColor,
 				}}
 			>
 				<div className='flex h-20 w-full items-center justify-between'>

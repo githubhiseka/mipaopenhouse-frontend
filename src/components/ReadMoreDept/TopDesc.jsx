@@ -1,6 +1,6 @@
 import longRope from '../../assets/long-rope.svg';
 import rope from '../../assets/rope.svg';
-import topDescLeaves from '../../assets/top-desc-leaves.png'
+import topDescLeaves from '../../assets/top-desc-leaves.png';
 
 const TopDesc = ({
 	bgColor,
@@ -18,8 +18,13 @@ const TopDesc = ({
 			style={{ backgroundColor: bgColor }}
 		>
 			<img
-				className=" absolute w-full h-full inset-0 bg-repeat" 
-				style={{ backgroundImage: `url(${topDescLeaves})`, backgroundSize: 'auto', opacity: leavesOpacity, filter: `brightness(${leavesBrightness})`}}
+				className='absolute inset-0 h-full w-full bg-repeat'
+				style={{
+					backgroundImage: `url(${topDescLeaves})`,
+					backgroundSize: 'auto',
+					opacity: leavesOpacity,
+					filter: `brightness(${leavesBrightness})`,
+				}}
 			/>
 			<img
 				className='z-10 w-[30%] md:w-1/6 lg:w-[12.5%]'
@@ -38,7 +43,7 @@ const TopDesc = ({
 				{desc}
 			</p>
 			<img
-				className='absolute -bottom-1 w-full z-10'
+				className='absolute -bottom-1 z-10 w-full'
 				src={longRope}
 			/>
 		</div>
