@@ -12,14 +12,14 @@ const Matematika = () => {
 	const thickColor = '#6a2017';
 	return (
 		<div>
-            <NavBar
-                bgColor='rgba(184, 106, 93, 0.6)'
-                textColor='#6a2017'
-            />
+			<NavBar
+				bgColor='rgba(184, 106, 93, 0.6)'
+				textColor='#6a2017'
+			/>
 			<TopDesc
 				bgColor='#b86a5d'
 				leavesOpacity='0.13'
-                leavesBrightness='1.0'
+				leavesBrightness='1.0'
 				deptLogo={math}
 				deptTitle='MATEMATIKA'
 				titleColor={thickColor}
