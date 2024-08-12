@@ -3,7 +3,7 @@ import nextButton from '../../assets/ticketing/nextButton.webp';
 import nextMap from '../../assets/ticketing/nextMap.webp';
 import TicketPageContext from '../../contexts/TicketPageContext';
 
-export default function NextMap() {
+export default function NextMap({ nextFunction }) {
 	const { setPage, page } = useContext(TicketPageContext);
 	return (
 		<div className='absolute bottom-[-40vw] right-[-10vw] h-auto w-full md:bottom-[-25vw] md:w-[60%]'>
@@ -17,7 +17,7 @@ export default function NextMap() {
 					src={nextButton}
 					alt=''
 					className='absolute right-[15vw] top-[6vw] z-20 w-[30%] cursor-pointer transition-all duration-300 ease-in-out md:w-[20%] md:hover:scale-105'
-					onClick={() => setPage(page + 1)}
+					onClick={nextFunction || (() => setPage(page + 1))}
 				/>
 			</div>
 		</div>

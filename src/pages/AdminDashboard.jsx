@@ -1,161 +1,241 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import AdminTable from '../components/Admin/AdminTable';
-import cn from 'classnames';
-import { GiChecklist } from 'react-icons/gi';
-import { Check, X } from 'lucide-react';
-import UserInformation from '../components/Admin/UserInformation';
-import UserVerification from '../components/Admin/UserVerficiation';
 import useApi from '../hooks/useApi';
+import AdminTable from '../components/Admin/AdminTable';
+import AdminSideBar from '../components/Admin/AdminSideBar';
+import useAdmin from '../hooks/useAdmin';
+import { Search, SearchIcon } from 'lucide-react';
+import { toast, Toaster } from 'sonner';
+import cn from 'classnames';
 
 export default function AdminDashboard() {
-	const [unverifiedCustomer, setUnverifiedCustomer] = useState([]);
-	const [verifiedCustomer, setVerifiedCustomer] = useState([]);
+	const [customerData, setCustomerData] = useState([]);
 	const [selectedCustomer, setSelectedCustomer] = useState(null);
-	const [confirmationPopup, setConfirmationPopup] = useState(false);
-	const [imagePopup, setImagePopup] = useState(false);
-	const [isLoading, setIsLoading] = useState(true);
-	const { getAllCustomers } = useApi();
-	const Navigate = useNavigate();
+	const [stringSearch, setStringSearch] = useState('');
+	const [metodePembayaran, setMetodePembayaran] = useState('');
+	const [paket, setPaket] = useState('');
+	const [status, setStatus] = useState('');
+	const [kodeReveal, setKodeReveal] = useState('');
+	const [canLoadMore, setCanLoadMore] = useState(true);
+	const [page, setPage] = useState(0);
+	const { getDataFilter, deleteUser } = useAdmin();
 
 	const fetchData = async () => {
-		const response = await getAllCustomers();
-		console.log(response);
-		const verified = response.pembayaran.filter((item) => item.verified);
-		setVerifiedCustomer(verified);
-		const unverified = response.pembayaran.filter((item) => !item.verified);
-		setUnverifiedCustomer(unverified);
-		setIsLoading(false);
+		toast.promise(
+			getDataFilter({
+				page: 0,
+				search: stringSearch,
+				metode: metodePembayaran,
+				paket: paket,
+				status: status,
+				kodeReveal: kodeReveal,
+			}),
+			{
+				loading: 'Fetching Data...',
+				success: (data) => {
+					setCustomerData(data.pembayaran);
+					return `${data.pembayaran.length} users found`;
+				},
+				error: () => {
+					setCustomerData([]);
+					return 'Tidak ada data yang ditemukan';
+				},
+			}
+		);
 	};
 
-	const handleVerify = async () => {
-		const access_token = localStorage.getItem('access_token');
+	const loadMore = async () => {
+		if (!canLoadMore) return;
+		toast.promise(
+			getDataFilter({
+				page: page + 1,
+				search: stringSearch,
+				metode: metodePembayaran,
+				paket: paket,
+				status: status,
+			}),
+			{
+				loading: 'Fetching Data...',
+				success: (data) => {
+					setCustomerData((prev) => [...prev, ...data.pembayaran]);
+					setPage((prev) => prev + 1);
+					if (data.pembayaran.length < 7) {
+						setCanLoadMore(false);
+					}
+					return `${data.pembayaran.length} users found`;
+				},
+				error: () => {
+					return 'Tidak ada data yang ditemukan';
+				},
+			}
+		);
 	};
 
 	useEffect(() => {
-		setIsLoading(true);
 		fetchData();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
+	useEffect(() => {
+		const handleKeyPress = (event) => {
+			if (event.key === 'Enter') {
+				fetchData();
+			}
+		};
+
+		window.addEventListener('keypress', handleKeyPress);
+		return () => {
+			window.removeEventListener('keypress', handleKeyPress);
+		};
+	}, [stringSearch, metodePembayaran, paket, status, kodeReveal]);
+
+	const handleDelete = async () => {
+		console.log('delete', selectedCustomer);
+		toast.promise(deleteUser(selectedCustomer.id), {
+			loading: 'Deleting...',
+			success: (data) => {
+				setCustomerData((prev) => prev.filter((item) => item.id !== selectedCustomer.id));
+				setSelectedCustomer(null);
+				return 'Deleted';
+			},
+			error: () => {
+				return 'Failed to delete';
+			},
+		});
+	};
+
 	return (
 		<>
-			{!isLoading && (
-				<div className='h-auto w-full md:h-screen'>
-					<div className='flex h-full w-full flex-col gap-8 p-8 md:flex-row'>
-						<div className='flex h-[70vh] w-full flex-col gap-8 font-lato md:h-full md:w-2/3'>
-							<div className='flex h-full w-full flex-col rounded-md border-[1px] border-gray-300/50 p-8 py-4 shadow-md md:h-1/2'>
-								<div className='h-auto'>
-									<h1 className='text-3xl font-bold'>
-										Unverified Transaction
-									</h1>
-									<p className='text-gray-600'>
-										Semua user yang belum di verifikasi:
-									</p>
-								</div>
-								<AdminTable
-									data={unverifiedCustomer}
-									setSelectedCustomer={setSelectedCustomer}
-									selectedCustomer={selectedCustomer}
+			<div className='flex h-auto w-full md:h-screen'>
+				<Toaster richColors />
+				<AdminSideBar />
+				<div className='mt-20 flex h-full w-full flex-col gap-8 p-8 md:mt-0 md:flex-row'>
+					<div className='flex h-full w-full flex-col rounded-md border-[1px] border-gray-300/50 p-8 py-4 shadow-md'>
+						<div className='flex h-auto w-full justify-between'>
+							<h1 className='text-3xl font-bold'>All Transactions</h1>
+							<a
+								className='flex h-full cursor-pointer items-center gap-2 rounded-lg px-2 py-2 hover:bg-gray-100/70 md:py-0'
+								href='https://google.com/sheets/about/'
+								target='_blank'
+								rel='noreferrer'>
+								<img
+									src='https://2.bp.blogspot.com/-hBfU2YnPnuc/WimJErMCwKI/AAAAAAAADrg/sWP4nS1jSB0toeYCa0KXSsfuFal1ZMgGQCLcBGAs/s1600/google-sheets-icon.png'
+									alt=''
+									className='h-6 w-6'
 								/>
-								<p className='px-4 text-sm text-gray-600'>
-									Total: {unverifiedCustomer.length} users
-								</p>
-							</div>
-							<div className='hidden h-auto w-full flex-col rounded-md border-[1px] border-gray-300/50 p-8 py-4 shadow-md md:flex md:h-1/2'>
-								<div className='h-auto'>
-									<h1 className='text-3xl font-bold'>
-										Verified Transaction
-									</h1>
-									<p className='text-gray-600'>
-										Semua user yang belum di verifikasi:
-									</p>
-								</div>
-								<AdminTable
-									data={verifiedCustomer}
-									setSelectedCustomer={setSelectedCustomer}
-									selectedCustomer={selectedCustomer}
-								/>
-								<p className='px-4 text-sm text-gray-600'>
-									Total: {verifiedCustomer.length} users
-								</p>
-							</div>
+								<p className='hidden rounded-md font-bold text-blue-500 md:block'>Link to Sheets</p>
+							</a>
 						</div>
-						<div className='flex h-full w-full flex-1 flex-col gap-4'>
-							<div className='h-[60%] w-full rounded-md border-[1px] border-gray-300/50 shadow-md'>
-								{selectedCustomer ? (
-									<UserVerification
-										item={selectedCustomer}
-										setPopup={setImagePopup}
-										setConfirmationPopup={
-											setConfirmationPopup
+						<div className='flex h-auto w-full flex-col items-center gap-1 md:mb-3 md:flex-row md:gap-4'>
+							<div className='flex w-full flex-col truncate md:w-2/3'>
+								<label htmlFor='search'>Search</label>
+								<input
+									type='text'
+									id='search'
+									className='w-full rounded-md border-2 border-gray-300/50 p-2'
+									placeholder='Search by name, email, or kode referral'
+									value={stringSearch}
+									onChange={(e) => setStringSearch(e.target.value)}
+								/>
+							</div>
+							<div className='flex w-full flex-col truncate md:w-1/3'>
+								<label htmlFor='search'>Kode Reveal</label>
+								<input
+									type='text'
+									id='search'
+									className='w-full rounded-md border-2 border-gray-300/50 p-2'
+									placeholder='Search by kode referral'
+									value={kodeReveal}
+									onChange={(e) => setKodeReveal(e.target.value)}
+								/>
+							</div>
+							<div className='flex w-full gap-3 md:flex md:w-[60%] md:gap-4'>
+								<div className='flex w-1/3 flex-col truncate'>
+									<label htmlFor='metode-pembayaran' className='text-gray-700/90'>
+										Metode Pembayaran
+									</label>
+									<select
+										className='w-full rounded-md border-2 border-gray-300/50 bg-gray-200/10 p-2'
+										id='metode-pembayaran'
+										onChange={(e) => setMetodePembayaran(e.target.value)}>
+										<option value='' selected>
+											All
+										</option>
+										<option value='cash'>Cash</option>
+										<option value='e-wallet'>E-Money</option>
+										<option value='bank'>Bank</option>
+									</select>
+								</div>
+								<div className='flex w-1/3 flex-col truncate'>
+									<label htmlFor='paket' className='text-gray-700/90'>
+										Paket
+									</label>
+									<select
+										className='w-full rounded-md border-2 border-gray-300/50 bg-gray-200/10 p-2'
+										id='paket'
+										onChange={(e) => setPaket(e.target.value)}>
+										<option value='' selected>
+											All
+										</option>
+										{
+											// for loop 6 times
+											Array.from({ length: 6 }, (_, i) => (
+												<option key={i} value={i + 1}>
+													Paket {i + 1}
+												</option>
+											))
 										}
-									/>
-								) : (
-									<div className='flex h-full w-full items-center justify-center'>
-										Please Select A Transaction
-									</div>
-								)}
+									</select>
+								</div>
+								<div className='flex w-1/3 flex-col truncate'>
+									<label htmlFor='status' className='text-gray-700/90'>
+										Status
+									</label>
+									<select
+										className='w-full rounded-md border-2 border-gray-300/50 bg-gray-200/10 p-2'
+										id='status'
+										onChange={(e) => setStatus(e.target.value)}>
+										<option value='' selected>
+											All
+										</option>
+										<option value='verified'>verified</option>
+										<option value='pending'>pending</option>
+										<option value='rejected'>Rejected</option>
+									</select>
+								</div>
 							</div>
-							<div className='h-full w-full flex-1 overflow-y-auto rounded-md border-[1px] border-gray-300/50 shadow-md'>
-								{selectedCustomer && (
-									<UserInformation item={selectedCustomer} />
-								)}
-							</div>
-						</div>
-					</div>
-				</div>
-			)}
-
-			{confirmationPopup && selectedCustomer && (
-				<div className='fixed left-0 top-0 z-20 flex h-full w-full items-center justify-center bg-black bg-opacity-50 px-4 md:px-0'>
-					<div className='flex h-full w-full items-center justify-center'>
-						<div className='flex h-auto w-auto flex-col gap-4 rounded-md bg-white p-4'>
-							<div className='h-auto w-full items-center justify-between'>
-								<h1 className='text-lg font-bold'>
-									Konfirmasi Transaksi {selectedCustomer.nama}{' '}
-									?
-								</h1>
-								<p>Bukti tiket akan dikirim ke pihak terkait</p>
-							</div>
-							<div className='flex h-auto w-full items-center justify-between gap-4'>
-								<button
-									className='flex h-fit items-center justify-between gap-2 rounded-md border-[1px] border-gray-500/50 bg-gray-400 px-4 py-1 font-bold text-white hover:bg-gray-500'
-									onClick={() => setConfirmationPopup(false)}
-								>
-									<X size={20} />
-									<span>Cancel</span>
-								</button>
-								<button
-									className='flex h-fit items-center justify-between gap-2 rounded-md border-[1px] border-gray-500/50 bg-green-500 px-4 py-1 font-bold text-white hover:bg-green-600'
-									onClick={() => handleVerify()}
-								>
-									<Check size={20} />
-									<span>Verify</span>
-								</button>
+							<div className='flex h-full w-full flex-col items-center justify-center md:w-[7%]'>
+								<label htmlFor='' className='hidden opacity-0 md:block'>
+									go
+								</label>
+								<div
+									className='flex h-auto w-full items-center rounded-md border-[1px] border-gray-800/50 bg-gray-500/80 p-2'
+									onClick={fetchData}>
+									<SearchIcon className='w-full cursor-pointer' color='white' />
+								</div>
 							</div>
 						</div>
+						<AdminTable
+							data={customerData}
+							setSelectedCustomer={setSelectedCustomer}
+							selectedCustomer={selectedCustomer}
+							handleDelete={handleDelete}
+						/>
+						<div className='flex h-auto w-full items-center justify-center pt-2'>
+							<button
+								className={cn(
+									'rounded-md border-[1px] border-gray-800/50 bg-gray-500/80 px-4 py-2 font-bold text-white',
+									{
+										'cursor-not-allowed opacity-50': !canLoadMore,
+									}
+								)}
+								onClick={loadMore}>
+								Load More
+							</button>
+						</div>
+						<p className='px-4 text-sm text-gray-600'>Total: {customerData.length} users</p>
 					</div>
 				</div>
-			)}
-
-			{imagePopup && selectedCustomer && (
-				<div className='fixed left-0 top-0 z-20 flex h-full w-full items-center justify-center bg-black bg-opacity-50'>
-					<div className='flex h-[95%] w-full items-center justify-center'>
-						<X
-							className='absolute right-10 top-10 cursor-pointer'
-							size={80}
-							onClick={() => setImagePopup(false)}
-						/>
-						<img
-							src={selectedCustomer.bukti_transaksi_url}
-							alt=''
-							className='h-full w-full object-contain'
-						/>
-					</div>
-				</div>
-			)}
+			</div>
 		</>
 	);
 }
