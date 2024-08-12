@@ -1,5 +1,11 @@
 import axios from 'axios';
 
+const baseURL = import.meta.env.VITE_API_URL;
+
+const axiosInstance = axios.create({
+	baseURL: baseURL,
+});
+
 export default function useAdmin() {
 	const updateData = async ({ userData, status }) => {
 		try {
@@ -16,7 +22,7 @@ export default function useAdmin() {
 			};
 			console.log(data);
 
-			const response = axios.put(`/api/functions/v1/rest-api/pembayaran/${userData.id}`, data, {
+			const response = await axiosInstance.put(`/functions/v1/rest-api/pembayaran/${userData.id}`, data, {
 				headers: {
 					Authorization: `Bearer ${localStorage.getItem('access_token')}`,
 				},
@@ -30,7 +36,7 @@ export default function useAdmin() {
 
 	const getDataFilter = async ({ page, search, metode, paket, status, kodeReveal }) => {
 		try {
-			let uri = '/api/functions/v1/rest-api/pembayaran';
+			let uri = '/functions/v1/rest-api/pembayaran';
 			uri += `?page=${page}`;
 
 			if (search) {
@@ -57,7 +63,7 @@ export default function useAdmin() {
 
 			console.log(uri);
 
-			const response = await axios.get(uri, {
+			const response = await axiosInstance.get(uri, {
 				headers: {
 					Authorization: `Bearer ${localStorage.getItem('access_token')}`,
 				},
@@ -72,7 +78,7 @@ export default function useAdmin() {
 
 	const deleteUser = async (id) => {
 		try {
-			const response = await axios.delete(`/api/functions/v1/rest-api/pembayaran/${id}`, {
+			const response = await axiosInstance.delete(`/functions/v1/rest-api/pembayaran/${id}`, {
 				headers: {
 					Authorization: `Bearer ${localStorage.getItem('access_token')}`,
 				},

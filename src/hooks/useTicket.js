@@ -1,5 +1,11 @@
 import axios from 'axios';
 
+const baseURL = import.meta.env.VITE_API_URL;
+
+const axiosInstance = axios.create({
+	baseURL: baseURL,
+});
+
 export default function useTicket() {
 	const getAccessToken = async () => {
 		try {
@@ -8,7 +14,7 @@ export default function useTicket() {
 
 			const data = JSON.stringify({ email, password });
 
-			const response = await axios.post('/api/functions/v1/auth/login', data);
+			const response = await axiosInstance.post('/functions/v1/auth/login', data);
 
 			return response.data.session.access_token;
 		} catch (error) {
@@ -24,7 +30,7 @@ export default function useTicket() {
 
 			const config = {
 				method: 'post',
-				url: '/api/functions/v1/rest-api/upload',
+				url: '/functions/v1/rest-api/upload',
 				headers: {
 					Authorization: `Bearer ${access_token}`,
 					'Content-Type': 'multipart/form-data',
@@ -32,7 +38,7 @@ export default function useTicket() {
 				data: formData,
 			};
 
-			const response = await axios(config);
+			const response = await axiosInstance(config);
 			console.log(response.data.url);
 			return response.data;
 		} catch (error) {
@@ -44,7 +50,7 @@ export default function useTicket() {
 		try {
 			const access_token = await getAccessToken();
 
-			const response = await axios.get(`/api/functions/v1/rest-api/stok?paket=${paket}`, {
+			const response = await axiosInstance.get(`/functions/v1/rest-api/stok?paket=${paket}`, {
 				headers: {
 					Authorization: `Bearer ${access_token}`,
 				},
@@ -72,7 +78,7 @@ export default function useTicket() {
 				kode_reveal: userData.reveal,
 			};
 
-			const response = await axios.post('/api/functions/v1/rest-api/pembayaran', mappedUserData, {
+			const response = await axiosInstance.post('/functions/v1/rest-api/pembayaran', mappedUserData, {
 				headers: {
 					Authorization: `Bearer ${access_token}`,
 				},
