@@ -12,6 +12,7 @@ import logo from '../assets/logo.svg';
 import AdminSideBar from '../components/Admin/AdminSideBar';
 import useAdmin from '../hooks/useAdmin';
 import { toast, Toaster } from 'sonner';
+import emailjs from '@emailjs/browser';
 
 export default function AdminVerify() {
 	const [unverifiedCustomer, setUnverifiedCustomer] = useState([]);
@@ -38,42 +39,42 @@ export default function AdminVerify() {
 	};
 
 	const handleVerify = async () => {
-		toast.promise(updateData({ userData: selectedCustomer, status: 'verified' }), {
-			loading: 'Loading...',
-			success: () => {
-				setUnverifiedCustomer((prev) => prev.filter((item) => item.id !== selectedCustomer.id));
-				return 'Success!';
-			},
-			error: 'Error!',
-		});
-
+		setConfirmationPopup(false);
 		toast.promise(sendEmail({ email: selectedCustomer.email, name: selectedCustomer.nama }), {
 			loading: 'Sending Email...',
 			success: () => {
-				return 'Email Sent!';
-			},
-			error: 'Error!',
-		});
+				toast.promise(updateData({ userData: selectedCustomer, status: 'rejected' }), {
+					loading: 'Loading...',
+					success: () => {
+						setUnverifiedCustomer((prev) => prev.filter((item) => item.id !== selectedCustomer.id));
+						return 'Success!';
+					},
+					error: 'Error!',
+				});
 
-		setConfirmationPopup(false);
+				return 'Email Berhasil Dikirim!';
+			},
+			error: 'Error dalam mengirim email!',
+		});
+		setRejectPopUp(false);
 	};
 
 	const handleReject = async () => {
-		toast.promise(updateData({ userData: selectedCustomer, status: 'rejected' }), {
-			loading: 'Loading...',
-			success: () => {
-				setUnverifiedCustomer((prev) => prev.filter((item) => item.id !== selectedCustomer.id));
-				return 'Success!';
-			},
-			error: 'Error!',
-		});
-
 		toast.promise(sendRejectEmail({ email: selectedCustomer.email, name: selectedCustomer.nama }), {
 			loading: 'Sending Email...',
 			success: () => {
-				return 'Email Sent!';
+				toast.promise(updateData({ userData: selectedCustomer, status: 'rejected' }), {
+					loading: 'Loading...',
+					success: () => {
+						setUnverifiedCustomer((prev) => prev.filter((item) => item.id !== selectedCustomer.id));
+						return 'Success!';
+					},
+					error: 'Error!',
+				});
+
+				return 'Email Berhasil Dikirim!';
 			},
-			error: 'Error!',
+			error: 'Error dalam mengirim email!',
 		});
 		setRejectPopUp(false);
 	};
@@ -86,6 +87,12 @@ export default function AdminVerify() {
 		};
 
 		setLoading();
+	}, []);
+
+	useEffect(() => {
+		emailjs.init({
+			publicKey: import.meta.env.VITE_EMAIL_API_KEY,
+		});
 	}, []);
 
 	return (

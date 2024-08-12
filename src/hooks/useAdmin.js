@@ -1,7 +1,7 @@
 import axios from 'axios';
+import emailjs from '@emailjs/browser';
 
 const baseURL = import.meta.env.VITE_API_URL;
-const emailApiKey = import.meta.env.VITE_EMAIL_API_KEY;
 
 const axiosInstance = axios.create({
 	baseURL: baseURL,
@@ -112,38 +112,14 @@ export default function useAdmin() {
 
 	const sendEmail = async ({ email, name }) => {
 		try {
-			console.log(email, name);
-			// create a formData
-			console.log(emailApiKey);
-			const formData = new FormData();
-			formData.append('email', email);
-			formData.append('access_key', emailApiKey);
-			formData.append('subject', 'Mipa Open House UI 2024');
-			formData.append('from_name', 'Mipa Open House');
-			formData.append(
-				'message',
-				`Hi ${name}, Terima kasih sudah membeli tiket MIPA Open House 2024! Kami sangat senang menyambut kehadiran Anda di acara ini. 
-				Jangan lupa, MIPA Open House 2024 akan dilaksanakan pada:\n
-				Tanggal: Sabtu, 9 November 2024
-				Tempat: Fakultas Matematika dan Ilmu Pengetahuan Alam UI
-				https://maps.app.goo.gl/fgR4HS4iASTW9Gfz8?g_st=ic\n
-				Untuk memantau informasi terbaru seputar acara, jangan lupa untuk bergabung dengan grup WhatsApp resmi kami melalui link berikut: 
-				https://chat.whatsapp.com/HqWa82BUH3EH9zi2VSrkhK
-				Sampai jumpa di MIPA Open House 2024!\n
-				Narahubung :
-				venida (0816889740/LINE : venidaarmd)`
-			);
-
-			console.log(formData);
-
-			const response = await axios.post('https://api.web3forms.com/submit', formData, {
-				headers: {
-					'Content-Type': 'multipart/form-data',
-				},
+			console.log('sending email');
+			const response = await emailjs.send('service_qg7p35k', 'template_verify', {
+				to_email: email,
+				name: name.trim().split(' ')[0],
 			});
-
 			console.log(response);
-			return response;
+			console.log('Email Sent!');
+			return 'Email Sent!';
 		} catch (error) {
 			console.error(error);
 			throw error;
@@ -152,33 +128,13 @@ export default function useAdmin() {
 
 	const sendRejectEmail = async ({ email, name }) => {
 		try {
-			console.log(email, name);
-			// create a formData
-			console.log(emailApiKey);
-			const formData = new FormData();
-			formData.append('email', email);
-			formData.append('access_key', emailApiKey);
-			formData.append('subject', 'Mipa Open House UI 2024');
-			formData.append('from_name', 'Mipa Open House');
-			formData.append(
-				'message',
-				`Hi ${name}, Pembayaran Anda Tidak Dapat Diproses\n
-				Kami ingin menyampaikan permintaan maaf yang sebesar-besarnya karena pembayaran Anda tidak dapat kami proses. Hal ini disebabkan oleh ketidakvalidan dalam bukti pembayaran yang telah Anda cantumkan.\n
-				Jika Anda tetap ingin melanjutkan proses pembayaran, kami sangat menyarankan agar Anda segera menghubungi narahubung kami untuk mendapatkan bantuan lebih lanjut.\n
-				Narahubung :
-				venida (0816889740/LINE : venidaarmd)`
-			);
-
-			console.log(formData);
-
-			const response = await axios.post('https://api.web3forms.com/submit', formData, {
-				headers: {
-					'Content-Type': 'multipart/form-data',
-				},
+			console.log('sending email');
+			const response = await emailjs.send('service_qg7p35k', 'template_reject', {
+				to_email: email,
+				name: name.trim().split(' ')[0],
 			});
-
-			console.log(response);
-			return response;
+			console.log('Email Sent!');
+			return 'Email Sent!';
 		} catch (error) {
 			console.error(error);
 			throw error;
