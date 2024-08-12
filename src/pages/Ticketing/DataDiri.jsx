@@ -52,7 +52,7 @@ export default function DataDiri() {
 					DATA DIRI
 				</h1>
 				{/* input form */}
-				<div className='flex h-full w-full flex-col gap-4 md:flex-row md:gap-[8rem]'>
+				<div className='flex h-full w-full flex-col gap-y-4 md:flex-row md:gap-[8rem]'>
 					<div className='flex h-1/2 w-full flex-col gap-4'>
 						<TextInput
 							label='Nama'
@@ -93,7 +93,7 @@ export default function DataDiri() {
 					</div>
 					<div className='flex h-1/2 w-full flex-col gap-4'>
 						<TextInput
-							label='No Telp/Id Line'
+							label='No. WhatsApp/ID LINE'
 							id='noTelp'
 							value={userData.noTelp}
 							setValue={(value) => setUserData({ ...userData, noTelp: value })}

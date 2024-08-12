@@ -13,6 +13,7 @@ export default function Payment() {
 
 	useEffect(() => {
 		setUserData((prev) => ({ ...prev, payment: selectedPayment }));
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [selectedPayment]);
 
 	const handleNext = () => {
@@ -46,8 +47,14 @@ export default function Payment() {
 							}
 						)}
 						onClick={() => setSelectedPayment('bank')}>
-						<h1 className='text-3xl font-bold md:text-5xl'>Bank</h1>
-						<p className='text-center md:text-2xl'>Mandiri - 1570011753085 a.n. Aisha Rajwa</p>
+						<h1 className='w-full text-center text-3xl font-bold md:text-3xl'>Bank</h1>
+						<p className='w-full text-center md:text-2xl'>
+							Mandiri
+							<br />
+							1570011753085
+							<br />
+							a.n. Aisha Rajwa
+						</p>
 					</div>
 					<div
 						className={cn(
@@ -58,8 +65,14 @@ export default function Payment() {
 							}
 						)}
 						onClick={() => setSelectedPayment('e-wallet')}>
-						<h1 className='text-center text-3xl font-bold md:text-5xl'>E-Wallet</h1>
-						<p className='text-center md:text-2xl'>Gopay - 08111453271 a.n. Aisha Rajwa</p>
+						<h1 className='w-full text-center text-3xl font-bold md:text-3xl'>E-Wallet</h1>
+						<p className='w-full text-center md:text-2xl'>
+							GoPay
+							<br />
+							08111453271
+							<br />
+							a.n. Aisha Rajwa
+						</p>
 					</div>
 					<div
 						className={cn(
@@ -70,7 +83,7 @@ export default function Payment() {
 							}
 						)}
 						onClick={() => setSelectedPayment('cash')}>
-						<h1 className='text-3xl font-bold md:text-5xl'>Cash</h1>
+						<h1 className='text-3xl font-bold md:text-3xl'>Cash</h1>
 					</div>
 				</div>
 			</div>

@@ -3,12 +3,12 @@ import React, { useContext } from 'react';
 import TicketPageContext from '../../contexts/TicketPageContext';
 import welcomeDesktopBg from '../../assets/ticketing/welcomeDesktopBg.webp';
 import welcomeMobileBg from '../../assets/ticketing/welcomeMobileBg.webp';
-import ticketMap from '../../assets/ticketing/terimakasihMap.png';
-import welcomeBird from '../../assets/ticketing/terimakasihBird.png';
+import ticketMap from '../../assets/ticketing/terimakasihMap.webp';
+import welcomeBird from '../../assets/ticketing/terimakasihBird.webp';
 import welcomeBubbleText from '../../assets/ticketing/welcomeBubbleText.webp';
-import followForMore from '../../assets/ticketing/terimakasihFollow.png';
+import followForMore from '../../assets/ticketing/terimakasihFollow.webp';
 import { useNavigate } from 'react-router-dom';
-import backArrow from '../../assets/backArrow.png';
+import backArrow from '../../assets/backArrow.webp';
 
 export default function Terimakasih() {
 	const navigate = useNavigate();
@@ -32,19 +32,15 @@ export default function Terimakasih() {
 						<p>Terima kasih sudah menjadi bagian dari MIPA Open House! Until next time!</p>
 					</div>
 					<img src={welcomeBubbleText} alt='' className='h-full w-full object-cover' />
-					<img
-						src={followForMore}
-						alt=''
-						className='bottom-0 hidden aspect-auto w-2/3 md:absolute md:top-[100%] md:block'
-					/>
+					<a href='https://www.instagram.com/mipaopenhouse/'>
+						<img
+							src={followForMore}
+							alt=''
+							className='bottom-0 hidden aspect-auto w-2/3 md:absolute md:top-[100%] md:block'
+						/>
+					</a>
 				</div>
 			</div>
-			<img
-				src={backArrow}
-				alt=''
-				className='fixed bottom-[35vh] right-[18vw] h-20 w-20 rotate-90 transform cursor-pointer hover:scale-105 md:bottom-[8vh]'
-				onClick={() => navigate('/')}
-			/>
 			<img
 				src={followForMore}
 				alt=''

@@ -30,7 +30,7 @@ export default function TataCara() {
 				<img
 					src={tatacaraNextButton}
 					alt=''
-					className='absolute bottom-[-8vw] right-[-6vw] w-[40%] cursor-pointer transition-all duration-300 ease-in-out md:bottom-[-3vw] md:right-0 md:w-[17%] md:hover:right-[-1vw] md:hover:scale-105'
+					className='absolute bottom-[-8vw] right-[-6vw] w-[40%] cursor-pointer transition-all duration-300 ease-in-out md:bottom-[-3vw] md:right-0 md:w-[17%] hover:scale-110 scale-[80%] md:scale-100'
 					onClick={() => setPage(page + 1)}
 				/>
 			</div>

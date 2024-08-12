@@ -35,57 +35,53 @@ function DetailPopUp({ userData, setShowPopUp, setPage, page }) {
 	return (
 		<div className='fixed z-40 flex h-full w-full flex-col items-center justify-center bg-black bg-opacity-10'>
 			<div className='flex h-[70%] w-[90%] flex-col items-center justify-between overflow-x-auto border-4 border-[#223d23] bg-[#628938] bg-opacity-90 px-4 py-8 md:w-auto md:px-10'>
-				<h1 className='text-center font-sunborn text-2xl leading-none text-[#defabf] drop-shadow-title'>
+				<h1 className='text-center font-sunborn text-3xl leading-none text-[#defabf] drop-shadow-title'>
 					Konfirmasi Pesanan Anda
 				</h1>
-				<div className='flex w-full items-start justify-start'>
-					<table className='w-full font-sunborn text-lg text-white md:text-2xl'>
-						<thead>
-							<tr>
-								<th></th>
-								<th></th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>Nama: </td>
-								<td className='py-2 pl-4'>{userData.nama}</td>
-							</tr>
-							<tr>
-								<td>Sekolah: </td>
-								<td className='py-2 pl-4'>{userData.sekolah}</td>
-							</tr>
-							<tr>
-								<td>Kelas: </td>
-								<td className='py-2 pl-4'>{userData.kelas}</td>
-							</tr>
-							<tr>
-								<td>Email: </td>
-								<td className='py-2 pl-4'>{userData.email}</td>
-							</tr>
-							<tr>
-								<td>No. Telp: </td>
-								<td className='py-2 pl-4'>{userData.noTelp}</td>
-							</tr>
-							<tr>
-								<td>Kode Reveal: </td>
-								<td className='py-2 pl-4'>{userData.reveal || '-'}</td>
-							</tr>
-							<tr>
-								<td>Paket: </td>
-								<td className='py-2 pl-4'>{userData.packet}</td>
-							</tr>
-						</tbody>
-					</table>
+				<div className='flex w-full flex-col items-start justify-start truncate'>
+					<div className='flex'>
+						<div className=''></div>
+						<div className=''></div>
+					</div>
+					<div className='flex flex-col -space-y-2 text-white'>
+						<div className='font-bold'>Nama:</div>
+						<div className=''>{userData.nama}</div>
+					</div>
+					<div className='flex flex-col -space-y-2 text-white'>
+						<div className='font-bold'>Sekolah:</div>
+						<div className=''>{userData.sekolah}</div>
+					</div>
+					<div className='flex flex-col -space-y-2 text-white'>
+						<div className='font-bold'>Kelas:</div>
+						<div className=''>{userData.kelas}</div>
+					</div>
+					<div className='flex flex-col -space-y-2 text-white'>
+						<div className='font-bold'>Email:</div>
+						<div className=''>{userData.email}</div>
+					</div>
+					<div className='flex flex-col -space-y-2 text-white'>
+						<div className='font-bold'>No. Telp:</div>
+						<div className=''>{userData.noTelp}</div>
+					</div>
+					<div className='flex flex-col -space-y-2 text-white'>
+						<div className='font-bold'>Kode Reveal:</div>
+						<div className=''>{userData.reveal || '-'}</div>
+					</div>
+					<div className='flex flex-col -space-y-2 text-white'>
+						<div className='font-bold'>Paket:</div>
+						<div className=''>{userData.packet}</div>
+					</div>
 				</div>
 				<div className='flex w-full items-center justify-between'>
-					<button className='text-xl text-black/50' onClick={() => setShowPopUp(false)}>
+					<button
+						className='rounded-full border bg-white px-3 py-1 font-sunborn text-xl text-black/50'
+						onClick={() => setShowPopUp(false)}>
 						Cancel
 					</button>
 					<img
 						src={nextButton}
 						alt=''
-						className='w-32 cursor-pointer object-contain'
+						className='w-32 scale-90 cursor-pointer object-contain hover:scale-110 md:scale-100'
 						onClick={() => setPage(page + 1)}
 					/>
 				</div>
@@ -124,6 +120,7 @@ export default function SelectPacket() {
 		};
 
 		fetchData();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	useEffect(() => {
@@ -131,6 +128,7 @@ export default function SelectPacket() {
 			...prev,
 			packet: selectedPacket + 1,
 		}));
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [selectedPacket]);
 
 	const handleNext = () => {
@@ -151,7 +149,7 @@ export default function SelectPacket() {
 			<div className='flex h-full w-[60%] flex-col items-center justify-start gap-10 py-[8vh] md:w-[75%] md:gap-20'>
 				<div className='relative'>
 					<h1 className='font-sunborn text-6xl leading-none text-[#defabf] drop-shadow-title'>PACKAGE</h1>
-					<p className='text-center font-lato font-bold leading-none text-[#eaffd3]'>Select Yours</p>
+					<p className='text-center font-lato text-xl font-bold leading-none text-[#eaffd3]'>Select Yours!</p>
 					<img
 						src={only45k}
 						alt=''

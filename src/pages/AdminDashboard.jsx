@@ -118,7 +118,7 @@ export default function AdminDashboard() {
 								target='_blank'
 								rel='noreferrer'>
 								<img
-									src='https://2.bp.blogspot.com/-hBfU2YnPnuc/WimJErMCwKI/AAAAAAAADrg/sWP4nS1jSB0toeYCa0KXSsfuFal1ZMgGQCLcBGAs/s1600/google-sheets-icon.png'
+									src='https://2.bp.blogspot.com/-hBfU2YnPnuc/WimJErMCwKI/AAAAAAAADrg/sWP4nS1jSB0toeYCa0KXSsfuFal1ZMgGQCLcBGAs/s1600/google-sheets-icon.webp'
 									alt=''
 									className='h-6 w-6'
 								/>

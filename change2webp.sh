@@ -3,6 +3,9 @@
 # Get the script's filename
 script_name=$(basename "$0")
 
+# Go to source directory
+cd "src"
+
 # Compress all files in the current directory (quality: 100%) and delete the original files
 find . -type f \( -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" \) ! -path "./node_modules/*" ! -path "./.git/*" ! -name "$script_name" | while read img; do
     cwebp -q 100 "$img" -o "${img%.*}.webp"
@@ -33,3 +36,6 @@ done
 echo "---------------"
 echo "All .png, .jpg, and .jpeg references have been changed to .webp."
 echo "---------------"
+
+# Go back to the root directory
+cd ..
