@@ -1,8 +1,10 @@
-import longRope from '../../assets/long-rope.svg';
 import rope from '../../assets/rope.svg';
+import topDescLeaves from '../../assets/top-desc-leaves.webp';
 
 const TopDesc = ({
 	bgColor,
+	leavesOpacity,
+	leavesBrightness,
 	deptLogo,
 	deptTitle,
 	titleColor,
@@ -11,9 +13,18 @@ const TopDesc = ({
 }) => {
 	return (
 		<div
-			className='bg-container relative flex w-full flex-col items-center justify-center gap-6 bg-auto bg-center pb-10 pt-20' // bg-container is defined in styles.css
+			className='relative flex w-full flex-col items-center justify-center gap-6 bg-auto bg-center pb-10 pt-20 overflow-x-clip'
 			style={{ backgroundColor: bgColor }}
 		>
+			<img
+				className='absolute inset-0 h-full w-full bg-repeat'
+				style={{
+					backgroundImage: `url(${topDescLeaves})`,
+					backgroundSize: 'auto',
+					opacity: leavesOpacity,
+					filter: `brightness(${leavesBrightness})`,
+				}}
+			/>
 			<img
 				className='z-10 w-[30%] md:w-1/6 lg:w-[12.5%]'
 				src={deptLogo}
@@ -25,14 +36,14 @@ const TopDesc = ({
 				{deptTitle}
 			</p>
 			<p
-				className='w-4/5 text-center font-lato text-xs tracking-wider sm:text-base'
+				className='w-4/5 text-center font-lato font-semibold text-md tracking-wider sm:text-base'
 				style={{ color: descColor }}
 			>
 				{desc}
 			</p>
 			<img
-				className='absolute -bottom-1 w-full z-10'
-				src={longRope}
+				className='absolute -bottom-1 z-10 w-full'
+				src={rope}
 			/>
 		</div>
 	);

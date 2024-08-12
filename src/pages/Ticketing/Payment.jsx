@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
-import paymentDesktopBg from '../../assets/ticketing/paymentDesktopBg.png';
-import paymentMobileBg from '../../assets/ticketing/paymentMobileBg.png';
-import paymentSnake from '../../assets/ticketing/paymentSnake.png';
+import paymentDesktopBg from '../../assets/ticketing/paymentDesktopBg.webp';
+import paymentMobileBg from '../../assets/ticketing/paymentMobileBg.webp';
+import paymentSnake from '../../assets/ticketing/paymentSnake.webp';
 import NextMap from '../../components/Ticketing/NextMap';
 import TicketPageContext from '../../contexts/TicketPageContext';
 import { toast, Toaster } from 'sonner';
@@ -26,18 +26,14 @@ export default function Payment() {
 
 	return (
 		<div className='relative flex h-screen w-full items-start justify-center overflow-clip'>
-			<Toaster
-				richColors
-				position='top-center'
-			/>
+			<Toaster richColors position='top-center' />
 			<div className='flex h-full w-[60%] flex-col items-center justify-start gap-10 py-[15vh] md:w-[70%] md:gap-20'>
 				<h1
 					className='font-sunborn text-6xl leading-none text-[#d7a66a]'
 					style={{
 						WebkitTextStrokeColor: '#402514',
 						WebkitTextStrokeWidth: '3px',
-					}}
-				>
+					}}>
 					PAYMENT
 				</h1>
 				<div className='z-10 flex h-full w-full flex-col items-center justify-start gap-4 md:flex-row md:justify-center md:gap-10'>
@@ -49,30 +45,21 @@ export default function Payment() {
 								'bg-opacity-50': selectedPayment !== 'bank',
 							}
 						)}
-						onClick={() => setSelectedPayment('bank')}
-					>
+						onClick={() => setSelectedPayment('bank')}>
 						<h1 className='text-3xl font-bold md:text-5xl'>Bank</h1>
-						<p className='text-center md:text-2xl'>
-							nomor rekening a.n. Aisha Rajwa
-						</p>
+						<p className='text-center md:text-2xl'>Mandiri - 1570011753085 a.n. Aisha Rajwa</p>
 					</div>
 					<div
 						className={cn(
 							'flex h-auto w-full cursor-pointer flex-col items-center justify-center border-4 border-[#8c5330] bg-[#b69a73] px-8 py-4 font-lato text-white md:w-1/3 md:px-20',
 							{
-								'bg-opacity-100':
-									selectedPayment === 'e-wallet',
+								'bg-opacity-100': selectedPayment === 'e-wallet',
 								'bg-opacity-50': selectedPayment !== 'e-wallet',
 							}
 						)}
-						onClick={() => setSelectedPayment('e-wallet')}
-					>
-						<h1 className='text-center text-3xl font-bold md:text-5xl'>
-							E-Wallet
-						</h1>
-						<p className='text-center md:text-2xl'>
-							nomor rekening a.n. Aisha Rajwa
-						</p>
+						onClick={() => setSelectedPayment('e-wallet')}>
+						<h1 className='text-center text-3xl font-bold md:text-5xl'>E-Wallet</h1>
+						<p className='text-center md:text-2xl'>Gopay - 08111453271 a.n. Aisha Rajwa</p>
 					</div>
 					<div
 						className={cn(
@@ -82,8 +69,7 @@ export default function Payment() {
 								'bg-opacity-50': selectedPayment !== 'cash',
 							}
 						)}
-						onClick={() => setSelectedPayment('cash')}
-					>
+						onClick={() => setSelectedPayment('cash')}>
 						<h1 className='text-3xl font-bold md:text-5xl'>Cash</h1>
 					</div>
 				</div>

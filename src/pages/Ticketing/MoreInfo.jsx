@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import moreinfoDesktopBg from '../../assets/ticketing/moreinfoDesktopBg.png';
-import moreinfoMobileBg from '../../assets/ticketing/moreinfoMobileBg.png';
-import moreinfoCrystal from '../../assets/ticketing/moreinfoCrystal.png';
+import moreinfoDesktopBg from '../../assets/ticketing/moreinfoDesktopBg.webp';
+import moreinfoMobileBg from '../../assets/ticketing/moreinfoMobileBg.webp';
+import moreinfoCrystal from '../../assets/ticketing/moreinfoCrystal.webp';
 import NextMap from '../../components/Ticketing/NextMap';
 
 export default function MoreInfo() {
@@ -17,19 +17,19 @@ export default function MoreInfo() {
 					</p>
 				</div>
 				<div className='z-10 flex h-full w-full flex-col items-center justify-start gap-4 md:items-center md:justify-start md:gap-4'>
-					<div className='relative flex h-auto w-full flex-col items-center justify-center border-4 border-[#8c5330] bg-[#b69a73] bg-opacity-50 px-4 py-4 font-lato text-white md:w-1/2 md:px-20 md:py-10'>
-						<h1 className='text-center text-3xl font-bold md:text-5xl'>
-							Grub
-						</h1>
-						<p className='text-center md:text-2xl'>Link Grub</p>
+					<div className='relative flex h-auto w-full flex-col items-center justify-center gap-2 border-4 border-[#8c5330] bg-[#b69a73] bg-opacity-50 px-4 py-4 font-lato text-white md:w-1/2 md:px-20 md:py-10'>
+						<h1 className='text-center text-3xl font-bold md:text-5xl'>Grup WA</h1>
+						<a
+							className='text-center underline md:text-2xl'
+							href='https://chat.whatsapp.com/HqWa82BUH3EH9zi2VSrkhK'
+							target='_blank'
+							rel='noreferrer'>
+							Click Here
+						</a>
 					</div>
 					<div className='relative flex h-auto w-full flex-col items-center justify-center border-4 border-[#8c5330] bg-[#b69a73] bg-opacity-50 px-4 py-4 font-lato text-white md:w-1/2 md:px-20 md:py-10'>
-						<h1 className='text-center text-3xl font-bold md:text-5xl'>
-							Narahubung
-						</h1>
-						<p className='text-center md:text-2xl'>
-							Alika (nomor/ID Line) Vanessa (nomor/ID Line)
-						</p>
+						<h1 className='text-center text-3xl font-bold md:text-5xl'>Narahubung</h1>
+						<p className='text-center md:text-2xl'>Venida : (0816889740/LINE:venidaarmd)</p>
 					</div>
 				</div>
 			</div>

@@ -1,34 +1,22 @@
 // WelcomeTicket.js
 import React, { useContext } from 'react';
 import TicketPageContext from '../../contexts/TicketPageContext';
-import welcomeDesktopBg from '../../assets/ticketing/welcomeDesktopBg.png';
-import welcomeMobileBg from '../../assets/ticketing/welcomeMobileBg.png';
-import ticketMap from '../../assets/ticketing/ticketMap.png';
-import welcomeBird from '../../assets/ticketing/welcomeBird.png';
-import welcomeBubbleText from '../../assets/ticketing/welcomeBubbleText.png';
-import welcomeNextButton from '../../assets/ticketing/welcomeNextButton.png';
+import welcomeDesktopBg from '../../assets/ticketing/welcomeDesktopBg.webp';
+import welcomeMobileBg from '../../assets/ticketing/welcomeMobileBg.webp';
+import ticketMap from '../../assets/ticketing/ticketMap.webp';
+import welcomeBird from '../../assets/ticketing/welcomeBird.webp';
+import welcomeBubbleText from '../../assets/ticketing/welcomeBubbleText.webp';
+import welcomeNextButton from '../../assets/ticketing/welcomeNextButton.webp';
 
 export default function WelcomeTicket() {
 	const { page, setPage } = useContext(TicketPageContext);
 
 	return (
 		<div className='relative h-screen w-full overflow-hidden'>
-			<img
-				src={welcomeDesktopBg}
-				alt=''
-				className='z-[-1] hidden h-full w-full object-cover md:block'
-			/>
-			<img
-				src={welcomeMobileBg}
-				alt=''
-				className='z-[-1] h-full w-full object-cover md:hidden'
-			/>
+			<img src={welcomeDesktopBg} alt='' className='z-[-1] hidden h-full w-full object-cover md:block' />
+			<img src={welcomeMobileBg} alt='' className='z-[-1] h-full w-full object-cover md:hidden' />
 			<div className='absolute left-1/2 top-1/2 h-[80%] w-full -translate-x-1/2 -translate-y-1/2 transform md:h-full'>
-				<img
-					src={ticketMap}
-					alt=''
-					className='h-full w-full object-cover md:translate-x-0 md:object-contain'
-				/>
+				<img src={ticketMap} alt='' className='h-full w-full object-cover md:translate-x-0 md:object-contain' />
 			</div>
 			<img
 				src={welcomeBird}
@@ -39,16 +27,11 @@ export default function WelcomeTicket() {
 				<div className='relative flex h-full w-full items-start justify-center font-lato'>
 					<div className='absolute w-[90%] pt-[3vw] text-center text-[4vw] text-[#690a0a] md:w-[80%] md:text-[1.7vw]'>
 						<p>
-							Hai teman-teman! Terima kasih telah menuju gerbang
-							masuk dunia penjelajah, ayo simak dulu tata cara
-							pembelian tiketnya ya!
+							Hai teman-teman! Terima kasih telah menuju gerbang masuk dunia penjelajah, ayo simak dulu
+							tata cara pembelian tiketnya ya!
 						</p>
 					</div>
-					<img
-						src={welcomeBubbleText}
-						alt=''
-						className='h-full w-full object-cover'
-					/>
+					<img src={welcomeBubbleText} alt='' className='h-full w-full object-cover' />
 					<img
 						src={welcomeNextButton}
 						alt=''

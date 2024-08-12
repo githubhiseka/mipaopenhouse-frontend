@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import logoGlow from '../assets/logo-glow.svg';
 import { useNavigate } from 'react-router-dom';
+import { color } from 'framer-motion';
 
-const NavBar = () => {
+const NavBar = ({ bgColor, textColor }) => {
 	const [isScrolled, setIsScrolled] = useState(false);
 	const [isNavBarExpanded, setIsNavBarExpanded] = useState(false);
 	const navigate = useNavigate();
@@ -33,7 +34,12 @@ const NavBar = () => {
 		<div>
 			{/* FOR MEDIUM AND LARGER VIEWPORT */}
 			<div
-				className={`fixed top-0 z-50 hidden h-20 w-full flex-row items-center justify-between pl-6 pr-12 text-lg font-bold tracking-wide text-[#FFE37F] transition ease-in-out md:flex ${isScrolled ? 'bg-[#283C26] bg-opacity-60 shadow-2xl backdrop-blur' : ''}`}>
+				// refactored navbar to take in bgColor and textColor arguments for flexibility in departments
+				className={`fixed top-0 z-50 hidden h-20 w-full flex-row items-center justify-between pl-6 pr-12 font-lato text-lg font-bold tracking-wide transition ease-in-out md:flex ${isScrolled ? 'bg-opacity-60 shadow-2xl backdrop-blur' : ''}`}
+				style={{
+					backgroundColor: isScrolled ? bgColor : 'transparent',
+					color: textColor,
+				}}>
 				<div>
 					<a href='/'>
 						<img src={logoGlow} alt='Logo' className='h-20' />
@@ -44,25 +50,37 @@ const NavBar = () => {
 				<NavBarText text='TIMELINE' link='timeline-section' />
 				<NavBarText text='DEPARTMENTS' link='dept-slider' />
 				<NavBarText text='CONTACT' link='contact-section' />
-				<button className='h-12 w-36 border-4 border-[#84743d] border-opacity-60 bg-[#FFE37F] bg-opacity-60 text-[#283C26]'>
+				<button
+					className='h-12 w-36 border-4 border-[#84743d] border-opacity-60 bg-[#FFE37F] bg-opacity-60 text-[#283C26]'
+					onClick={() => {
+						window.location.href = '/ticket';
+					}}>
 					DAFTAR
 				</button>
 			</div>
 
 			{/* FOR SMALL VIEWPORT */}
 			<div
-				className={`${isScrolled || isNavBarExpanded ? 'bg-[#283C26] bg-opacity-60 shadow-2xl backdrop-blur' : ''} fixed top-0 z-50 flex w-full flex-col justify-between px-4 align-middle text-lg font-bold tracking-wide text-[#FFE37F] transition-all duration-300 ease-in-out md:hidden ${isNavBarExpanded ? 'h-64' : 'h-20'}`}>
+				// refactored navbar to take in bgColor and textColor arguments for flexibility in departments
+				className={`${isScrolled || isNavBarExpanded ? 'bg-[#283C26] bg-opacity-60 shadow-2xl backdrop-blur' : ''} fixed top-0 z-50 flex w-full flex-col justify-between px-4 align-middle text-lg font-bold tracking-wide transition-all duration-300 ease-in-out md:hidden ${isNavBarExpanded ? 'h-64' : 'h-20'}`}
+				style={{
+					backgroundColor: isScrolled || isNavBarExpanded ? bgColor : 'transparent',
+					color: textColor,
+				}}>
 				<div className='flex h-20 w-full items-center justify-between'>
 					{/* Hamburger Icon */}
 					<button className='block w-28 md:hidden' onClick={toggleNavBar}>
 						<div
 							className={`relative h-8 w-8 transition-transform duration-300 ease-in-out ${isNavBarExpanded ? 'rotate-45' : ''}`}>
 							<div
-								className={`absolute left-0 top-1/2 h-[3px] w-full bg-[#FFE37F] transition-transform duration-300 ease-in-out ${isNavBarExpanded ? 'rotate-22.5' : '-translate-y-1.5'}`}></div>
+								className={`absolute left-0 top-1/2 h-[3px] w-full transition-transform duration-300 ease-in-out ${isNavBarExpanded ? 'rotate-22.5' : '-translate-y-1.5'}`}
+								style={{ backgroundColor: textColor }}></div>
 							<div
-								className={`absolute left-0 top-1/2 h-[3px] w-full bg-[#FFE37F] transition-opacity duration-300 ease-in-out ${isNavBarExpanded ? 'opacity-0' : ''}`}></div>
+								className={`absolute left-0 top-1/2 h-[3px] w-full transition-opacity duration-300 ease-in-out ${isNavBarExpanded ? 'opacity-0' : ''}`}
+								style={{ backgroundColor: textColor }}></div>
 							<div
-								className={`absolute left-0 top-1/2 h-[3px] w-full bg-[#FFE37F] transition-transform duration-300 ease-in-out ${isNavBarExpanded ? '-rotate-90' : 'translate-y-1.5'}`}></div>
+								className={`absolute left-0 top-1/2 h-[3px] w-full transition-transform duration-300 ease-in-out ${isNavBarExpanded ? '-rotate-90' : 'translate-y-1.5'}`}
+								style={{ backgroundColor: textColor }}></div>
 						</div>
 					</button>
 					{/* Owl Logo */}

@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
-import paymentDesktopBg from '../../assets/ticketing/paymentDesktopBg.png';
-import paymentMobileBg from '../../assets/ticketing/paymentMobileBg.png';
-import paymentSnake from '../../assets/ticketing/paymentSnake.png';
+import paymentDesktopBg from '../../assets/ticketing/paymentDesktopBg.webp';
+import paymentMobileBg from '../../assets/ticketing/paymentMobileBg.webp';
+import paymentSnake from '../../assets/ticketing/paymentSnake.webp';
 import NextMap from '../../components/Ticketing/NextMap';
 import TicketPageContext from '../../contexts/TicketPageContext';
 import useTicket from '../../hooks/useTicket';

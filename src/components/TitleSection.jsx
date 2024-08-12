@@ -1,4 +1,4 @@
-import forestImage from '../assets/forest.png';
+import forestImage from '../assets/forest.webp';
 
 const TitleSection = () => {
 	return (

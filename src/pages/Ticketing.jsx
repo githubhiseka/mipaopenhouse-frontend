@@ -47,17 +47,11 @@ const Ticketing = () => {
 
 	const navigateToPage = (newPage) => {
 		setPage(newPage);
-		window.history.pushState(
-			{ page: newPage },
-			`Page ${newPage}`,
-			`#page${newPage}`
-		);
+		window.history.pushState({ page: newPage }, `Page ${newPage}`, `#page${newPage}`);
 	};
 
 	return (
-		<TicketPageContext.Provider
-			value={{ page, setPage: navigateToPage, userData, setUserData }}
-		>
+		<TicketPageContext.Provider value={{ page, setPage: navigateToPage, userData, setUserData }}>
 			<CurrentPage />
 		</TicketPageContext.Provider>
 	);

@@ -1,4 +1,4 @@
-import leaves from '../assets/leaves.png';
+import leaves from '../assets/leaves.webp';
 
 const LeavesSection = () => {
 	return (
