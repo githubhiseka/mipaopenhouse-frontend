@@ -1,6 +1,6 @@
 import NextMap from '../../components/Ticketing/NextMap';
-import ticketDesktopBg from '../../assets/ticketing/ticketDesktopBg.png';
-import ticketMobileBg from '../../assets/ticketing/ticketMobileBg.png';
+import ticketDesktopBg from '../../assets/ticketing/ticketDesktopBg.webp';
+import ticketMobileBg from '../../assets/ticketing/ticketMobileBg.webp';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import packageData from '../../data/packageData';
 

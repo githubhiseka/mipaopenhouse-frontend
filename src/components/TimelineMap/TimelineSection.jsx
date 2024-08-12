@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import map from '../../assets/map.png';
+import map from '../../assets/map.webp';
 import MapBox from './MapBox';
 
 const TimelineSection = () => {

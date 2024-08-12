@@ -33,7 +33,7 @@ const NavBar = ({ bgColor, textColor }) => {
 			{/* FOR MEDIUM AND LARGER VIEWPORT */}
 			<div
 				// refactored navbar to take in bgColor and textColor arguments for flexibility in departments
-				className={`fixed top-0 z-50 hidden h-20 w-full flex-row items-center justify-between pl-6 pr-12 text-lg font-bold tracking-wide transition ease-in-out md:flex ${isScrolled ? 'bg-opacity-60 shadow-2xl backdrop-blur' : ''}`}
+				className={`font-lato fixed top-0 z-50 hidden h-20 w-full flex-row items-center justify-between pl-6 pr-12 text-lg font-bold tracking-wide transition ease-in-out md:flex ${isScrolled ? 'bg-opacity-60 shadow-2xl backdrop-blur' : ''}`}
 				style={{
 					backgroundColor: isScrolled ? bgColor : 'transparent',
 					color: textColor,
@@ -83,8 +83,11 @@ const NavBar = ({ bgColor, textColor }) => {
 				// refactored navbar to take in bgColor and textColor arguments for flexibility in departments
 				className={`${isScrolled || isNavBarExpanded ? 'bg-[#283C26] bg-opacity-60 shadow-2xl backdrop-blur' : ''} fixed top-0 z-50 flex w-full flex-col justify-between px-4 align-middle text-lg font-bold tracking-wide transition-all duration-300 ease-in-out md:hidden ${isNavBarExpanded ? 'h-64' : 'h-20'}`}
 				style={{
-					backgroundColor: isScrolled || isNavBarExpanded ? bgColor : 'transparent',
-					color: textColor
+					backgroundColor:
+						isScrolled || isNavBarExpanded
+							? bgColor
+							: 'transparent',
+					color: textColor,
 				}}
 			>
 				<div className='flex h-20 w-full items-center justify-between'>

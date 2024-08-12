@@ -6,7 +6,7 @@ import ProspekKerja from '../components/ReadMoreDept/ProspekKerja';
 import Contact from '../components/ContactSection';
 
 import physics from '../assets/departments/fisika.svg';
-import physicsLeaves from '../assets/deptLeaves/physics-leaves.png';
+import physicsLeaves from '../assets/deptLeaves/physics-leaves.webp';
 
 const Fisika = () => {
 	const thickColor = '#1a3612';

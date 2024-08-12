@@ -36,6 +36,7 @@ export default function AdminDashboard() {
 	useEffect(() => {
 		setIsLoading(true);
 		fetchData();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	return (

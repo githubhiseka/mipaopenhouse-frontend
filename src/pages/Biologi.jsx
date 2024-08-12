@@ -6,7 +6,7 @@ import ProspekKerja from '../components/ReadMoreDept/ProspekKerja';
 import Contact from '../components/ContactSection';
 
 import biologi from '../assets/departments/biologi.svg';
-import bioLeaves from '../assets/deptLeaves/bio-leaves.png';
+import bioLeaves from '../assets/deptLeaves/bio-leaves.webp';
 
 const Biologi = () => {
 	const thickColor = '#934d1b';
