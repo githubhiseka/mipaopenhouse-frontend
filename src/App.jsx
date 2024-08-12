@@ -14,72 +14,27 @@ import AdminVerify from './pages/AdminVerify';
 import { Navigate } from 'react-router-dom';
 import AdminDashboard from './pages/AdminDashboard';
 import ProtectedRoute from './utils/ProtectedRoute';
-// import ProtectedRoute from './utils/ProtectedRoutes';
 
 const App = () => {
 	return (
 		<Router>
 			<Routes>
-				<Route
-					index
-					element={<Homepage />}
-				/>
-				<Route
-					path='/matematika'
-					element={<Matematika />}
-				/>
-				<Route
-					path='/biologi'
-					element={<Biologi />}
-				/>
-				<Route
-					path='/kimia'
-					element={<Kimia />}
-				/>
-				<Route
-					path='/fisika'
-					element={<Fisika />}
-				/>
-				<Route
-					path='/geografi'
-					element={<Geografi />}
-				/>
-				<Route
-					path='/geosains'
-					element={<Geosains />}
-				/>
-				<Route
-					path='/ticket'
-					element={<Ticketing />}
-				/>
+				<Route index element={<Homepage />} />
+				<Route path='/matematika' element={<Matematika />} />
+				<Route path='/biologi' element={<Biologi />} />
+				<Route path='/kimia' element={<Kimia />} />
+				<Route path='/fisika' element={<Fisika />} />
+				<Route path='/geografi' element={<Geografi />} />
+				<Route path='/geosains' element={<Geosains />} />
+				<Route path='/ticket' element={<Ticketing />} />
 
-				<Route
-					path='/'
-					element={<App />}
-				/>
-				<Route
-					path='/admin'
-					element={
-						<Navigate
-							to='/admin/login'
-							replace
-						/>
-					}
-				/>
-				<Route
-					path='/admin/login'
-					element={<Admin />}
-				></Route>
+				<Route path='/' element={<App />} />
+				<Route path='/admin' element={<Navigate to='/admin/login' replace />} />
+				<Route path='/admin/login' element={<Admin />}></Route>
 
 				<Route element={<ProtectedRoute />}>
-					<Route
-						path='/admin/verify'
-						element={<AdminVerify />}
-					></Route>
-					<Route
-						path='/admin/dashboard'
-						element={<AdminDashboard />}
-					></Route>
+					<Route path='/admin/verify' element={<AdminVerify />}></Route>
+					<Route path='/admin/dashboard' element={<AdminDashboard />}></Route>
 				</Route>
 			</Routes>
 		</Router>
