@@ -22,7 +22,7 @@ export default function AdminVerify() {
 	const [imagePopup, setImagePopup] = useState(false);
 	const [isLoading, setIsLoading] = useState(false);
 	const { getAllCustomers } = useApi();
-	const { updateData, sendEmail, getPendingData } = useAdmin();
+	const { updateData, sendEmail, getPendingData, sendRejectEmail } = useAdmin();
 	const Navigate = useNavigate();
 
 	const fetchData = async () => {
@@ -64,6 +64,14 @@ export default function AdminVerify() {
 			success: () => {
 				setUnverifiedCustomer((prev) => prev.filter((item) => item.id !== selectedCustomer.id));
 				return 'Success!';
+			},
+			error: 'Error!',
+		});
+
+		toast.promise(sendRejectEmail({ email: selectedCustomer.email, name: selectedCustomer.nama }), {
+			loading: 'Sending Email...',
+			success: () => {
+				return 'Email Sent!';
 			},
 			error: 'Error!',
 		});
@@ -189,7 +197,7 @@ export default function AdminVerify() {
 									<span>Cancel</span>
 								</button>
 								<button
-									className='flex h-fit items-center justify-between gap-2 rounded-md border-[1px] border-gray-500/50 bg-red-500 px-4 py-1 font-bold text-white hover:bg-green-600'
+									className='flex h-fit items-center justify-between gap-2 rounded-md border-[1px] border-gray-500/50 bg-red-500 px-4 py-1 font-bold text-white hover:bg-red-600'
 									onClick={() => handleReject()}>
 									<Check size={20} />
 									<span>Delete</span>

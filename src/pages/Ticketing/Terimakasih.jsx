@@ -8,6 +8,7 @@ import welcomeBird from '../../assets/ticketing/terimakasihBird.png';
 import welcomeBubbleText from '../../assets/ticketing/welcomeBubbleText.webp';
 import followForMore from '../../assets/ticketing/terimakasihFollow.png';
 import { useNavigate } from 'react-router-dom';
+import backArrow from '../../assets/backArrow.png';
 
 export default function Terimakasih() {
 	const navigate = useNavigate();
@@ -38,6 +39,12 @@ export default function Terimakasih() {
 					/>
 				</div>
 			</div>
+			<img
+				src={backArrow}
+				alt=''
+				className='fixed bottom-[35vh] right-[18vw] h-20 w-20 rotate-90 transform cursor-pointer hover:scale-105 md:bottom-[8vh]'
+				onClick={() => navigate('/')}
+			/>
 			<img
 				src={followForMore}
 				alt=''

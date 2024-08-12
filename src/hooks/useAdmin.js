@@ -129,7 +129,9 @@ export default function useAdmin() {
 				https://maps.app.goo.gl/fgR4HS4iASTW9Gfz8?g_st=ic\n
 				Untuk memantau informasi terbaru seputar acara, jangan lupa untuk bergabung dengan grup WhatsApp resmi kami melalui link berikut: 
 				https://chat.whatsapp.com/HqWa82BUH3EH9zi2VSrkhK
-				Sampai jumpa di MIPA Open House 2024!`
+				Sampai jumpa di MIPA Open House 2024!\n
+				Narahubung :
+				venida (0816889740/LINE : venidaarmd)`
 			);
 
 			console.log(formData);
@@ -148,5 +150,40 @@ export default function useAdmin() {
 		}
 	};
 
-	return { updateData, getDataFilter, deleteUser, sendEmail, getPendingData };
+	const sendRejectEmail = async ({ email, name }) => {
+		try {
+			console.log(email, name);
+			// create a formData
+			console.log(emailApiKey);
+			const formData = new FormData();
+			formData.append('email', email);
+			formData.append('access_key', emailApiKey);
+			formData.append('subject', 'Mipa Open House UI 2024');
+			formData.append('from_name', 'Mipa Open House');
+			formData.append(
+				'message',
+				`Hi ${name}, Pembayaran Anda Tidak Dapat Diproses\n
+				Kami ingin menyampaikan permintaan maaf yang sebesar-besarnya karena pembayaran Anda tidak dapat kami proses. Hal ini disebabkan oleh ketidakvalidan dalam bukti pembayaran yang telah Anda cantumkan.\n
+				Jika Anda tetap ingin melanjutkan proses pembayaran, kami sangat menyarankan agar Anda segera menghubungi narahubung kami untuk mendapatkan bantuan lebih lanjut.\n
+				Narahubung :
+				venida (0816889740/LINE : venidaarmd)`
+			);
+
+			console.log(formData);
+
+			const response = await axios.post('https://api.web3forms.com/submit', formData, {
+				headers: {
+					'Content-Type': 'multipart/form-data',
+				},
+			});
+
+			console.log(response);
+			return response;
+		} catch (error) {
+			console.error(error);
+			throw error;
+		}
+	};
+
+	return { updateData, getDataFilter, deleteUser, sendEmail, getPendingData, sendRejectEmail };
 }
