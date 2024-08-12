@@ -30,7 +30,7 @@ export default function useTicket() {
 
 			const config = {
 				method: 'post',
-				url: '/functions/v1/rest-api/upload',
+				url: '/functions/v1/rest-api-client/upload',
 				headers: {
 					Authorization: `Bearer ${access_token}`,
 					'Content-Type': 'multipart/form-data',
@@ -50,7 +50,7 @@ export default function useTicket() {
 		try {
 			const access_token = await getAccessToken();
 
-			const response = await axiosInstance.get(`/functions/v1/rest-api/stok?paket=${paket}`, {
+			const response = await axiosInstance.get(`/functions/v1/rest-api-client/stok?paket=${paket}`, {
 				headers: {
 					Authorization: `Bearer ${access_token}`,
 				},
@@ -78,7 +78,7 @@ export default function useTicket() {
 				kode_reveal: userData.reveal,
 			};
 
-			const response = await axiosInstance.post('/functions/v1/rest-api/pembayaran', mappedUserData, {
+			const response = await axiosInstance.post('/functions/v1/rest-api-client/pembayaran', mappedUserData, {
 				headers: {
 					Authorization: `Bearer ${access_token}`,
 				},

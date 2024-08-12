@@ -60,6 +60,10 @@ export default function useApi() {
 			};
 
 			const response = await axiosInstance(config);
+			if (!response.data.session) {
+				throw new Error('Invalid credentials');
+			}
+
 			localStorage.setItem('access_token', response.data.session.access_token);
 			localStorage.setItem('expires_in', response.data.session.expires_in);
 

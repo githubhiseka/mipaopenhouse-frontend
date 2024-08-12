@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const baseURL = import.meta.env.VITE_API_URL;
+const emailApiKey = import.meta.env.VITE_EMAIL_API_KEY;
 
 const axiosInstance = axios.create({
 	baseURL: baseURL,
@@ -31,6 +32,24 @@ export default function useAdmin() {
 			return response;
 		} catch (error) {
 			console.error(error);
+		}
+	};
+
+	const getPendingData = async () => {
+		try {
+			const response = await axiosInstance.get(
+				'/functions/v1/rest-api/pembayaran?page=0&perPage=300&status=pending',
+				{
+					headers: {
+						Authorization: `Bearer ${localStorage.getItem('access_token')}`,
+					},
+				}
+			);
+
+			return response.data;
+		} catch (error) {
+			console.error(error);
+			throw error;
 		}
 	};
 
@@ -91,5 +110,43 @@ export default function useAdmin() {
 		}
 	};
 
-	return { updateData, getDataFilter, deleteUser };
+	const sendEmail = async ({ email, name }) => {
+		try {
+			console.log(email, name);
+			// create a formData
+			console.log(emailApiKey);
+			const formData = new FormData();
+			formData.append('email', email);
+			formData.append('access_key', emailApiKey);
+			formData.append('subject', 'Mipa Open House UI 2024');
+			formData.append('from_name', 'Mipa Open House');
+			formData.append(
+				'message',
+				`Hi ${name}, Terima kasih sudah membeli tiket MIPA Open House 2024! Kami sangat senang menyambut kehadiran Anda di acara ini. 
+				Jangan lupa, MIPA Open House 2024 akan dilaksanakan pada:\n
+				Tanggal: Sabtu, 9 November 2024
+				Tempat: Fakultas Matematika dan Ilmu Pengetahuan Alam UI
+				https://maps.app.goo.gl/fgR4HS4iASTW9Gfz8?g_st=ic\n
+				Untuk memantau informasi terbaru seputar acara, jangan lupa untuk bergabung dengan grup WhatsApp resmi kami melalui link berikut: 
+				https://chat.whatsapp.com/HqWa82BUH3EH9zi2VSrkhK
+				Sampai jumpa di MIPA Open House 2024!`
+			);
+
+			console.log(formData);
+
+			const response = await axios.post('https://api.web3forms.com/submit', formData, {
+				headers: {
+					'Content-Type': 'multipart/form-data',
+				},
+			});
+
+			console.log(response);
+			return response;
+		} catch (error) {
+			console.error(error);
+			throw error;
+		}
+	};
+
+	return { updateData, getDataFilter, deleteUser, sendEmail, getPendingData };
 }

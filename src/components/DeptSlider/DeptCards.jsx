@@ -1,8 +1,11 @@
-function deptCards({ bgColor, imgSrc, title, desc, btnHref, titleColor }) {
+import { useNavigate } from 'react-router-dom';
+
+function DeptCards({ bgColor, imgSrc, title, desc, btnHref, titleColor }) {
+	const navigate = useNavigate();
+
 	return (
 		<div
-			className={`dept-cards flex h-full w-[80%] flex-col items-center justify-between border-4 border-[#440A00] border-opacity-30 bg-opacity-60 py-7 md:w-[50%] ${bgColor}`}
-		>
+			className={`dept-cards flex h-full w-[80%] flex-col items-center justify-between border-4 border-[#440A00] border-opacity-30 bg-opacity-60 py-7 md:w-[50%] ${bgColor}`}>
 			<img
 				src={imgSrc}
 				alt=''
@@ -11,25 +14,18 @@ function deptCards({ bgColor, imgSrc, title, desc, btnHref, titleColor }) {
 				}
 			/>
 			<div className='mx-[12%] flex flex-col items-center'>
-				<p
-					className={`font-sunborn text-4xl font-medium ${titleColor}`}
-				>
-					{title}
-				</p>
+				<p className={`font-sunborn text-4xl font-medium ${titleColor}`}>{title}</p>
 				<p className='text-center font-medium'>{desc}</p>
 			</div>
 
 			<div
 				id='button'
 				className='flex h-[11%] w-[55%] items-center justify-center border-[3px] border-[#6a6868] bg-[#f7f3e4] text-xl font-bold'
-				onClick={() => {
-					window.location.href(btnHref);
-				}}
-			>
+				onClick={() => navigate(`${btnHref}`)}>
 				Read More
 			</div>
 		</div>
 	);
 }
 
-export default deptCards;
+export default DeptCards;

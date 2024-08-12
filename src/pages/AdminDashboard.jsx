@@ -111,6 +111,18 @@ export default function AdminDashboard() {
 					<div className='flex h-full w-full flex-col rounded-md border-[1px] border-gray-300/50 p-8 py-4 shadow-md'>
 						<div className='flex h-auto w-full justify-between'>
 							<h1 className='text-3xl font-bold'>All Transactions</h1>
+							<a
+								className='flex h-full cursor-pointer items-center gap-2 rounded-lg px-2 py-2 hover:bg-gray-100/70 md:py-0'
+								href='https://google.com/sheets/about/'
+								target='_blank'
+								rel='noreferrer'>
+								<img
+									src='https://2.bp.blogspot.com/-hBfU2YnPnuc/WimJErMCwKI/AAAAAAAADrg/sWP4nS1jSB0toeYCa0KXSsfuFal1ZMgGQCLcBGAs/s1600/google-sheets-icon.png'
+									alt=''
+									className='h-6 w-6'
+								/>
+								<p className='hidden rounded-md font-bold text-blue-500 md:block'>Link to Sheets</p>
+							</a>
 						</div>
 						<div className='flex h-auto w-full flex-col items-center gap-1 md:mb-3 md:flex-row md:gap-4'>
 							<div className='flex w-full flex-col truncate md:w-2/3'>
@@ -148,7 +160,7 @@ export default function AdminDashboard() {
 											All
 										</option>
 										<option value='cash'>Cash</option>
-										<option value='e-money'>E-Money</option>
+										<option value='e-wallet'>E-Money</option>
 										<option value='bank'>Bank</option>
 									</select>
 								</div>
@@ -186,7 +198,7 @@ export default function AdminDashboard() {
 										</option>
 										<option value='verified'>verified</option>
 										<option value='pending'>pending</option>
-										<option value='failed'>Failed</option>
+										<option value='rejected'>Rejected</option>
 									</select>
 								</div>
 							</div>

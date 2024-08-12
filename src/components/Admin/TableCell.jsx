@@ -120,6 +120,9 @@ export default function TableCell({ item, setSelected, selectedCustomer, handleD
 							<p>
 								<span className='font-bold'>Status:</span> {selectedCustomer.status}
 							</p>
+							<p>
+								<span className='font-bold'>KodeReveal:</span> {selectedCustomer.kode_reveal || '-'}
+							</p>
 							<div>
 								<span className='font-bold'>Bukti Transaksi:</span>{' '}
 								<a

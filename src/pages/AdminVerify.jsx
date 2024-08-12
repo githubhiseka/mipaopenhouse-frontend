@@ -20,19 +20,21 @@ export default function AdminVerify() {
 	const [confirmationPopup, setConfirmationPopup] = useState(false);
 	const [rejectPopUp, setRejectPopUp] = useState(false);
 	const [imagePopup, setImagePopup] = useState(false);
-	const [isLoading, setIsLoading] = useState(true);
+	const [isLoading, setIsLoading] = useState(false);
 	const { getAllCustomers } = useApi();
-	const { updateData } = useAdmin();
+	const { updateData, sendEmail, getPendingData } = useAdmin();
 	const Navigate = useNavigate();
 
 	const fetchData = async () => {
-		const response = await getAllCustomers();
-		console.log(response);
-		const verified = response.pembayaran.filter((item) => item.verified);
-		setVerifiedCustomer(verified);
-		const unverified = response.pembayaran.filter((item) => item.status === 'pending');
-		setUnverifiedCustomer(unverified);
-		setIsLoading(false);
+		try {
+			const response = await getPendingData();
+			if (response.pembayaran.length !== 0) {
+				setUnverifiedCustomer(response.pembayaran);
+			}
+		} catch (error) {
+			console.error('Failed to fetch data:', error);
+			toast.error('Tidak ada data');
+		}
 	};
 
 	const handleVerify = async () => {
@@ -44,6 +46,15 @@ export default function AdminVerify() {
 			},
 			error: 'Error!',
 		});
+
+		toast.promise(sendEmail({ email: selectedCustomer.email, name: selectedCustomer.nama }), {
+			loading: 'Sending Email...',
+			success: () => {
+				return 'Email Sent!';
+			},
+			error: 'Error!',
+		});
+
 		setConfirmationPopup(false);
 	};
 
@@ -60,8 +71,13 @@ export default function AdminVerify() {
 	};
 
 	useEffect(() => {
-		setIsLoading(true);
-		fetchData();
+		const setLoading = async () => {
+			setIsLoading(true);
+			await fetchData();
+			setIsLoading(false);
+		};
+
+		setLoading();
 	}, []);
 
 	return (

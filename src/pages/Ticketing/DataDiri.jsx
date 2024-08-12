@@ -21,6 +21,7 @@ const TextInput = ({ label, id, value, setValue }) => (
 			id={id}
 			value={value}
 			onChange={(e) => setValue(e.target.value)}
+			placeholder={id === 'reveal' ? 'Opsional' : ''}
 			className='w-full rounded-md border-[3px] border-[#ba702a] bg-[#e9cf9d] p-1 md:p-2'
 		/>
 	</div>
