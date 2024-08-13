@@ -181,7 +181,7 @@ export default function SelectPacket() {
 			</div>
 			<img src={ticketDesktopBg} alt='' className='absolute z-[-1] hidden h-full w-full object-cover md:block' />
 			<img src={ticketMobileBg} alt='' className='absolute z-[-1] h-full w-full object-cover md:hidden' />
-			<NextMap nextFunction={handleNext} />
+			<NextMap nextFunction={handleNext} showKetentuan={true} />
 		</div>
 	);
 }
