@@ -13,7 +13,7 @@ export default function Payment() {
 
 	useEffect(() => {
 		setUserData((prev) => ({ ...prev, payment: selectedPayment }));
-	// eslint-disable-next-line react-hooks/exhaustive-deps
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [selectedPayment]);
 
 	const handleNext = () => {
@@ -74,7 +74,7 @@ export default function Payment() {
 							a.n. Aisha Rajwa
 						</p>
 					</div>
-					<div
+					{/* <div
 						className={cn(
 							'flex h-auto w-full cursor-pointer flex-col items-center justify-center border-4 border-[#8c5330] bg-[#b69a73] px-8 py-4 font-lato text-white md:w-1/3 md:px-20',
 							{
@@ -84,7 +84,7 @@ export default function Payment() {
 						)}
 						onClick={() => setSelectedPayment('cash')}>
 						<h1 className='text-3xl font-bold md:text-3xl'>Cash</h1>
-					</div>
+					</div> */}
 				</div>
 			</div>
 			<img
