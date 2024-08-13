@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import logoGlow from '../assets/logo-glow.svg';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import { color } from 'framer-motion';
 
 const NavBar = ({ bgColor, textColor }) => {
@@ -110,24 +111,31 @@ const NavBar = ({ bgColor, textColor }) => {
 };
 
 const NavBarText = ({ text, link }) => {
+	const location = useLocation();
+	const navigate = useNavigate();
+
 	const handleClick = (e) => {
-		e.preventDefault();
-		const targetElement = document.getElementById(link);
-		if (targetElement) {
-			setTimeout(() => {
-				targetElement.scrollIntoView({ behavior: 'smooth' });
-			}, 300); // Adjust the delay to match the animation duration
+		if (location.pathname === '/') {
+			e.preventDefault();
+			const targetElement = document.getElementById(link);
+			if (targetElement) {
+				setTimeout(() => {
+					targetElement.scrollIntoView({ behavior: 'smooth' });
+				}, 300); // Adjust the delay to match the animation duration
+			}
+		} else {
+			history.push('/#about-us-section');
 		}
 	};
 
 	return (
 		<p className='relative'>
-			<a
-				href={link}
+			<HashLink
+				to={'/#' + link}
 				onClick={handleClick}
 				className="after:transition-width transition duration-300 ease-in-out after:block after:h-1 after:w-0 after:bg-[#FFF] after:duration-300 after:content-[''] hover:text-[#FFF] hover:after:w-full">
 				{text}
-			</a>
+			</HashLink>
 		</p>
 	);
 };
