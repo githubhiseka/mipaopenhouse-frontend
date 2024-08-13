@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import logoGlow from '../assets/logo-glow.svg';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import { color } from 'framer-motion';
 
 const NavBar = ({ bgColor, textColor }) => {
@@ -47,11 +48,21 @@ const NavBar = ({ bgColor, textColor }) => {
 						<img src={logoGlow} alt='Logo' className='h-20' />
 					</a>
 				</div>
-				<NavBarText text='HOME' link='title-section' />
-				<NavBarText text='ABOUT US' link='about-us-section' />
-				<NavBarText text='TIMELINE' link='timeline-section' />
-				<NavBarText text='DEPARTMENTS' link='dept-slider' />
-				<NavBarText text='CONTACT' link='contact-section' />
+				<HashLink to="/#title-section">
+					<NavBarText text='HOME' link='title-section' />
+				</HashLink>
+				<HashLink to="/#about-us-section">
+					<NavBarText text='ABOUT US' link='about-us-section' />
+				</HashLink>
+				<HashLink to="/#timeline-section">
+					<NavBarText text='TIMELINE' link='timeline-section' />
+				</HashLink>
+				<HashLink to="/#dept-slider">
+					<NavBarText text='DEPARTMENTS' link='dept-slider' />
+				</HashLink>
+				<HashLink to="/#contact-section">
+					<NavBarText text='CONTACT' link='contact-section' />
+				</HashLink>
 				<button
 					className='h-12 w-36 border-4 border-[#84743d] border-opacity-60 bg-[#FFE37F] bg-opacity-60 text-[#283C26]'
 					onClick={() => {
@@ -100,11 +111,22 @@ const NavBar = ({ bgColor, textColor }) => {
 				</div>
 				{/* Expanded NavBar */}
 				<div className={`flex flex-col items-center pb-2 ${isNavBarExpanded ? 'block' : 'hidden'}`}>
-					<NavBarText text='HOME' link='title-section' />
-					<NavBarText text='ABOUT US' link='about-us-section' />
-					<NavBarText text='TIMELINE' link='timeline-section' />
-					<NavBarText text='DEPARTMENTS' link='dept-slider' />
-					<NavBarText text='CONTACT' link='contact-section' />
+
+					<HashLink to="/#title-section">
+						<NavBarText text='HOME' link='title-section' />
+					</HashLink>
+					<HashLink to="/#about-us-section">
+						<NavBarText text='ABOUT US' link='about-us-section' />
+					</HashLink>
+					<HashLink to="/#timeline-section">
+						<NavBarText text='TIMELINE' link='timeline-section' />
+					</HashLink>
+					<HashLink to="/#dept-slider">
+						<NavBarText text='DEPARTMENTS' link='dept-slider' />
+					</HashLink>
+					<HashLink to="/#contact-section">
+						<NavBarText text='CONTACT' link='contact-section' />
+					</HashLink>
 				</div>
 			</div>
 		</div>
@@ -112,31 +134,32 @@ const NavBar = ({ bgColor, textColor }) => {
 };
 
 const NavBarText = ({ text, link }) => {
-	const location = useLocation();
-	const navigate = useNavigate();
+	// const location = useLocation();
+	// const navigate = useNavigate();
 
-	const handleClick = (e) => {
-		e.preventDefault();
+	// const handleClick = (e) => {
+	// 	e.preventDefault();
 
-		if (document.getElementById(link) === null && location.pathname !== '/') {
-			navigate('/')
-		}
-		const targetElement = document.getElementById(link);
-		if (targetElement) {
-			setTimeout(() => {
-				targetElement.scrollIntoView({ behavior: 'smooth' });
-			}, 300); // Adjust the delay to match the animation duration
-		}
-	};
+	// 	if (document.getElementById(link) === null && location.pathname !== '/') {
+	// 		navigate('/')
+	// 	}
+	// 	const targetElement = document.getElementById(link);
+	// 	if (targetElement) {
+	// 		setTimeout(() => {
+	// 			targetElement.scrollIntoView({ behavior: 'smooth' });
+	// 		}, 300); // Adjust the delay to match the animation duration
+	// 	}
+	// };
 
 	return (
-		<p className='relative'>
-			<a
+		<p className="relative after:transition-width transition duration-300 ease-in-out after:block after:h-1 after:w-0 after:bg-[#FFF] after:duration-300 after:content-[''] hover:text-[#FFF] hover:after:w-full">
+			{/* <a
 				href={link}
 				onClick={handleClick}
 				className="after:transition-width transition duration-300 ease-in-out after:block after:h-1 after:w-0 after:bg-[#FFF] after:duration-300 after:content-[''] hover:text-[#FFF] hover:after:w-full">
 				{text}
-			</a>
+			</a> */}
+			{text}
 		</p>
 	);
 };
