@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import logoGlow from '../assets/logo-glow.svg';
 import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { color } from 'framer-motion';
 
 const NavBar = ({ bgColor, textColor }) => {
 	const [isScrolled, setIsScrolled] = useState(false);
 	const [isNavBarExpanded, setIsNavBarExpanded] = useState(false);
+	const location = useLocation();
 	const navigate = useNavigate();
 
 	useEffect(() => {
@@ -110,8 +112,15 @@ const NavBar = ({ bgColor, textColor }) => {
 };
 
 const NavBarText = ({ text, link }) => {
+	const location = useLocation();
+	const navigate = useNavigate();
+
 	const handleClick = (e) => {
 		e.preventDefault();
+
+		if (document.getElementById(link) === null && location.pathname !== '/') {
+			navigate('/');
+		}
 		const targetElement = document.getElementById(link);
 		if (targetElement) {
 			setTimeout(() => {

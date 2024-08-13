@@ -21,7 +21,7 @@ const TextInput = ({ label, id, value, setValue }) => (
 			id={id}
 			value={value}
 			onChange={(e) => setValue(e.target.value)}
-			placeholder={id === 'reveal' ? 'Opsional' : ''}
+			placeholder={id === 'reveal' ? 'Jika tidak ada isi dengan -' : ''}
 			className='w-full rounded-md border-[3px] border-[#ba702a] bg-[#e9cf9d] p-1 md:p-2'
 		/>
 	</div>
@@ -99,7 +99,7 @@ export default function DataDiri() {
 							setValue={(value) => setUserData({ ...userData, noTelp: value })}
 						/>
 						<TextInput
-							label='Kode Reveal Ambassador'
+							label='Kode Referral Ambassador'
 							id='reveal'
 							value={userData.reveal}
 							setValue={(value) => setUserData({ ...userData, reveal: value })}

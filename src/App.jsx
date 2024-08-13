@@ -19,6 +19,7 @@ const App = () => {
 	return (
 		<Router>
 			<Routes>
+				<Route path='/*' element={<Navigate to='/' replace />} />
 				<Route index element={<Homepage />} />
 				<Route path='/matematika' element={<Matematika />} />
 				<Route path='/biologi' element={<Biologi />} />
