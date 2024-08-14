@@ -43,7 +43,7 @@ export default function AdminVerify() {
 		toast.promise(sendEmail({ email: selectedCustomer.email, name: selectedCustomer.nama }), {
 			loading: 'Sending Email...',
 			success: () => {
-				toast.promise(updateData({ userData: selectedCustomer, status: 'rejected' }), {
+				toast.promise(updateData({ userData: selectedCustomer, status: 'verified' }), {
 					loading: 'Loading...',
 					success: () => {
 						setUnverifiedCustomer((prev) => prev.filter((item) => item.id !== selectedCustomer.id));
