@@ -12,12 +12,12 @@ import 'swiper/css/pagination';
 function SwiperCard({ data }) {
 	return (
 		<div className='flex h-full w-full items-center justify-center pb-8'>
-			<div className='flex h-full w-full flex-col items-center justify-start gap-6 overflow-y-auto border-4 border-[#223d23] bg-[#628938] bg-opacity-50 px-8 py-4 font-lato text-white md:w-2/3 md:px-16'>
-				<h1 className='text-2xl font-bold tracking-wider md:text-3xl'>
+			<div className='flex h-full w-full flex-col items-center justify-start gap-4 overflow-y-auto border-4 border-[#223d23] bg-[#628938] bg-opacity-50 px-8 py-4 font-lato text-white md:w-2/3 md:px-16'>
+				<h1 className='text-3xl font-sunborn tracking-wider md:text-3xl underline underline-offset-4'>
 					PAKET {data.paket}
 				</h1>
 				<div className='text-center'>
-					<h1 className='text-xl font-bold leading-none md:text-2xl'>
+					<h1 className='text-xl font-extrabold leading-none md:text-2xl'>
 						{data.praktikum[0].nama}
 					</h1>
 					<p className='md:text-md text-sm leading-none'>
@@ -25,7 +25,7 @@ function SwiperCard({ data }) {
 					</p>
 				</div>
 				<div className='text-center'>
-					<h1 className='text-xl font-bold leading-none md:text-2xl'>
+					<h1 className='text-xl font-extrabold leading-none md:text-2xl'>
 						{data.praktikum[1].nama}
 					</h1>
 					<p className='md:text-md text-sm leading-none'>

@@ -12,21 +12,21 @@ export default function MoreInfo() {
 					<p className='text-center font-sunborn text-5xl font-bold text-[#faf0c1] drop-shadow-title md:text-7xl'>
 						FOR MORE INFO
 					</p>
-					<p className='text-center font-lato text-white md:text-2xl'>
+					<p className='text-center font-lato text-white md:text-2xl text-xl'>
 						Selanjutnya, ketahui informasi lebih lanjut melalui:
 					</p>
 				</div>
 				<div className='z-10 flex h-full w-full flex-col items-center justify-start gap-4 md:items-center md:justify-start md:gap-4'>
 					<div className='relative flex h-auto w-full flex-col items-center justify-center gap-2 border-4 border-[#8c5330] bg-[#b69a73] bg-opacity-50 px-4 py-4 font-lato text-white md:w-1/2 md:px-10 md:py-10'>
 						<p className='text-center md:text-xl'>
-							<span className='text-2xl font-bold'>Pembayaran anda sedang dalam proses verifikasi</span>
+							<span className='md:text-4xl text-2xl font-bold'>Pembayaran Anda sedang dalam proses verifikasi</span>
 							<br />
-							anda akan mendapatkan email dari kami setelah proses verifikasi selesai, terimakasih
+							Anda akan mendapatkan email dari kami setelah proses verifikasi selesai, terimakasih
 						</p>
 					</div>
 					<div className='relative flex h-auto w-full flex-col items-center justify-center border-4 border-[#8c5330] bg-[#b69a73] bg-opacity-50 px-4 py-4 font-lato text-white md:w-1/2 md:px-20 md:py-10'>
-						<h1 className='text-center text-3xl font-bold md:text-5xl'>Narahubung</h1>
-						<p className='text-center md:text-2xl'>Venida : (0816889740/LINE:venidaarmd)</p>
+						<h1 className='text-center text-2xl font-bold md:text-4xl'>Narahubung</h1>
+						<p className='text-center md:text-xl'>Venida<br />WhatsApp: 0816889740<br />LINE: venidaarmd</p>
 					</div>
 				</div>
 			</div>

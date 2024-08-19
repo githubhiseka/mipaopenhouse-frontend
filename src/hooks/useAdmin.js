@@ -59,9 +59,9 @@ export default function useAdmin() {
 			uri += `?page=${page}`;
 
 			if (search) {
-				uri += `&search=${search}&perPage=50`;
+				uri += `&search=${search}&perPage=300`;
 			} else {
-				uri += '&perPage=7';
+				uri += '&perPage=300';
 			}
 
 			if (metode) {

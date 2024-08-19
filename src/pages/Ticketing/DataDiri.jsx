@@ -21,7 +21,7 @@ const TextInput = ({ label, id, value, setValue }) => (
 			id={id}
 			value={value}
 			onChange={(e) => setValue(e.target.value)}
-			placeholder={id === 'reveal' ? 'Opsional' : ''}
+			placeholder={id === 'reveal' ? 'Jika tidak ada isi dengan -' : ''}
 			className='w-full rounded-md border-[3px] border-[#ba702a] bg-[#e9cf9d] p-1 md:p-2'
 		/>
 	</div>
@@ -52,7 +52,7 @@ export default function DataDiri() {
 					DATA DIRI
 				</h1>
 				{/* input form */}
-				<div className='flex h-full w-full flex-col gap-4 md:flex-row md:gap-[8rem]'>
+				<div className='flex h-full w-full flex-col gap-y-4 md:flex-row md:gap-[8rem]'>
 					<div className='flex h-1/2 w-full flex-col gap-4'>
 						<TextInput
 							label='Nama'
@@ -93,13 +93,13 @@ export default function DataDiri() {
 					</div>
 					<div className='flex h-1/2 w-full flex-col gap-4'>
 						<TextInput
-							label='No Telp/Id Line'
+							label='No. WhatsApp/ID LINE'
 							id='noTelp'
 							value={userData.noTelp}
 							setValue={(value) => setUserData({ ...userData, noTelp: value })}
 						/>
 						<TextInput
-							label='Kode Reveal Ambassador'
+							label='Kode Referral Ambassador'
 							id='reveal'
 							value={userData.reveal}
 							setValue={(value) => setUserData({ ...userData, reveal: value })}

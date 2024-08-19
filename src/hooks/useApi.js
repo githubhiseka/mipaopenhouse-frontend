@@ -82,7 +82,7 @@ export default function useApi() {
 		try {
 			const access_token = localStorage.getItem('access_token');
 
-			const response = await axiosInstance.get('/functions/v1/rest-api/pembayaran?page=1?perPage=0', {
+			const response = await axiosInstance.get('/functions/v1/rest-api/pembayaran?page=1&perPage=0', {
 				headers: {
 					Authorization: `Bearer ${access_token}`,
 				},
