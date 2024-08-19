@@ -11,15 +11,16 @@ const ProtectedRoute = () => {
 			const response = await authCheck();
 			console.log(response);
 			if (response.status === 200) {
-				console.log('masuk');
+				console.log('Masuk');
 				setIsAuth(true);
 			} else {
+				console.log('Gagal');
 				setIsAuth(false);
 			}
 		};
 
 		getAuth();
-	}, []);
+	}, [authCheck]);
 
 	if (isAuth === null) return null;
 
