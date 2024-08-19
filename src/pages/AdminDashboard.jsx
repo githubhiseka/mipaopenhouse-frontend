@@ -86,6 +86,7 @@ export default function AdminDashboard() {
 		return () => {
 			window.removeEventListener('keypress', handleKeyPress);
 		};
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [stringSearch, metodePembayaran, paket, status, kodeReveal]);
 
 	const handleDelete = async () => {
@@ -220,18 +221,6 @@ export default function AdminDashboard() {
 							selectedCustomer={selectedCustomer}
 							handleDelete={handleDelete}
 						/>
-						<div className='flex h-auto w-full items-center justify-center pt-2'>
-							<button
-								className={cn(
-									'rounded-md border-[1px] border-gray-800/50 bg-gray-500/80 px-4 py-2 font-bold text-white',
-									{
-										'cursor-not-allowed opacity-50': !canLoadMore,
-									}
-								)}
-								onClick={loadMore}>
-								Load More
-							</button>
-						</div>
 						<p className='px-4 text-sm text-gray-600'>Total: {customerData.length} users</p>
 					</div>
 				</div>
