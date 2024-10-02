@@ -151,11 +151,11 @@ export default function SelectPacket() {
 				<div className='relative'>
 					<h1 className='font-sunborn text-6xl leading-none text-[#defabf] drop-shadow-title'>PACKAGE</h1>
 					<p className='text-center font-lato text-xl font-bold leading-none text-[#eaffd3]'>Select Yours!</p>
-					<img
+					{/* <img
 						src={only60k}
 						alt=''
 						className='z-2 absolute bottom-[-10vw] right-[-8vw] w-24 -rotate-12 transform object-contain md:bottom-[-5vw] md:right-[-6vw] md:w-36'
-					/>
+					/> */}
 				</div>
 				<div className='mb-[20vw] flex h-full w-full flex-col gap-2 overflow-y-auto md:mb-0 md:flex-row md:gap-[8rem]'>
 					<div className='flex w-full flex-col gap-2 md:h-full md:gap-4'>
