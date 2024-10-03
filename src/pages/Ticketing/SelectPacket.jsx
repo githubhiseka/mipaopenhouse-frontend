@@ -69,6 +69,10 @@ function DetailPopUp({ userData, setShowPopUp, setPage, page }) {
 						<div className=''>{userData.reveal || '-'}</div>
 					</div>
 					<div className='flex flex-col -space-y-2 text-white'>
+						<div className='font-bold'>Bundle:</div>
+						<div className=''>{userData.bundle}</div>
+					</div>
+					<div className='flex flex-col -space-y-2 text-white'>
 						<div className='font-bold'>Paket:</div>
 						<div className=''>{userData.packet}</div>
 					</div>
