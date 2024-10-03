@@ -36,20 +36,22 @@ export default function SelectBundle() {
     ]);
 
     useEffect(() => {
-		setUserData((prev) => ({
-			...prev,
-			bundle: selectedBundle + 1,
-		}));
-	}, [selectedBundle]);
+        if (selectedBundle !== null) {
+            setUserData((prev) => ({
+                ...prev,
+                bundle: bundles[selectedBundle].name,
+            }));
+        }
+    }, [selectedBundle, bundles]);
 
     const handleNext = () => {
-		if (selectedBundle === null) {
-			toast.error('Harap Pilih Salah Satu Bundle!');
-			return;
-		} else {
-            setPage(page + 1)
+        if (!userData.bundle) {
+            toast.error('Harap Pilih Salah Satu Bundle!');
+            return;
+        } else {
+            setPage(page + 1);
         }
-	};
+    };
 
     return (
         <div className='relative flex flex-col w-full h-screen justify-center items-center gap-6 overflow-hidden'>
