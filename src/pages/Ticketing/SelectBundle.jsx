@@ -27,28 +27,31 @@ function Bundle({ bundle, selected, onClick}) {
 }
 
 export default function SelectBundle() {
-	const [selectedBundle, setSelectedBundle] = useState(null);
-	const { setUserData, page, setPage, userData } = useContext(TicketPageContext);
-    const [bundles, setBundles] = useState([
+    const [selectedBundle, setSelectedBundle] = useState(null);
+    const { setUserData, page, setPage } = useContext(TicketPageContext);
+    const [bundles] = useState([
         {name: 'Personal', price: '60.000'},
         {name: 'Trio', price: '165.000'},
         {name: 'Penta', price: '250.000'},
     ]);
 
     useEffect(() => {
-        if (selectedBundle !== null) {
+        setSelectedBundle(null);
+        setUserData((prev) => ({
+            ...prev,
+            bundle: null,
+        }));
+    }, []);
+
+    const handleNext = () => {
+        if (selectedBundle === null) {
+            toast.error('Harap Pilih Salah Satu Bundle!');
+            return;
+        } else {
             setUserData((prev) => ({
                 ...prev,
                 bundle: bundles[selectedBundle].name,
             }));
-        }
-    }, [selectedBundle, bundles]);
-
-    const handleNext = () => {
-        if (!userData.bundle) {
-            toast.error('Harap Pilih Salah Satu Bundle!');
-            return;
-        } else {
             setPage(page + 1);
         }
     };
@@ -63,6 +66,7 @@ export default function SelectBundle() {
 
             {bundles.map((bundle, i) => (
                 <Bundle
+                    key={i}
                     bundle={bundle}
                     selected={selectedBundle === i}
                     onClick={() => setSelectedBundle(i)}
