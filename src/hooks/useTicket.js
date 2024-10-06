@@ -64,6 +64,7 @@ export default function useTicket() {
 
 	const uploadPembayaran = async ({ userData, imgUrl }) => {
 		try {
+			console.log('userData', userData);
 			const access_token = await getAccessToken();
 
 			const mappedUserData = {
@@ -76,7 +77,10 @@ export default function useTicket() {
 				metode: userData.payment,
 				bukti_transaksi_url: imgUrl,
 				kode_reveal: userData.reveal,
+				bundle: userData.bundle?.toLowerCase(),
 			};
+
+			console.log(mappedUserData);
 
 			const response = await axiosInstance.post('/functions/v1/rest-api-client/pembayaran', mappedUserData, {
 				headers: {

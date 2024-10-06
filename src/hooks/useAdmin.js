@@ -53,7 +53,7 @@ export default function useAdmin() {
 		}
 	};
 
-	const getDataFilter = async ({ page, search, metode, paket, status, kodeReveal }) => {
+	const getDataFilter = async ({ page, search, metode, paket, status, kodeReveal, bundle }) => {
 		try {
 			let uri = '/functions/v1/rest-api/pembayaran';
 			uri += `?page=${page}`;
@@ -78,6 +78,10 @@ export default function useAdmin() {
 
 			if (kodeReveal) {
 				uri += `&kodeReveal=${kodeReveal}`;
+			}
+
+			if (bundle) {
+				uri += `&bundle=${bundle}`;
 			}
 
 			console.log(uri);
@@ -110,12 +114,16 @@ export default function useAdmin() {
 		}
 	};
 
-	const sendEmail = async ({ email, name }) => {
+	const sendEmail = async ({ email, name, bundle }) => {
 		try {
+			const bundle_text =
+				'Untuk pembelian tiket bundle dimohon untuk mengisi link konfirmasi data pembelian tiket di bawah ini : \nhttps://bit.ly/KonfirmasiDataPembelianTiketBundle\n';
 			console.log('sending email');
+			console.log(email, name, bundle);
 			const response = await emailjs.send('service_qg7p35k', 'template_verify', {
 				to_email: email,
 				name: name.trim().split(' ')[0],
+				bundle_text: bundle !== 'personal' ? bundle_text : '',
 			});
 			console.log(response);
 			console.log('Email Sent!');

@@ -30,6 +30,7 @@ export default function AdminVerify() {
 		try {
 			const response = await getPendingData();
 			if (response.pembayaran.length !== 0) {
+				console.log(response.pembayaran);
 				setUnverifiedCustomer(response.pembayaran);
 			}
 		} catch (error) {
@@ -40,22 +41,26 @@ export default function AdminVerify() {
 
 	const handleVerify = async () => {
 		setConfirmationPopup(false);
-		toast.promise(sendEmail({ email: selectedCustomer.email, name: selectedCustomer.nama }), {
-			loading: 'Sending Email...',
-			success: () => {
-				toast.promise(updateData({ userData: selectedCustomer, status: 'verified' }), {
-					loading: 'Loading...',
-					success: () => {
-						setUnverifiedCustomer((prev) => prev.filter((item) => item.id !== selectedCustomer.id));
-						return 'Success!';
-					},
-					error: 'Error!',
-				});
+		console.log('selectedCustomer', selectedCustomer);
+		toast.promise(
+			sendEmail({ email: selectedCustomer.email, name: selectedCustomer.nama, bundle: selectedCustomer.bundle }),
+			{
+				loading: 'Sending Email...',
+				success: () => {
+					toast.promise(updateData({ userData: selectedCustomer, status: 'verified' }), {
+						loading: 'Loading...',
+						success: () => {
+							setUnverifiedCustomer((prev) => prev.filter((item) => item.id !== selectedCustomer.id));
+							return 'Success!';
+						},
+						error: 'Error!',
+					});
 
-				return 'Email Berhasil Dikirim!';
-			},
-			error: 'Error dalam mengirim email!',
-		});
+					return 'Email Berhasil Dikirim!';
+				},
+				error: 'Error dalam mengirim email!',
+			}
+		);
 		setRejectPopUp(false);
 	};
 

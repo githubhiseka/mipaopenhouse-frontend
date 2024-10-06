@@ -13,6 +13,7 @@ export default function AdminDashboard() {
 	const [stringSearch, setStringSearch] = useState('');
 	const [metodePembayaran, setMetodePembayaran] = useState('');
 	const [paket, setPaket] = useState('');
+	const [bundle, setBundle] = useState('');
 	const [status, setStatus] = useState('');
 	const [kodeReveal, setKodeReveal] = useState('');
 	const [canLoadMore, setCanLoadMore] = useState(true);
@@ -28,10 +29,12 @@ export default function AdminDashboard() {
 				paket: paket,
 				status: status,
 				kodeReveal: kodeReveal,
+				bundle: bundle,
 			}),
 			{
 				loading: 'Fetching Data...',
 				success: (data) => {
+					console.log(data);
 					setCustomerData(data.pembayaran);
 					return `${data.pembayaran.length} users found`;
 				},
@@ -86,7 +89,7 @@ export default function AdminDashboard() {
 		return () => {
 			window.removeEventListener('keypress', handleKeyPress);
 		};
-	// eslint-disable-next-line react-hooks/exhaustive-deps
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [stringSearch, metodePembayaran, paket, status, kodeReveal]);
 
 	const handleDelete = async () => {
@@ -139,7 +142,7 @@ export default function AdminDashboard() {
 								/>
 							</div>
 							<div className='flex w-full flex-col truncate md:w-1/3'>
-								<label htmlFor='search'>Kode Reveal</label>
+								<label htmlFor='search'>Kode Referral</label>
 								<input
 									type='text'
 									id='search'
@@ -149,7 +152,23 @@ export default function AdminDashboard() {
 									onChange={(e) => setKodeReveal(e.target.value)}
 								/>
 							</div>
-							<div className='flex w-full gap-3 md:flex md:w-[60%] md:gap-4'>
+							<div className='flex w-full gap-3 md:flex md:w-[80%] md:gap-4'>
+								<div className='flex w-1/3 flex-col truncate'>
+									<label htmlFor='metode-pembayaran' className='text-gray-700/90'>
+										Bundle
+									</label>
+									<select
+										className='w-full rounded-md border-2 border-gray-300/50 bg-gray-200/10 p-2'
+										id='metode-pembayaran'
+										onChange={(e) => setBundle(e.target.value)}>
+										<option value='' selected>
+											All
+										</option>
+										<option value='personal'>Personal</option>
+										<option value='trio'>Trio</option>
+										<option value='penta'>Penta</option>
+									</select>
+								</div>
 								<div className='flex w-1/3 flex-col truncate'>
 									<label htmlFor='metode-pembayaran' className='text-gray-700/90'>
 										Metode Pembayaran
