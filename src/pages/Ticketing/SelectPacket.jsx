@@ -1,7 +1,8 @@
 import NextMap from '../../components/Ticketing/NextMap';
 import ticketDesktopBg from '../../assets/ticketing/ticketDesktopBg.webp';
 import ticketMobileBg from '../../assets/ticketing/ticketMobileBg.webp';
-import only45k from '../../assets/ticketing/only45k.webp';
+// import only45k from '../../assets/ticketing/only45k.webp';
+import only60k from '../../assets/ticketing/only60k.webp';
 import cn from 'classnames';
 import { useContext, useEffect, useState } from 'react';
 import TicketPageContext from '../../contexts/TicketPageContext';
@@ -151,7 +152,7 @@ export default function SelectPacket() {
 					<h1 className='font-sunborn text-6xl leading-none text-[#defabf] drop-shadow-title'>PACKAGE</h1>
 					<p className='text-center font-lato text-xl font-bold leading-none text-[#eaffd3]'>Select Yours!</p>
 					<img
-						src={only45k}
+						src={only60k}
 						alt=''
 						className='z-2 absolute bottom-[-10vw] right-[-8vw] w-24 -rotate-12 transform object-contain md:bottom-[-5vw] md:right-[-6vw] md:w-36'
 					/>
