@@ -23,7 +23,7 @@ export default function useAdmin() {
 			};
 			console.log(data);
 
-			const response = await axiosInstance.put(`/functions/v1/rest-api/pembayaran/${userData.id}`, data, {
+			const response = await axiosInstance.put(`pembayaran/${userData.id}`, data, {
 				headers: {
 					Authorization: `Bearer ${localStorage.getItem('access_token')}`,
 				},
@@ -37,14 +37,13 @@ export default function useAdmin() {
 
 	const getPendingData = async () => {
 		try {
-			const response = await axiosInstance.get(
-				'/functions/v1/rest-api/pembayaran?page=0&perPage=300&status=pending',
-				{
-					headers: {
-						Authorization: `Bearer ${localStorage.getItem('access_token')}`,
-					},
-				}
-			);
+			const response = await axiosInstance.get('pembayaran?page=0&perPage=300&status=pending', {
+				headers: {
+					Authorization: `Bearer ${localStorage.getItem('access_token')}`,
+				},
+			});
+
+			console.log(response);
 
 			return response.data;
 		} catch (error) {
@@ -55,7 +54,7 @@ export default function useAdmin() {
 
 	const getDataFilter = async ({ page, search, metode, paket, status, kodeReveal, bundle }) => {
 		try {
-			let uri = '/functions/v1/rest-api/pembayaran';
+			let uri = 'pembayaran';
 			uri += `?page=${page}`;
 
 			if (search) {
@@ -101,7 +100,7 @@ export default function useAdmin() {
 
 	const deleteUser = async (id) => {
 		try {
-			const response = await axiosInstance.delete(`/functions/v1/rest-api/pembayaran/${id}`, {
+			const response = await axiosInstance.delete(`pembayaran/${id}`, {
 				headers: {
 					Authorization: `Bearer ${localStorage.getItem('access_token')}`,
 				},

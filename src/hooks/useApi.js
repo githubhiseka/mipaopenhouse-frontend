@@ -15,7 +15,7 @@ export default function useApi() {
 		const access_token = localStorage.getItem('access_token');
 
 		try {
-			const response = await axiosInstance.get('/functions/v1/rest-api/pembayaran', {
+			const response = await axiosInstance.get('pembayaran', {
 				headers: {
 					Authorization: `Bearer ${access_token}`,
 				},
@@ -33,7 +33,7 @@ export default function useApi() {
 
 			const config = {
 				method: 'get',
-				url: `/functions/v1/rest-api/pembayaran/${id}`,
+				url: `pembayaran/${id}`,
 				headers: {
 					Authorization: `Bearer ${access_token}`,
 				},
@@ -51,28 +51,30 @@ export default function useApi() {
 			const data = JSON.stringify({ email, password });
 
 			const config = {
-				method: 'post',
-				url: '/functions/v1/auth/login',
+				method: 'POST',
+				url: 'auth/login',
 				headers: {
 					'Content-Type': 'application/json',
 				},
 				data,
 			};
 
-			const response = await axiosInstance(config);
-			if (!response.data.session) {
+			let response = await axiosInstance(config);
+			response = response.data;
+			if (!response.access_token) {
 				throw new Error('Invalid credentials');
 			}
 
-			localStorage.setItem('access_token', response.data.session.access_token);
-			localStorage.setItem('expires_in', response.data.session.expires_in);
+			console.log('Login response:', response);
+			localStorage.setItem('access_token', response.access_token);
+			localStorage.setItem('expires_in', response.expires_in);
 
 			axiosInstance.interceptors.request.use((config) => {
-				config.headers.Authorization = `Bearer ${response.data.session.access_token}`;
+				config.headers.Authorization = `Bearer ${response.access_token}`;
 				return config;
 			});
 
-			return response.data; // Optionally return the response data if needed
+			return response; // Optionally return the response data if needed
 		} catch (error) {
 			console.error('Error logging in:', error);
 		}
@@ -82,7 +84,7 @@ export default function useApi() {
 		try {
 			const access_token = localStorage.getItem('access_token');
 
-			const response = await axiosInstance.get('/functions/v1/rest-api/pembayaran?page=1&perPage=0', {
+			const response = await axiosInstance.get('pembayaran?page=1&perPage=0', {
 				headers: {
 					Authorization: `Bearer ${access_token}`,
 				},

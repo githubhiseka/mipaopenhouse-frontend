@@ -35,8 +35,8 @@ export default function AdminDashboard() {
 				loading: 'Fetching Data...',
 				success: (data) => {
 					console.log(data);
-					setCustomerData(data.pembayaran);
-					return `${data.pembayaran.length} users found`;
+					setCustomerData(data);
+					return `${data.length} users found`;
 				},
 				error: () => {
 					setCustomerData([]);
@@ -59,12 +59,12 @@ export default function AdminDashboard() {
 			{
 				loading: 'Fetching Data...',
 				success: (data) => {
-					setCustomerData((prev) => [...prev, ...data.pembayaran]);
+					setCustomerData((prev) => [...prev, ...data]);
 					setPage((prev) => prev + 1);
-					if (data.pembayaran.length < 7) {
+					if (data.length < 7) {
 						setCanLoadMore(false);
 					}
-					return `${data.pembayaran.length} users found`;
+					return `${data.length} users found`;
 				},
 				error: () => {
 					return 'Tidak ada data yang ditemukan';

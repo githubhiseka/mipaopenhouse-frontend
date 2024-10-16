@@ -29,9 +29,9 @@ export default function AdminVerify() {
 	const fetchData = async () => {
 		try {
 			const response = await getPendingData();
-			if (response.pembayaran.length !== 0) {
-				console.log(response.pembayaran);
-				setUnverifiedCustomer(response.pembayaran);
+			if (response.length !== 0) {
+				console.log(response);
+				setUnverifiedCustomer(response);
 			}
 		} catch (error) {
 			console.error('Failed to fetch data:', error);

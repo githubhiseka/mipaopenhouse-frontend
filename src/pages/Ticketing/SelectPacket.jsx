@@ -2,7 +2,7 @@ import NextMap from '../../components/Ticketing/NextMap';
 import ticketDesktopBg from '../../assets/ticketing/ticketDesktopBg.webp';
 import ticketMobileBg from '../../assets/ticketing/ticketMobileBg.webp';
 // import only45k from '../../assets/ticketing/only45k.webp';
-import only60k from '../../assets/ticketing/only60k.webp'
+import only60k from '../../assets/ticketing/only60k.webp';
 import cn from 'classnames';
 import { useContext, useEffect, useState } from 'react';
 import TicketPageContext from '../../contexts/TicketPageContext';
@@ -10,7 +10,23 @@ import { Toaster, toast } from 'sonner';
 import useTicket from '../../hooks/useTicket';
 import nextButton from '../../assets/ticketing/nextButton.webp';
 
-function Packet({ packet, selected, onClick }) {
+function Packet({ packet, selected, onClick, bundle }) {
+	const [isAvailable, setIsAvailable] = useState(false);
+
+	useEffect(() => {
+		let bundleAmount = 1;
+
+		if (bundle === 'Trio') {
+			bundleAmount = 3;
+		} else if (bundle === 'Penta') {
+			bundleAmount = 5;
+		}
+
+		if (packet.slot >= bundleAmount) {
+			setIsAvailable(true);
+		}
+	}, [packet, bundle]);
+
 	return (
 		<div
 			className={cn(
@@ -22,10 +38,10 @@ function Packet({ packet, selected, onClick }) {
 					'text-[#eaffd3]': !selected,
 				},
 				{
-					'cursor-not-allowed border-opacity-10 bg-opacity-30 opacity-50': packet.slot === 0,
+					'cursor-not-allowed border-opacity-10 bg-opacity-30 opacity-50': !isAvailable,
 				}
 			)}
-			onClick={packet.slot === 0 ? undefined : onClick}>
+			onClick={!isAvailable ? undefined : onClick}>
 			<h1 className='text-2xl font-bold md:text-3xl'>{packet.name}</h1>
 			<p>({packet.slot}) available slot left!</p>
 		</div>
@@ -117,7 +133,7 @@ export default function SelectPacket() {
 			const updatedPackets = await Promise.all(
 				packets.map(async (packet) => {
 					const stock = await getStock(packet.id);
-					return { ...packet, slot: stock.stok };
+					return { ...packet, slot: stock };
 				})
 			);
 			setPackets(updatedPackets);
@@ -167,6 +183,7 @@ export default function SelectPacket() {
 							<Packet
 								key={packet.id}
 								packet={packet}
+								bundle={userData.bundle}
 								selected={selectedPacket === i}
 								onClick={() => setSelectedPacket(i)}
 							/>
