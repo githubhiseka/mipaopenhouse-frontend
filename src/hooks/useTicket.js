@@ -14,9 +14,14 @@ export default function useTicket() {
 
 			const data = JSON.stringify({ email, password });
 
-			const response = await axiosInstance.post('/functions/v1/auth/login', data);
+			const response = await axiosInstance.post('auth/login', data, {
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			});
 
-			return response.data.session.access_token;
+			console.log('response', response);
+			return response.data.access_token;
 		} catch (error) {
 			console.error('Error getting access token:', error);
 		}
@@ -26,11 +31,11 @@ export default function useTicket() {
 		try {
 			const access_token = await getAccessToken();
 			const formData = new FormData();
-			formData.append('bukti_transaksi', file);
+			formData.append('bukti_pembayaran', file);
 
 			const config = {
 				method: 'post',
-				url: '/functions/v1/rest-api-client/upload',
+				url: 'pembayaran/upload',
 				headers: {
 					Authorization: `Bearer ${access_token}`,
 					'Content-Type': 'multipart/form-data',
@@ -39,7 +44,7 @@ export default function useTicket() {
 			};
 
 			const response = await axiosInstance(config);
-			console.log(response.data.url);
+			console.log('url', response);
 			return response.data;
 		} catch (error) {
 			console.error('Error uploading image:', error);
@@ -50,11 +55,13 @@ export default function useTicket() {
 		try {
 			const access_token = await getAccessToken();
 
-			const response = await axiosInstance.get(`/functions/v1/rest-api-client/stok?paket=${paket}`, {
+			const response = await axiosInstance.get(`pembayaran/stok/${paket}`, {
 				headers: {
 					Authorization: `Bearer ${access_token}`,
 				},
 			});
+
+			console.log(response);
 
 			return response.data;
 		} catch (error) {
@@ -64,6 +71,7 @@ export default function useTicket() {
 
 	const uploadPembayaran = async ({ userData, imgUrl }) => {
 		try {
+			console.log('userData', userData);
 			const access_token = await getAccessToken();
 
 			const mappedUserData = {
@@ -76,9 +84,12 @@ export default function useTicket() {
 				metode: userData.payment,
 				bukti_transaksi_url: imgUrl,
 				kode_reveal: userData.reveal,
+				bundle: userData.bundle?.toLowerCase(),
 			};
 
-			const response = await axiosInstance.post('/functions/v1/rest-api-client/pembayaran', mappedUserData, {
+			console.log(mappedUserData);
+
+			const response = await axiosInstance.post('pembayaran', mappedUserData, {
 				headers: {
 					Authorization: `Bearer ${access_token}`,
 				},

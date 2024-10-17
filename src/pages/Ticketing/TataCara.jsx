@@ -20,6 +20,7 @@ export default function TataCara() {
 				</h1>
 				<ol className='list-disc font-lato text-[#223d23] md:text-[1.7vw]'>
 					<li>Masukkan data diri setelah laman tata cara</li>
+					<li>Pilih bundle yang tersedia atau pilih personal untuk pembelian 1 tiket</li>
 					<li>Pilih paket yang kamu mau</li>
 					<li>Pilih pembayaran</li>
 					<li>Lakukan pembayaran melalui e-wallet/cash</li>

@@ -19,7 +19,7 @@ export default function Admin() {
 		toast.promise(handleLoginSubmit(email, password), {
 			loading: 'Logging in...',
 			success: (result) => {
-				localStorage.setItem('access_token', result.session.access_token);
+				localStorage.setItem('access_token', result.access_token);
 				navigate('/admin/verify');
 				return 'Login Success';
 			},

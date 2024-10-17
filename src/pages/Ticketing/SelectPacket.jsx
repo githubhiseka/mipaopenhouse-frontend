@@ -10,7 +10,23 @@ import { Toaster, toast } from 'sonner';
 import useTicket from '../../hooks/useTicket';
 import nextButton from '../../assets/ticketing/nextButton.webp';
 
-function Packet({ packet, selected, onClick }) {
+function Packet({ packet, selected, onClick, bundle }) {
+	const [isAvailable, setIsAvailable] = useState(false);
+
+	useEffect(() => {
+		let bundleAmount = 1;
+
+		if (bundle === 'Trio') {
+			bundleAmount = 3;
+		} else if (bundle === 'Penta') {
+			bundleAmount = 5;
+		}
+
+		if (packet.slot >= bundleAmount) {
+			setIsAvailable(true);
+		}
+	}, [packet, bundle]);
+
 	return (
 		<div
 			className={cn(
@@ -22,10 +38,10 @@ function Packet({ packet, selected, onClick }) {
 					'text-[#eaffd3]': !selected,
 				},
 				{
-					'cursor-not-allowed border-opacity-10 bg-opacity-30 opacity-50': packet.slot === 0,
+					'cursor-not-allowed border-opacity-10 bg-opacity-30 opacity-50': !isAvailable,
 				}
 			)}
-			onClick={packet.slot === 0 ? undefined : onClick}>
+			onClick={!isAvailable ? undefined : onClick}>
 			<h1 className='text-2xl font-bold md:text-3xl'>{packet.name}</h1>
 			<p>({packet.slot}) available slot left!</p>
 		</div>
@@ -67,6 +83,10 @@ function DetailPopUp({ userData, setShowPopUp, setPage, page }) {
 					<div className='flex flex-col -space-y-2 text-white'>
 						<div className='font-bold'>Kode Reveal:</div>
 						<div className=''>{userData.reveal || '-'}</div>
+					</div>
+					<div className='flex flex-col -space-y-2 text-white'>
+						<div className='font-bold'>Bundle:</div>
+						<div className=''>{userData.bundle}</div>
 					</div>
 					<div className='flex flex-col -space-y-2 text-white'>
 						<div className='font-bold'>Paket:</div>
@@ -113,7 +133,7 @@ export default function SelectPacket() {
 			const updatedPackets = await Promise.all(
 				packets.map(async (packet) => {
 					const stock = await getStock(packet.id);
-					return { ...packet, slot: stock.stok };
+					return { ...packet, slot: stock };
 				})
 			);
 			setPackets(updatedPackets);
@@ -151,11 +171,11 @@ export default function SelectPacket() {
 				<div className='relative'>
 					<h1 className='font-sunborn text-6xl leading-none text-[#defabf] drop-shadow-title'>PACKAGE</h1>
 					<p className='text-center font-lato text-xl font-bold leading-none text-[#eaffd3]'>Select Yours!</p>
-					<img
+					{/* <img
 						src={only60k}
 						alt=''
 						className='z-2 absolute bottom-[-10vw] right-[-8vw] w-24 -rotate-12 transform object-contain md:bottom-[-5vw] md:right-[-6vw] md:w-36'
-					/>
+					/> */}
 				</div>
 				<div className='mb-[20vw] flex h-full w-full flex-col gap-2 overflow-y-auto md:mb-0 md:flex-row md:gap-[8rem]'>
 					<div className='flex w-full flex-col gap-2 md:h-full md:gap-4'>
@@ -163,6 +183,7 @@ export default function SelectPacket() {
 							<Packet
 								key={packet.id}
 								packet={packet}
+								bundle={userData.bundle}
 								selected={selectedPacket === i}
 								onClick={() => setSelectedPacket(i)}
 							/>

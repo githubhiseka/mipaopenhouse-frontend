@@ -3,6 +3,7 @@ import WelcomeTicket from './Ticketing/WelcomeTicket';
 import TicketPageContext from '../contexts/TicketPageContext';
 import TataCara from './Ticketing/TataCara';
 import DataDiri from './Ticketing/DataDiri';
+import SelectBundle from './Ticketing/SelectBundle';
 import PenjelasanPacket from './Ticketing/PenjelasanPacket';
 import SelectPacket from './Ticketing/SelectPacket';
 import Payment from './Ticketing/Payment';
@@ -24,6 +25,7 @@ const Ticketing = () => {
 		WelcomeTicket,
 		TataCara,
 		DataDiri,
+		SelectBundle,
 		PenjelasanPacket,
 		SelectPacket,
 		Payment,

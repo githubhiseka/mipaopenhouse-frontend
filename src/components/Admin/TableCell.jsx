@@ -62,6 +62,7 @@ export default function TableCell({ item, setSelected, selectedCustomer, handleD
 				<td className='hidden truncate md:table-cell'>{item.email}</td>
 				<td className='hidden truncate md:table-cell'>{formatDate(item.created_at)}</td>
 				<td className='truncate'>{item.paket}</td>
+				<td className='truncate'>{item.bundle}</td>
 				<td className='hidden items-center truncate md:table-cell'>
 					<div
 						className={cn(

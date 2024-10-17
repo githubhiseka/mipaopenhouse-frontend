@@ -18,7 +18,7 @@ export default function BuktiTransaksi() {
 
 		await setUserData((prev) => ({ ...prev, image: imgUpload.url }));
 
-		const pembayaranResult = await uploadPembayaran({ userData, imgUrl: imgUpload.url });
+		const pembayaranResult = await uploadPembayaran({ userData, imgUrl: imgUpload });
 		console.log(pembayaranResult);
 	};
 
@@ -53,7 +53,7 @@ export default function BuktiTransaksi() {
 					<div className='relative flex h-auto w-full max-w-[40vh] flex-col items-center justify-center border-4 border-[#8c5330] bg-[#b69a73] bg-opacity-50 px-4 py-4 font-lato text-white md:w-1/2 md:px-20 md:py-10'>
 						<input
 							type='file'
-							size={1572864}
+							size={1048576}
 							accept='image/*'
 							className='absolute h-full w-full cursor-pointer opacity-0'
 							onChange={(e) => setFile(e.target.files[0])}
@@ -65,7 +65,7 @@ export default function BuktiTransaksi() {
 								{' '}
 								<h1 className='text-center text-3xl font-bold md:text-5xl'>Bukti Transaksi</h1>
 								<p className='text-center md:text-2xl'>Screenshoot/foto pembayaran</p>
-								<p>Max File 1.5MB</p>
+								<p>Max File 1MB</p>
 							</>
 						)}
 					</div>

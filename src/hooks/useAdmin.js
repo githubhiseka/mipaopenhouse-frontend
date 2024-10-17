@@ -23,7 +23,7 @@ export default function useAdmin() {
 			};
 			console.log(data);
 
-			const response = await axiosInstance.put(`/functions/v1/rest-api/pembayaran/${userData.id}`, data, {
+			const response = await axiosInstance.put(`pembayaran/${userData.id}`, data, {
 				headers: {
 					Authorization: `Bearer ${localStorage.getItem('access_token')}`,
 				},
@@ -37,14 +37,13 @@ export default function useAdmin() {
 
 	const getPendingData = async () => {
 		try {
-			const response = await axiosInstance.get(
-				'/functions/v1/rest-api/pembayaran?page=0&perPage=300&status=pending',
-				{
-					headers: {
-						Authorization: `Bearer ${localStorage.getItem('access_token')}`,
-					},
-				}
-			);
+			const response = await axiosInstance.get('pembayaran?page=0&perPage=300&status=pending', {
+				headers: {
+					Authorization: `Bearer ${localStorage.getItem('access_token')}`,
+				},
+			});
+
+			console.log(response);
 
 			return response.data;
 		} catch (error) {
@@ -53,9 +52,9 @@ export default function useAdmin() {
 		}
 	};
 
-	const getDataFilter = async ({ page, search, metode, paket, status, kodeReveal }) => {
+	const getDataFilter = async ({ page, search, metode, paket, status, kodeReveal, bundle }) => {
 		try {
-			let uri = '/functions/v1/rest-api/pembayaran';
+			let uri = 'pembayaran';
 			uri += `?page=${page}`;
 
 			if (search) {
@@ -80,6 +79,10 @@ export default function useAdmin() {
 				uri += `&kodeReveal=${kodeReveal}`;
 			}
 
+			if (bundle) {
+				uri += `&bundle=${bundle}`;
+			}
+
 			console.log(uri);
 
 			const response = await axiosInstance.get(uri, {
@@ -97,7 +100,7 @@ export default function useAdmin() {
 
 	const deleteUser = async (id) => {
 		try {
-			const response = await axiosInstance.delete(`/functions/v1/rest-api/pembayaran/${id}`, {
+			const response = await axiosInstance.delete(`pembayaran/${id}`, {
 				headers: {
 					Authorization: `Bearer ${localStorage.getItem('access_token')}`,
 				},
@@ -110,12 +113,16 @@ export default function useAdmin() {
 		}
 	};
 
-	const sendEmail = async ({ email, name }) => {
+	const sendEmail = async ({ email, name, bundle }) => {
 		try {
+			const bundle_text =
+				'Untuk pembelian tiket bundle dimohon untuk mengisi link konfirmasi data pembelian tiket di bawah ini : \nhttps://bit.ly/KonfirmasiDataPembelianTiketBundle\n';
 			console.log('sending email');
+			console.log(email, name, bundle);
 			const response = await emailjs.send('service_qg7p35k', 'template_verify', {
 				to_email: email,
 				name: name.trim().split(' ')[0],
+				bundle_text: bundle !== 'personal' ? bundle_text : '',
 			});
 			console.log(response);
 			console.log('Email Sent!');
