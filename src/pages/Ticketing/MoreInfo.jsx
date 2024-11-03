@@ -26,7 +26,7 @@ export default function MoreInfo() {
 					</div>
 					<div className='relative flex h-auto w-full flex-col items-center justify-center border-4 border-[#8c5330] bg-[#b69a73] bg-opacity-50 px-4 py-4 font-lato text-white md:w-1/2 md:px-20 md:py-10'>
 						<h1 className='text-center text-2xl font-bold md:text-4xl'>Narahubung</h1>
-						<p className='text-center md:text-xl'>Venida<br />WhatsApp: 0816889740<br />LINE: venidaarmd</p>
+						<p className='text-center md:text-xl'>Syabil Syuhada<br />WhatsApp: 085849340512<br />LINE: rrahman.lutfi</p>
 					</div>
 				</div>
 			</div>
