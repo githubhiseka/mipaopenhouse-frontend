@@ -27,7 +27,6 @@ const App = () => {
 				<Route path='/fisika' element={<Fisika />} />
 				<Route path='/geografi' element={<Geografi />} />
 				<Route path='/geosains' element={<Geosains />} />
-				<Route path='/ticket' element={<Ticketing />} />
 
 				<Route path='/' element={<App />} />
 				<Route path='/admin' element={<Navigate to='/admin/login' replace />} />

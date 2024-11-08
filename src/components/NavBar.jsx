@@ -10,6 +10,7 @@ const NavBar = ({ bgColor, textColor }) => {
 	const [isNavBarExpanded, setIsNavBarExpanded] = useState(false);
 	const location = useLocation();
 	const navigate = useNavigate();
+	const [showMessage, setShowMessage] = useState(false);
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -35,6 +36,22 @@ const NavBar = ({ bgColor, textColor }) => {
 
 	return (
 		<div>
+			{/* Fixed div for message, saying "Pendaftaran Tiket Sudah Ditutup" */}
+			<div
+				className={`fixed bottom-1/2 right-1/2 z-[200] flex w-[20rem] translate-x-1/2 translate-y-1/2 flex-col items-center justify-center space-y-3 rounded-lg bg-[#000d2b] px-3 py-4 font-lato text-lg font-bold tracking-wide text-[#FFF] opacity-100 transition ease-in-out ${showMessage ? '' : 'hidden'}`}>
+				<p>Pendaftaran Tiket Sudah Ditutup</p>
+				<button
+					className='h-8 w-full rounded-lg bg-[#FFF] text-[#000d2b]'
+					onClick={() => setShowMessage(false)}>
+					Got it!
+				</button>
+			</div>
+
+			{/* Dim overlay behind the message */}
+			<div
+				className={`fixed left-0 top-0 z-[190] h-full w-full bg-[#000d2b] opacity-50 transition ease-in-out ${showMessage ? '' : 'hidden'}`}
+				onClick={() => setShowMessage(false)}></div>
+
 			{/* FOR MEDIUM AND LARGER VIEWPORT */}
 			<div
 				// refactored navbar to take in bgColor and textColor arguments for flexibility in departments
@@ -48,26 +65,24 @@ const NavBar = ({ bgColor, textColor }) => {
 						<img src={logoGlow} alt='Logo' className='h-20' />
 					</a>
 				</div>
-				<HashLink to="/#title-section">
+				<HashLink to='/#title-section'>
 					<NavBarText text='HOME' link='title-section' />
 				</HashLink>
-				<HashLink to="/#about-us-section">
+				<HashLink to='/#about-us-section'>
 					<NavBarText text='ABOUT US' link='about-us-section' />
 				</HashLink>
-				<HashLink to="/#timeline-section">
+				<HashLink to='/#timeline-section'>
 					<NavBarText text='TIMELINE' link='timeline-section' />
 				</HashLink>
-				<HashLink to="/#dept-slider">
+				<HashLink to='/#dept-slider'>
 					<NavBarText text='DEPARTMENTS' link='dept-slider' />
 				</HashLink>
-				<HashLink to="/#contact-section">
+				<HashLink to='/#contact-section'>
 					<NavBarText text='CONTACT' link='contact-section' />
 				</HashLink>
 				<button
-					className='h-12 w-36 border-4 border-[#84743d] border-opacity-60 bg-[#FFE37F] bg-opacity-60 text-[#283C26]'
-					onClick={() => {
-						window.location.href = '/ticket';
-					}}>
+					className='h-12 w-36 cursor-pointer border-4 border-[#84743d] border-opacity-60 bg-[#FFE37F] bg-opacity-60 text-[#283C26]'
+					onClick={() => setShowMessage(true)}>
 					DAFTAR
 				</button>
 			</div>
@@ -105,26 +120,25 @@ const NavBar = ({ bgColor, textColor }) => {
 					{/* Daftar Button */}
 					<button
 						className='h-10 w-28 border-4 border-[#84743d] border-opacity-60 bg-[#FFE37F] bg-opacity-60 text-[#283C26]'
-						onClick={() => navigate('/ticket')}>
+						onClick={() => setShowMessage(true)}>
 						DAFTAR
 					</button>
 				</div>
 				{/* Expanded NavBar */}
 				<div className={`flex flex-col items-center pb-2 ${isNavBarExpanded ? 'block' : 'hidden'}`}>
-
-					<HashLink to="/#title-section">
+					<HashLink to='/#title-section'>
 						<NavBarText text='HOME' link='title-section' />
 					</HashLink>
-					<HashLink to="/#about-us-section">
+					<HashLink to='/#about-us-section'>
 						<NavBarText text='ABOUT US' link='about-us-section' />
 					</HashLink>
-					<HashLink to="/#timeline-section">
+					<HashLink to='/#timeline-section'>
 						<NavBarText text='TIMELINE' link='timeline-section' />
 					</HashLink>
-					<HashLink to="/#dept-slider">
+					<HashLink to='/#dept-slider'>
 						<NavBarText text='DEPARTMENTS' link='dept-slider' />
 					</HashLink>
-					<HashLink to="/#contact-section">
+					<HashLink to='/#contact-section'>
 						<NavBarText text='CONTACT' link='contact-section' />
 					</HashLink>
 				</div>
@@ -152,7 +166,7 @@ const NavBarText = ({ text, link }) => {
 	// };
 
 	return (
-		<p className="relative after:transition-width transition duration-300 ease-in-out after:block after:h-1 after:w-0 after:bg-[#FFF] after:duration-300 after:content-[''] hover:text-[#FFF] hover:after:w-full">
+		<p className="after:transition-width relative transition duration-300 ease-in-out after:block after:h-1 after:w-0 after:bg-[#FFF] after:duration-300 after:content-[''] hover:text-[#FFF] hover:after:w-full">
 			{/* <a
 				href={link}
 				onClick={handleClick}
