@@ -14,6 +14,7 @@ import AdminVerify from './pages/AdminVerify';
 import { Navigate } from 'react-router-dom';
 import AdminDashboard from './pages/AdminDashboard';
 import ProtectedRoute from './utils/ProtectedRoute';
+import { DEMO_MODE } from './config/env';
 
 const App = () => {
 	return (
@@ -36,6 +37,8 @@ const App = () => {
 					<Route path='/admin/verify' element={<AdminVerify />}></Route>
 					<Route path='/admin/dashboard' element={<AdminDashboard />}></Route>
 				</Route>
+
+				{DEMO_MODE && <Route path="/ticket" element={<Ticketing />} />}
 			</Routes>
 		</Router>
 	);

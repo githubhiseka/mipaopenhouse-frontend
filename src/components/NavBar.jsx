@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import { color } from 'framer-motion';
+import { DEMO_MODE } from '../config/env';
 
 const NavBar = ({ bgColor, textColor }) => {
 	const [isScrolled, setIsScrolled] = useState(false);
@@ -81,8 +82,16 @@ const NavBar = ({ bgColor, textColor }) => {
 					<NavBarText text='CONTACT' link='contact-section' />
 				</HashLink>
 				<button
-					className='h-12 w-36 cursor-pointer border-4 border-[#84743d] border-opacity-60 bg-[#FFE37F] bg-opacity-60 text-[#283C26]'
-					onClick={() => setShowMessage(true)}>
+					className='h-12 w-36 border-4 border-[#84743d] border-opacity-60 bg-[#FFE37F] bg-opacity-60 text-[#283C26]'
+					onClick={() => {
+						if (DEMO_MODE) {
+							navigate('/ticket');
+						} else {
+							// existing behavior: show "event closed" popup
+							setShowMessage(true);
+						}
+					}}
+				>
 					DAFTAR
 				</button>
 			</div>
