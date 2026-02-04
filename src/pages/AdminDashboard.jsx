@@ -6,6 +6,43 @@ import useAdmin from '../hooks/useAdmin';
 import { Search, SearchIcon } from 'lucide-react';
 import { toast, Toaster } from 'sonner';
 import cn from 'classnames';
+import { DEMO_MODE } from '../config/env';
+
+const DEMO_CUSTOMERS = [
+	{
+		id: 1,
+		nama: 'Sample User',
+		email: 'sample.user@example.com',
+		created_at: '2024-10-01T08:30:00.000Z',
+		paket: 'Regular',
+		bundle: 'No',
+		status: 'verified',
+
+		kontak: '081234567890',
+		asal_sekolah: 'SMA Contoh 1',
+		kelas: '12',
+		metode: 'Transfer',
+		kode_reveal: 'DEMO123',
+		bukti_transaksi_url: 'https://example.com',
+	},
+	{
+		id: 2,
+		nama: 'Another User',
+		email: 'another.user@example.com',
+		created_at: '2024-10-02T10:15:00.000Z',
+		paket: 'VIP',
+		bundle: 'Yes',
+		status: 'pending',
+
+		kontak: '089876543210',
+		asal_sekolah: 'SMA Contoh 2',
+		kelas: '11',
+		metode: 'QRIS',
+		kode_reveal: null,
+		bukti_transaksi_url: 'https://example.com',
+	},
+];
+
 
 export default function AdminDashboard() {
 	const [customerData, setCustomerData] = useState([]);
@@ -20,7 +57,37 @@ export default function AdminDashboard() {
 	const [page, setPage] = useState(0);
 	const { getDataFilter, deleteUser } = useAdmin();
 
+	// const DEMO_CUSTOMERS = [
+	// 	{
+	// 		id: 1,
+	// 		name: 'Sample User',
+	// 		email: 'sample.user@example.com',
+	// 		date: '2024-10-01',
+	// 		paket: 'Regular',
+	// 		bundle: 'No',
+	// 		verified: true,
+	// 	},
+	// 	{
+	// 		id: 2,
+	// 		name: 'Another User',
+	// 		email: 'another.user@example.com',
+	// 		date: '2024-10-02',
+	// 		paket: 'VIP',
+	// 		bundle: 'Yes',
+	// 		verified: false,
+	// 	},
+	// ];
+
 	const fetchData = async () => {
+		if (DEMO_MODE) {
+			setCustomerData(DEMO_CUSTOMERS);
+			setSelectedCustomer(null);
+			setCanLoadMore(false);
+			setPage(0);
+			toast.success(`${DEMO_CUSTOMERS.length} users found (demo data)`);
+			return;
+		}
+
 		toast.promise(
 			getDataFilter({
 				page: 0,
@@ -34,7 +101,6 @@ export default function AdminDashboard() {
 			{
 				loading: 'Fetching Data...',
 				success: (data) => {
-					console.log(data);
 					setCustomerData(data);
 					return `${data.length} users found`;
 				},
@@ -47,6 +113,7 @@ export default function AdminDashboard() {
 	};
 
 	const loadMore = async () => {
+		if (DEMO_MODE) return;
 		if (!canLoadMore) return;
 		toast.promise(
 			getDataFilter({
@@ -92,18 +159,23 @@ export default function AdminDashboard() {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [stringSearch, metodePembayaran, paket, status, kodeReveal]);
 
-	const handleDelete = async () => {
-		console.log('delete', selectedCustomer);
-		toast.promise(deleteUser(selectedCustomer.id), {
+	const handleDelete = async (id) => {
+		if (DEMO_MODE) {
+			toast('Demo mode: delete is disabled');
+			return;
+		}
+
+		const targetId = id ?? selectedCustomer?.id;
+		if (!targetId) return;
+
+		toast.promise(deleteUser(targetId), {
 			loading: 'Deleting...',
-			success: (data) => {
-				setCustomerData((prev) => prev.filter((item) => item.id !== selectedCustomer.id));
+			success: () => {
+				setCustomerData((prev) => prev.filter((item) => item.id !== targetId));
 				setSelectedCustomer(null);
 				return 'Deleted';
 			},
-			error: () => {
-				return 'Failed to delete';
-			},
+			error: () => 'Failed to delete',
 		});
 	};
 
@@ -234,6 +306,11 @@ export default function AdminDashboard() {
 								</div>
 							</div>
 						</div>
+
+						<div className="p-2 text-sm text-white">
+							DEMO_MODE: {String(DEMO_MODE)} | Rows: {customerData.length}
+						</div>
+
 						<AdminTable
 							data={customerData}
 							setSelectedCustomer={setSelectedCustomer}
