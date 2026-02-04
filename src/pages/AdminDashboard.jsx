@@ -190,7 +190,7 @@ export default function AdminDashboard() {
 							<h1 className='text-3xl font-bold'>All Transactions</h1>
 							<a
 								className='flex h-full cursor-pointer items-center gap-2 rounded-lg px-2 py-2 hover:bg-gray-100/70 md:py-0'
-								href='https://google.com/sheets/about/'
+								href='htt[s://google.com/sheets/about/'
 								target='_blank'
 								rel='noreferrer'>
 								<img
