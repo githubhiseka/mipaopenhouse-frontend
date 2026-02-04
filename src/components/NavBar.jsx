@@ -129,9 +129,17 @@ const NavBar = ({ bgColor, textColor }) => {
 					{/* Daftar Button */}
 					<button
 						className='h-10 w-28 border-4 border-[#84743d] border-opacity-60 bg-[#FFE37F] bg-opacity-60 text-[#283C26]'
-						onClick={() => setShowMessage(true)}>
+						onClick={() => {
+							if (DEMO_MODE) {
+								navigate('/ticket');
+							} else {
+								setShowMessage(true);
+							}
+						}}
+					>
 						DAFTAR
 					</button>
+
 				</div>
 				{/* Expanded NavBar */}
 				<div className={`flex flex-col items-center pb-2 ${isNavBarExpanded ? 'block' : 'hidden'}`}>
